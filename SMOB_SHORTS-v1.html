@@ -1,0 +1,2295 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMOB Shorts - Entretenimento Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --claro-red: #DA291C;
+            --claro-dark-red: #B91C1C;
+            --energy-orange: #FF6B35;
+            --warm-yellow: #FFB627;
+            --gold: #FFD700;
+            --dark: #0a0a0a;
+            --darker: #050505;
+            --light: #ffffff;
+            --gray: #1a1a1a;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Animated Background Global */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: linear-gradient(135deg, var(--darker) 0%, #1a0a05 50%, #0a0505 100%);
+            overflow: hidden;
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(218, 41, 28, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 107, 53, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 182, 39, 0.1) 0%, transparent 40%);
+            animation: bgPulse 20s ease-in-out infinite;
+        }
+
+        @keyframes bgPulse {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(3deg); }
+        }
+
+        /* Floating Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: var(--energy-orange);
+            border-radius: 50%;
+            opacity: 0.4;
+            animation: float 25s infinite linear;
+        }
+
+        @keyframes float {
+            from { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.4; }
+            90% { opacity: 0.4; }
+            to { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: transparent;
+            transition: all 0.3s;
+        }
+
+        nav.scrolled {
+            background: rgba(5, 5, 5, 0.98);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(218, 41, 28, 0.2);
+        }
+
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--claro-red), var(--energy-orange), var(--warm-yellow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -2px;
+            z-index: 1001;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: all 0.3s;
+            font-size: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--claro-red), var(--energy-orange));
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--warm-yellow);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .claro-badge {
+            background: linear-gradient(135deg, var(--claro-red), var(--claro-dark-red));
+            padding: 0.6rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 20px rgba(218, 41, 28, 0.5);
+            animation: pulse 2s infinite;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            z-index: 1001;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 4px 20px rgba(218, 41, 28, 0.5); }
+            50% { transform: scale(1.03); box-shadow: 0 6px 30px rgba(218, 41, 28, 0.7); }
+        }
+
+        /* HERO SECTION COM VÍDEO BACKGROUND */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        /* Vídeo Background */
+        .hero-video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            filter: brightness(0.4) contrast(1.1);
+        }
+
+        /* Overlay gradiente no vídeo */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(135deg, rgba(218, 41, 28, 0.3) 0%, rgba(10, 5, 5, 0.7) 50%, rgba(5, 5, 5, 0.9) 100%),
+                radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.4) 100%);
+            z-index: 1;
+        }
+
+        /* Conteúdo do Hero */
+        .hero-content {
+            text-align: center;
+            max-width: 1000px;
+            z-index: 2;
+            padding: 10rem 5% 6rem;
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(218, 41, 28, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            margin-bottom: 2.5rem;
+            border: 1px solid rgba(218, 41, 28, 0.5);
+            font-weight: 700;
+            color: var(--warm-yellow);
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero h1 {
+            font-size: clamp(3.5rem, 10vw, 7rem);
+            font-weight: 900;
+            line-height: 0.95;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--light) 0%, var(--warm-yellow) 50%, var(--energy-orange) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease-out 0.2s both;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero p {
+            font-size: 1.6rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 3.5rem;
+            font-weight: 300;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease-out 0.4s both;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .btn {
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            font-weight: 800;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--claro-red), var(--energy-orange));
+            color: var(--light);
+            box-shadow: 0 10px 40px rgba(218, 41, 28, 0.5);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(218, 41, 28, 0.7);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            color: var(--light);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: var(--warm-yellow);
+            color: var(--warm-yellow);
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            color: var(--warm-yellow);
+            z-index: 2;
+            cursor: pointer;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-20px); }
+            60% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        /* Sound Toggle */
+        .sound-toggle {
+            position: absolute;
+            bottom: 3rem;
+            right: 3rem;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+        }
+
+        .sound-toggle:hover {
+            background: rgba(218, 41, 28, 0.5);
+            transform: scale(1.1);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 5%;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--light), var(--warm-yellow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-header p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1.3rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Video News Section */
+        .video-news {
+            background: linear-gradient(180deg, transparent 0%, rgba(218, 41, 28, 0.05) 100%);
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .video-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            cursor: pointer;
+        }
+
+        .video-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(218, 41, 28, 0.2), rgba(255, 107, 53, 0.2));
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 1;
+        }
+
+        .video-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(218, 41, 28, 0.3);
+            border-color: var(--claro-red);
+        }
+
+        .video-card:hover::before {
+            opacity: 1;
+        }
+
+        .video-container {
+            width: 100%;
+            height: 280px;
+            position: relative;
+            background: var(--gray);
+            overflow: hidden;
+        }
+
+        .video-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .video-card:hover .video-container img {
+            transform: scale(1.1);
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            transition: opacity 0.3s;
+        }
+
+        .video-card:hover .video-overlay {
+            opacity: 0;
+        }
+
+        .play-btn-large {
+            width: 80px;
+            height: 80px;
+            background: rgba(218, 41, 28, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .play-btn-large:hover {
+            transform: scale(1.1);
+            background: var(--claro-red);
+            box-shadow: 0 15px 40px rgba(218, 41, 28, 0.6);
+        }
+
+        .play-btn-large::after {
+            content: '▶';
+            color: white;
+            font-size: 2rem;
+            margin-left: 5px;
+        }
+
+        .video-info {
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .video-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--claro-red), var(--energy-orange));
+            color: var(--light);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .video-info h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .video-info p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        /* Categories Section */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .category-card {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 28px;
+            padding: 3.5rem 2.5rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--claro-red), var(--energy-orange));
+            opacity: 0;
+            transition: opacity 0.4s;
+            z-index: 0;
+        }
+
+        .category-card:hover::before {
+            opacity: 0.08;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--claro-red);
+            box-shadow: 0 20px 40px rgba(218, 41, 28, 0.2);
+        }
+
+        .category-icon {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 2rem;
+            background: linear-gradient(135deg, var(--claro-red), var(--energy-orange));
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 10px 30px rgba(218, 41, 28, 0.3);
+        }
+
+        .category-card h3 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .category-card p {
+            color: rgba(255, 255, 255, 0.6);
+            position: relative;
+            z-index: 1;
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+
+        .category-card .arrow {
+            margin-top: 2rem;
+            font-size: 2rem;
+            color: var(--warm-yellow);
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+
+        .category-card:hover .arrow {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Latest News Section */
+        .latest-news {
+            background: rgba(255, 255, 255, 0.01);
+            border-radius: 32px;
+            padding: 3rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .news-item {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .news-item:hover {
+            background: rgba(218, 41, 28, 0.1);
+            border-color: rgba(218, 41, 28, 0.3);
+            transform: translateX(10px);
+        }
+
+        .news-thumb {
+            width: 120px;
+            height: 80px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--gray), #2a2a2a);
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .news-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .news-content h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--light);
+        }
+
+        .news-content p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.95rem;
+        }
+
+        .news-meta {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.75rem;
+            font-size: 0.85rem;
+            color: var(--energy-orange);
+        }
+
+        /* Trailers Section */
+        .trailers-section {
+            background: linear-gradient(180deg, rgba(218, 41, 28, 0.05) 0%, transparent 100%);
+        }
+
+        .trailer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .trailer-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            background: var(--gray);
+            cursor: pointer;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s;
+        }
+
+        .trailer-card:hover {
+            transform: scale(1.03);
+            border-color: var(--claro-red);
+            box-shadow: 0 20px 40px rgba(218, 41, 28, 0.3);
+        }
+
+        .trailer-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .trailer-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 60%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+            transition: opacity 0.3s;
+        }
+
+        .trailer-card:hover .trailer-overlay {
+            opacity: 0;
+        }
+
+        .trailer-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .trailer-meta {
+            color: var(--warm-yellow);
+            font-weight: 600;
+        }
+
+        /* Shorts Section */
+        .shorts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .short-card {
+            aspect-ratio: 9/16;
+            background: var(--gray);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s;
+        }
+
+        .short-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            border-color: var(--energy-orange);
+            box-shadow: 0 15px 30px rgba(255, 107, 53, 0.3);
+        }
+
+        .short-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .short-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 50%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.5rem;
+        }
+
+        .short-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .short-views {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        /* Podcast Section */
+        .podcast-section {
+            background: linear-gradient(135deg, rgba(218, 41, 28, 0.1), rgba(255, 107, 53, 0.05));
+        }
+
+        .podcast-showcase {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 4rem;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 32px;
+            padding: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .podcast-cover {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            aspect-ratio: 1;
+        }
+
+        .podcast-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .podcast-content h3 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--light), var(--warm-yellow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .podcast-host {
+            color: var(--energy-orange);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .podcast-desc {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .podcast-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .podcast-tag {
+            background: rgba(218, 41, 28, 0.2);
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border: 1px solid rgba(218, 41, 28, 0.3);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .podcast-tag:hover {
+            background: var(--claro-red);
+            transform: scale(1.05);
+        }
+
+        .podcast-player {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 16px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .play-button {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--claro-red), var(--energy-orange));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            flex-shrink: 0;
+        }
+
+        .play-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(218, 41, 28, 0.5);
+        }
+
+        .play-button::after {
+            content: '▶';
+            color: white;
+            font-size: 1.5rem;
+            margin-left: 4px;
+        }
+
+        .player-info {
+            flex: 1;
+        }
+
+        .player-title {
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .player-time {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            margin-top: 0.75rem;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            width: 35%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--claro-red), var(--energy-orange));
+            border-radius: 2px;
+        }
+
+        /* Experiences Section */
+        .experiences {
+            background: 
+                linear-gradient(135deg, rgba(218, 41, 28, 0.1) 0%, rgba(10, 5, 5, 0.95) 100%),
+                url('https://images.unsplash.com/photo-1489599849927-152d9b164e7b?w=1920&q=80') center/cover fixed;
+            position: relative;
+            padding: 8rem 5%;
+        }
+
+        .experiences::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(5, 5, 5, 0.85);
+        }
+
+        .experiences-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .benefit-item {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            padding: 2.5rem 2rem;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            transition: all 0.4s;
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-10px);
+            background: rgba(218, 41, 28, 0.15);
+            border-color: var(--claro-red);
+            box-shadow: 0 20px 40px rgba(218, 41, 28, 0.2);
+        }
+
+        .benefit-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .benefit-item h4 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--warm-yellow);
+            font-weight: 800;
+        }
+
+        .benefit-item p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+
+        .claro-cta {
+            background: linear-gradient(135deg, var(--claro-red), var(--claro-dark-red));
+            color: white;
+            padding: 4rem;
+            border-radius: 32px;
+            text-align: center;
+            margin-top: 4rem;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 30px 60px rgba(218, 41, 28, 0.3);
+        }
+
+        .claro-cta h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 900;
+        }
+
+        .claro-cta p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Shop Section */
+        .shop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .shop-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s;
+        }
+
+        .shop-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--energy-orange);
+            box-shadow: 0 20px 40px rgba(255, 107, 53, 0.2);
+        }
+
+        .shop-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shop-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--claro-red);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        .shop-info {
+            padding: 1.5rem;
+        }
+
+        .shop-info h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .shop-price {
+            color: var(--warm-yellow);
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .shop-btn {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            border-radius: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .shop-btn:hover {
+            background: var(--claro-red);
+            border-color: var(--claro-red);
+        }
+
+        /* App Section */
+        .app-section {
+            background: linear-gradient(135deg, var(--claro-red), var(--energy-orange));
+            border-radius: 40px;
+            margin: 0 5%;
+            padding: 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 700px;
+            height: 700px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            filter: blur(80px);
+        }
+
+        .app-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .app-text h2 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .app-text p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .store-badges {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .store-badge {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1.2rem 2rem;
+            border-radius: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s;
+            cursor: pointer;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .store-badge:hover {
+            background: rgba(0, 0, 0, 0.5);
+            transform: scale(1.05);
+            border-color: white;
+        }
+
+        .qr-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .qr-code {
+            width: 220px;
+            height: 220px;
+            background: white;
+            border-radius: 24px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .qr-placeholder {
+            width: 140px;
+            height: 140px;
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 5rem 5% 2rem;
+            border-top: 1px solid rgba(218, 41, 28, 0.2);
+            margin-top: 6rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 4rem;
+            margin-bottom: 4rem;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-brand h3 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--claro-red), var(--energy-orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.7;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--warm-yellow);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            font-weight: 800;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1.05rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--energy-orange);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            cursor: pointer;
+            font-size: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .social-icon:hover {
+            background: var(--claro-red);
+            transform: translateY(-5px) rotate(360deg);
+            border-color: var(--claro-red);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.4);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-bottom .claro-logo {
+            color: var(--claro-red);
+            font-weight: 800;
+            margin-top: 1rem;
+            display: inline-block;
+        }
+
+        /* Section Headers with lines */
+        .section-title-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .section-line {
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(218, 41, 28, 0.5), transparent);
+        }
+
+        .view-all {
+            color: var(--energy-orange);
+            text-decoration: none;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .view-all:hover {
+            color: var(--warm-yellow);
+            gap: 1rem;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .mobile-menu-btn span {
+            width: 30px;
+            height: 3px;
+            background: var(--light);
+            transition: all 0.3s;
+            border-radius: 3px;
+        }
+
+        /* Video Modal */
+        .video-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .video-modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            width: 100%;
+            max-width: 1000px;
+            aspect-ratio: 16/9;
+            background: black;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(218, 41, 28, 0.3);
+        }
+
+        .modal-content iframe,
+        .modal-content video {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            color: white;
+            font-size: 2.5rem;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(218, 41, 28, 0.8);
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .close-modal:hover {
+            background: var(--claro-red);
+            transform: rotate(90deg);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .podcast-showcase {
+                grid-template-columns: 1fr;
+            }
+            
+            .app-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .app-section {
+                margin: 0 2%;
+                padding: 3rem 2rem;
+            }
+
+            .claro-cta {
+                padding: 2rem;
+            }
+
+            .sound-toggle {
+                bottom: 1.5rem;
+                right: 1.5rem;
+            }
+        }
+
+        /* Loading Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--darker);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--claro-red), var(--energy-orange));
+            border-radius: 6px;
+            border: 3px solid var(--darker);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(var(--energy-orange), var(--warm-yellow));
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Animation Global -->
+    <div class="bg-animation"></div>
+    <div class="particles" id="particles"></div>
+
+    <!-- Video Modal -->
+    <div class="video-modal" id="videoModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">×</span>
+            <iframe id="modalVideo" src="" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="logo">SMOB SHORTS</div>
+        <ul class="nav-links">
+            <li><a href="#news">Video News</a></li>
+            <li><a href="#trailers">Trailers</a></li>
+            <li><a href="#shorts">Shorts</a></li>
+            <li><a href="#podcasts">Podcasts</a></li>
+            <li><a href="#experiences">Experiências</a></li>
+            <li><a href="#shop">Shop</a></li>
+        </ul>
+        <div class="claro-badge">Powered by Claro</div>
+        <div class="mobile-menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION COM VÍDEO BACKGROUND -->
+    <section class="hero">
+        <!-- Vídeo Background -->
+        <div class="hero-video-container">
+            <!-- Substitua o src pelo seu vídeo real -->
+            <video class="hero-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=1920&q=80">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-702-large.mp4" type="video/mp4">
+                <!-- Fallback para imagem estática -->
+                <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=1920&q=80" alt="SMOB Shorts">
+            </video>
+        </div>
+        
+        <!-- Overlay gradiente -->
+        <div class="hero-overlay"></div>
+
+        <!-- Conteúdo -->
+        <div class="hero-content">
+            <div class="hero-badge">🎬 Entretenimento Premium</div>
+            <h1>Entretenimento curto premium para assistir em qualquer lugar.</h1>
+            <p>Um canal patrocinado pela Claro com vídeos curtos, jornal em vídeo, trailers, podcasts e experiências.</p>
+            <div class="cta-buttons">
+                <a href="#news" class="btn btn-primary">Explorar Conteúdo</a>
+                <a href="#experiences" class="btn btn-secondary">Benefícios Claro</a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator" onclick="document.getElementById('news').scrollIntoView({behavior: 'smooth'})">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M19 12l-7 7-7-7"/>
+            </svg>
+        </div>
+
+        <!-- Sound Toggle -->
+        <button class="sound-toggle" id="soundToggle" onclick="toggleSound()" title="Ativar som">
+            🔇
+        </button>
+    </section>
+
+    <!-- Video News Section -->
+    <section class="video-news" id="news">
+        <div class="section-header fade-in">
+            <h2>SMOB Video News</h2>
+            <p>As principais notícias do cinema, curtas, séries e streaming em vídeos rápidos.</p>
+        </div>
+        
+        <div class="section-title-wrapper fade-in">
+            <div class="section-line"></div>
+            <a href="#" class="view-all">Ver todos →</a>
+        </div>
+
+        <div class="video-grid">
+            <!-- Video 1 -->
+            <div class="video-card fade-in" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                <div class="video-container">
+                    <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&q=80" alt="Netflix">
+                    <div class="video-overlay">
+                        <div class="play-btn-large"></div>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <span class="video-tag">Streaming</span>
+                    <h3>Netflix investe em produção nacional de curtas</h3>
+                    <p>Novos talentos brasileiros ganham espaço na plataforma com investimento de R$ 50 milhões em 2024.</p>
+                </div>
+            </div>
+
+            <!-- Video 2 -->
+            <div class="video-card fade-in" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                <div class="video-container">
+                    <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=800&q=80" alt="Festival">
+                    <div class="video-overlay">
+                        <div class="play-btn-large"></div>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <span class="video-tag">Festivais</span>
+                    <h3>Clermont-Ferrand: brasileiros levam 3 prêmios</h3>
+                    <p>Cinema nacional brilha no maior festival de curtas do mundo com produções independentes.</p>
+                </div>
+            </div>
+
+            <!-- Video 3 -->
+            <div class="video-card fade-in" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                <div class="video-container">
+                    <img src="https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?w=800&q=80" alt="Cinema">
+                    <div class="video-overlay">
+                        <div class="play-btn-large"></div>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <span class="video-tag">Cinema</span>
+                    <h3>Novos diretores revolucionam o horror nacional</h3>
+                    <p>Filmes de terror brasileiros ganham reconhecimento internacional e viralizam nas redes.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Latest News List -->
+        <div class="latest-news fade-in" style="margin-top: 4rem;">
+            <h3 style="font-size: 1.8rem; margin-bottom: 2rem; color: var(--warm-yellow);">Latest News</h3>
+            <p style="color: rgba(255,255,255,0.6); margin-bottom: 2rem;">Atualizações rápidas do mundo do entretenimento.</p>
+            
+            <div class="news-list">
+                <div class="news-item">
+                    <div class="news-thumb">
+                        <img src="https://images.unsplash.com/photo-1489599849927-152d9b164e7b?w=400&q=80" alt="News">
+                    </div>
+                    <div class="news-content">
+                        <h4>HBO Max anuncia nova série brasileira de suspense</h4>
+                        <p>Produção terá 8 episódios e estreia prevista para o segundo semestre...</p>
+                        <div class="news-meta">
+                            <span>🎬 Cinema</span>
+                            <span>•</span>
+                            <span>há 2 horas</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="news-item">
+                    <div class="news-thumb">
+                        <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=400&q=80" alt="News">
+                    </div>
+                    <div class="news-content">
+                        <h4>Amazon Prime Video investe em documentários nacionais</h4>
+                        <p>Nova linha de conteúdo focada em histórias brasileiras reais...</p>
+                        <div class="news-meta">
+                            <span>📺 Streaming</span>
+                            <span>•</span>
+                            <span>há 5 horas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="news-item">
+                    <div class="news-thumb">
+                        <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=400&q=80" alt="News">
+                    </div>
+                    <div class="news-content">
+                        <h4>Festival de Gramado abre inscrições para curtas</h4>
+                        <p>Prazo para envio de filmes vai até 30 de junho...</p>
+                        <div class="news-meta">
+                            <span>🏆 Festivais</span>
+                            <span>•</span>
+                            <span>há 1 dia</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="#" class="view-all">Ver todas as notícias →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trailers Section -->
+    <section class="trailers-section" id="trailers">
+        <div class="section-header fade-in">
+            <h2>Trailers & Premieres</h2>
+            <p>Lançamentos, trailers de curtas e estreias especiais.</p>
+        </div>
+
+        <div class="section-title-wrapper fade-in">
+            <div class="section-line"></div>
+            <a href="#" class="view-all">Ver todos →</a>
+        </div>
+
+        <div class="trailer-grid">
+            <div class="trailer-card fade-in" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=800&q=80" alt="Trailer">
+                <div class="trailer-overlay">
+                    <div class="play-btn-large" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
+                    <div style="z-index: 2;">
+                        <div class="trailer-title">O Último Trem</div>
+                        <div class="trailer-meta">Drama • 2024</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="trailer-card fade-in" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                <img src="https://images.unsplash.com/photo-1489599849927-152d9b164e7b?w=800&q=80" alt="Trailer">
+                <div class="trailer-overlay">
+                    <div class="play-btn-large" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
+                    <div style="z-index: 2;">
+                        <div class="trailer-title">Noite de Estreia</div>
+                        <div class="trailer-meta">Suspense • 2024</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="trailer-card fade-in" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                <img src="https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?w=800&q=80" alt="Trailer">
+                <div class="trailer-overlay">
+                    <div class="play-btn-large" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
+                    <div style="z-index: 2;">
+                        <div class="trailer-title">Cidade Invisível</div>
+                        <div class="trailer-meta">Ficção • 2024</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shorts Section -->
+    <section id="shorts">
+        <div class="section-header fade-in">
+            <h2>Shorts</h2>
+            <p>Conteúdos rápidos para assistir em movimento.</p>
+        </div>
+
+        <div class="section-title-wrapper fade-in">
+            <div class="section-line"></div>
+            <a href="#" class="view-all">Ver todos →</a>
+        </div>
+
+        <div class="shorts-grid">
+            <div class="short-card fade-in" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=600&q=80" alt="Short">
+                <div class="short-overlay">
+                    <div class="short-title">Dicas de Direção</div>
+                    <div class="short-views">125K views • 45s</div>
+                </div>
+            </div>
+
+            <div class="short-card fade-in" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=600&q=80" alt="Short">
+                <div class="short-overlay">
+                    <div class="short-title">Bastidores do Festival</div>
+                    <div class="short-views">89K views • 60s</div>
+                </div>
+            </div>
+
+            <div class="short-card fade-in" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                <img src="https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?w=600&q=80" alt="Short">
+                <div class="short-overlay">
+                    <div class="short-title">Review Rápido</div>
+                    <div class="short-views">234K views • 30s</div>
+                </div>
+            </div>
+
+            <div class="short-card fade-in" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=600&q=80" alt="Short">
+                <div class="short-overlay">
+                    <div class="short-title">Entrevista Exclusiva</div>
+                    <div class="short-views">156K views • 90s</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Podcasts Section -->
+    <section class="podcast-section" id="podcasts">
+        <div class="section-header fade-in">
+            <h2>Podcasts</h2>
+            <p>Conversas sobre entretenimento, carreira, bastidores e cultura pop.</p>
+        </div>
+
+        <div class="podcast-showcase fade-in">
+            <div class="podcast-cover">
+                <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=600&q=80" alt="SMOB Talks">
+            </div>
+            <div class="podcast-content">
+                <h3>SMOB Talks</h3>
+                <div class="podcast-host">Com Maria Silva</div>
+                <p class="podcast-desc">
+                    Entrevistas exclusivas com os maiores nomes do cinema e da TV brasileira. 
+                    Bastidores, histórias inéditas e muita cultura pop. Novos episódios toda terça-feira.
+                </p>
+                <div class="podcast-tags">
+                    <span class="podcast-tag">Melhores Momentos</span>
+                    <span class="podcast-tag">Entrevistas</span>
+                    <span class="podcast-tag">Reações</span>
+                    <span class="podcast-tag">Dicas</span>
+                </div>
+                
+                <div class="podcast-player">
+                    <div class="play-button" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')"></div>
+                    <div class="player-info">
+                        <div class="player-title">Ep. 42: Conversa com Wagner Moura</div>
+                        <div class="player-time">45:30 • Reproduzir episódio completo</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experiences Section -->
+    <section class="experiences" id="experiences">
+        <div class="experiences-content">
+            <div class="section-header fade-in">
+                <h2>Experiences</h2>
+                <p>Viva o entretenimento além da tela. Benefícios exclusivos para clientes Claro.</p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-item fade-in">
+                    <span class="benefit-icon">🎥</span>
+                    <h4>Visitar sets de filmagem</h4>
+                    <p>Conheça os bastidores das produções mais esperadas do ano com acesso exclusivo.</p>
+                </div>
+
+                <div class="benefit-item fade-in">
+                    <span class="benefit-icon">🎭</span>
+                    <h4>Participar como figurante</h4>
+                    <p>Faça parte de cenas de filmes e séries nacionais. Uma experiência única!</p>
+                </div>
+
+                <div class="benefit-item fade-in">
+                    <span class="benefit-icon">⭐</span>
+                    <h4>Pré-estreias exclusivas</h4>
+                    <p>Assista antes de todo mundo aos lançamentos mais aguardados do cinema.</p>
+                </div>
+
+                <div class="benefit-item fade-in">
+                    <span class="benefit-icon">🎟️</span>
+                    <h4>Sessões privadas de cinema</h4>
+                    <p>Eventos exclusivos para clientes Claro com experiência VIP completa.</p>
+                </div>
+            </div>
+
+            <div class="claro-cta fade-in">
+                <h3>Cliente Claro?</h3>
+                <p>Acesse benefícios exclusivos e experiências únicas no SMOB Shorts.</p>
+                <button class="btn btn-secondary" style="background: white; color: var(--claro-red); border: none; font-weight: 900;">
+                    Ativar Benefícios
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop Section -->
+    <section id="shop">
+        <div class="section-header fade-in">
+            <h2>Shop</h2>
+            <p>Produtos licenciados de filmes e conteúdos parceiros.</p>
+        </div>
+
+        <div class="section-title-wrapper fade-in">
+            <div class="section-line"></div>
+            <a href="#" class="view-all">Ver loja →</a>
+        </div>
+
+        <div class="shop-grid">
+            <div class="shop-card fade-in">
+                <div class="shop-image">
+                    <span>👕</span>
+                    <span class="shop-badge">Novo</span>
+                </div>
+                <div class="shop-info">
+                    <h4>Camiseta SMOB Original</h4>
+                    <div class="shop-price">R$ 89,90</div>
+                    <button class="shop-btn">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <div class="shop-card fade-in">
+                <div class="shop-image">
+                    <span>🎒</span>
+                    <span class="shop-badge">-20%</span>
+                </div>
+                <div class="shop-info">
+                    <h4>Mochila Cinema Edition</h4>
+                    <div class="shop-price">R$ 149,90</div>
+                    <button class="shop-btn">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <div class="shop-card fade-in">
+                <div class="shop-image">
+                    <span>🎧</span>
+                </div>
+                <div class="shop-info">
+                    <h4>Fones SMOB Podcast</h4>
+                    <div class="shop-price">R$ 199,90</div>
+                    <button class="shop-btn">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <div class="shop-card fade-in">
+                <div class="shop-image">
+                    <span>📱</span>
+                    <span class="shop-badge">Exclusivo</span>
+                </div>
+                <div class="shop-info">
+                    <h4>Capinha Claro x SMOB</h4>
+                    <div class="shop-price">R$ 59,90</div>
+                    <button class="shop-btn">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: rgba(255,255,255,0.03); border-radius: 16px; border: 1px solid rgba(255,255,255,0.1);">
+            <p style="color: rgba(255,255,255,0.6); font-size: 1.1rem;">
+                🛒 <strong>Loja em desenvolvimento.</strong> Em breve com checkout completo e entrega para todo o Brasil.
+            </p>
+        </div>
+    </section>
+
+    <!-- App Download Section -->
+    <section>
+        <div class="app-section fade-in">
+            <div class="app-content">
+                <div class="app-text">
+                    <h2>Assista onde estiver</h2>
+                    <p>Disponível para celular, tablet e TV. Baixe agora e tenha acesso a conteúdos exclusivos, notificações de estreias e benefícios Claro.</p>
+                    <div class="store-badges">
+                        <div class="store-badge">
+                            <span>🍎</span>
+                            <div>
+                                <div style="font-size: 0.75rem; opacity: 0.8;">Download on the</div>
+                                <div style="font-size: 1.2rem;">App Store</div>
+                            </div>
+                        </div>
+                        <div class="store-badge">
+                            <span>🤖</span>
+                            <div>
+                                <div style="font-size: 0.75rem; opacity: 0.8;">Get it on</div>
+                                <div style="font-size: 1.2rem;">Google Play</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="qr-section">
+                    <div class="qr-code">
+                        <div class="qr-placeholder">📱</div>
+                        <div style="font-weight: 700; color: var(--dark);">Escaneie para baixar</div>
+                        <div style="font-size: 0.8rem; color: #666; margin-top: 0.5rem;">SMOB Shorts App</div>
+                    </div>
+                    <p style="text-align: center; opacity: 0.9; font-size: 1.1rem;">
+                        Ou escaneie o QR code com sua câmera
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>SMOB SHORTS</h3>
+                <p>Entretenimento curto premium para assistir em qualquer lugar. Um canal patrocinado pela Claro com vídeos curtos, jornal em vídeo, trailers, podcasts e experiências.</p>
+                <div class="social-links">
+                    <div class="social-icon">📘</div>
+                    <div class="social-icon">📸</div>
+                    <div class="social-icon">🐦</div>
+                    <div class="social-icon">▶️</div>
+                    <div class="social-icon">💼</div>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Conteúdo</h4>
+                <ul>
+                    <li><a href="#news">Video News</a></li>
+                    <li><a href="#trailers">Trailers & Premieres</a></li>
+                    <li><a href="#shorts">Shorts</a></li>
+                    <li><a href="#podcasts">Podcasts</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Experiências</h4>
+                <ul>
+                    <li><a href="#experiences">Benefícios Claro</a></li>
+                    <li><a href="#">Pré-estreias</a></li>
+                    <li><a href="#">Eventos Exclusivos</a></li>
+                    <li><a href="#shop">Shop</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Institucional</h4>
+                <ul>
+                    <li><a href="#">Sobre o SMOB</a></li>
+                    <li><a href="#">Para Investidores</a></li>
+                    <li><a href="#">Carreiras</a></li>
+                    <li><a href="#">Contato</a></li>
+                    <li><a href="#">Termos de Uso</a></li>
+                    <li><a href="#">Privacidade</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 SMOB Shorts. Todos os direitos reservados.</p>
+            <span class="claro-logo">Powered by Claro ❤️</span>
+        </div>
+    </footer>
+
+    <script>
+        // Generate floating particles
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 60; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 25 + 's';
+            particle.style.animationDuration = (20 + Math.random() * 15) + 's';
+            particle.style.background = Math.random() > 0.5 ? 'var(--claro-red)' : 'var(--energy-orange)';
+            particlesContainer.appendChild(particle);
+        }
+
+        // Video Hero Sound Toggle
+        let isMuted = true;
+        const heroVideo = document.querySelector('.hero-video');
+        const soundToggle = document.getElementById('soundToggle');
+
+        function toggleSound() {
+            isMuted = !isMuted;
+            heroVideo.muted = isMuted;
+            soundToggle.textContent = isMuted ? '🔇' : '🔊';
+            soundToggle.title = isMuted ? 'Ativar som' : 'Desativar som';
+            
+            // Animação no botão
+            soundToggle.style.transform = 'scale(1.2)';
+            setTimeout(() => {
+                soundToggle.style.transform = 'scale(1)';
+            }, 200);
+        }
+
+        // Video Modal Functions
+        function openVideo(url) {
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('modalVideo');
+            video.src = url + '?autoplay=1';
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Pausar vídeo do hero quando abrir modal
+            heroVideo.pause();
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('modalVideo');
+            video.src = '';
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            
+            // Retomar vídeo do hero
+            heroVideo.play();
+        }
+
+        // Close modal on background click
+        document.getElementById('videoModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            const isOpen = navLinks.style.display === 'flex';
+            navLinks.style.display = isOpen ? 'none' : 'flex';
+            
+            if (!isOpen) {
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.right = '0';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.background = 'rgba(5, 5, 5, 0.98)';
+                navLinks.style.padding = '2rem';
+                navLinks.style.gap = '1.5rem';
+                navLinks.style.borderTop = '1px solid rgba(218, 41, 28, 0.3)';
+                navLinks.style.backdropFilter = 'blur(20px)';
+            }
+        });
+
+        // Shopping cart functionality
+        let cartCount = 0;
+        const shopBtns = document.querySelectorAll('.shop-btn');
+        
+        shopBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                cartCount++;
+                this.textContent = '✓ Adicionado!';
+                this.style.background = 'var(--energy-orange)';
+                
+                setTimeout(() => {
+                    this.textContent = 'Adicionar ao Carrinho';
+                    this.style.background = 'rgba(255, 255, 255, 0.1)';
+                }, 2000);
+                
+                showNotification(`Item adicionado! Total: ${cartCount}`);
+            });
+        });
+
+        function showNotification(message) {
+            const notif = document.createElement('div');
+            notif.style.cssText = `
+                position: fixed;
+                bottom: 30px;
+                right: 30px;
+                background: linear-gradient(135deg, var(--claro-red), var(--energy-orange));
+                color: white;
+                padding: 1rem 2rem;
+                border-radius: 12px;
+                font-weight: 700;
+                z-index: 3000;
+                box-shadow: 0 10px 30px rgba(218, 41, 28, 0.4);
+                animation: slideIn 0.3s ease;
+            `;
+            notif.textContent = message;
+            document.body.appendChild(notif);
+            
+            setTimeout(() => {
+                notif.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notif.remove(), 300);
+            }, 3000);
+        }
+
+        // Add animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(400px); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(400px); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Lazy loading for images
+        const images = document.querySelectorAll('img');
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.style.opacity = '0';
+                    img.style.transition = 'opacity 0.5s';
+                    setTimeout(() => {
+                        img.style.opacity = '1';
+                    }, 100);
+                    observer.unobserve(img);
+                }
+            });
+        });
+
+        images.forEach(img => imageObserver.observe(img));
+
+        // Performance optimization
+        document.addEventListener('DOMContentLoaded', () => {
+            // Preload critical resources
+            const criticalImages = [
+                'https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=1920&q=80',
+                'https://images.unsplash.com/photo-1489599849927-152d9b164e7b?w=1920&q=80'
+            ];
+            
+            criticalImages.forEach(src => {
+                const img = new Image();
+                img.src = src;
+            });
+        });
+
+        // Analytics tracking
+        function trackEvent(eventName, data) {
+            console.log(`[Analytics] ${eventName}:`, data);
+        }
+
+        // Track video plays
+        document.querySelectorAll('.video-card, .trailer-card, .short-card').forEach(card => {
+            card.addEventListener('click', () => {
+                trackEvent('video_play', {
+                    title: card.querySelector('h3, .trailer-title, .short-title')?.textContent,
+                    section: card.closest('section')?.id
+                });
+            });
+        });
+
+        // Track CTA clicks
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                trackEvent('cta_click', {
+                    text: btn.textContent,
+                    type: btn.classList.contains('btn-primary') ? 'primary' : 'secondary'
+                });
+            });
+        });
+
+        console.log('🎬 SMOB Shorts MVP loaded successfully!');
+        console.log('📊 Ready for investor presentation');
+        console.log('🔴 Powered by Claro');
+    </script>
+</body>
+</html>
