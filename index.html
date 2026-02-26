@@ -3,156 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMOB Shorts - Entretenimento Premium</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- SEO Básico -->
+    <title>SMOB Shorts - Entretenimento Premium | Hub de Curtas e Notícias</title>
+    <meta name="description" content="SMOB Shorts é o hub de curtas, notícias do cinema e audiovisual brasileiro. Vídeos, trailers, podcasts, experiências exclusivas Claro e conteúdo premium.">
+    <meta name="keywords" content="curtas, cinema brasileiro, audiovisual, festivais, prêmios, Berlinale, Oscar, Claro, SMOB, trailers, podcasts, Netflix">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kahuerozzi-bit.github.io/SMOB/">
+    <meta property="og:title" content="SMOB Shorts - Entretenimento Premium">
+    <meta property="og:description" content="Hub de curtas, notícias de cinema, trailers, podcasts e experiências exclusivas. Powered by Claro.">
+    <meta property="og:image" content="https://kahuerozzi-bit.github.io/SMOB/assets/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://kahuerozzi-bit.github.io/SMOB/">
+    <meta property="twitter:title" content="SMOB Shorts - Entretenimento Premium">
+    <meta property="twitter:description" content="Hub de curtas, notícias de cinema, trailers, podcasts e experiências exclusivas.">
+    <meta property="twitter:image" content="https://kahuerozzi-bit.github.io/SMOB/assets/og-image.jpg">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
     <style>
+        :root {
+            /* Tokens Claro - Paleta Vermelha Dominante */
+            --claro-red: #E30613;
+            --claro-red-dark: #B5000F;
+            --claro-red-light: #FF1A26;
+            --claro-red-accent: #FF4D54;
+            
+            --primary: #E30613;
+            --primary-dark: #B5000F;
+            --primary-light: #FF1A26;
+            --accent: #FF4D54;
+            --accent-soft: #FFE5E5;
+            --energy-orange: #FF6B35;
+            --warm-yellow: #FFB627;
+            
+            --background: #FFFBF8;
+            --surface: #FFFFFF;
+            --surface-elevated: #FFFFFF;
+            --surface-dark: #1a1a1a;
+            
+            --text-primary: #1A1A1A;
+            --text-secondary: #4A4A4A;
+            --text-muted: #6B6B6B;
+            --text-light: #ffffff;
+            
+            --border: #E8E8E8;
+            --shadow: rgba(227, 6, 19, 0.08);
+            --shadow-elevated: rgba(227, 6, 19, 0.15);
+            
+            /* Categorias - tons de vermelho/laranja */
+            --cat-premios: #E30613;
+            --cat-festivais: #E85D04;
+            --cat-lancamentos: #F48C06;
+            --cat-industria: #2D6A4F;
+            --cat-casa: #6A4C93;
+            --cat-streaming: #E30613;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        :root {
-            --claro-red: #DA291C;
-            --claro-dark-red: #B91C1C;
-            --energy-orange: #FF6B35;
-            --warm-yellow: #FFB627;
-            --gold: #FFD700;
-            --dark: #0a0a0a;
-            --darker: #050505;
-            --light: #ffffff;
-            --gray: #1a1a1a;
-        }
-
         body {
             font-family: 'Outfit', sans-serif;
-            background: var(--darker);
-            color: var(--light);
-            overflow-x: hidden;
+            background: var(--background);
+            color: var(--text-primary);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Animated Background Global */
-        .bg-animation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            background: linear-gradient(135deg, var(--darker) 0%, #1a0a05 50%, #0a0505 100%);
-            overflow: hidden;
-        }
-
-        .bg-animation::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(218, 41, 28, 0.2) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 107, 53, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(255, 182, 39, 0.1) 0%, transparent 40%);
-            animation: bgPulse 20s ease-in-out infinite;
-        }
-
-        @keyframes bgPulse {
-            0%, 100% { transform: scale(1) rotate(0deg); }
-            50% { transform: scale(1.1) rotate(3deg); }
-        }
-
-        /* Floating Particles */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .particle {
-            position: absolute;
-            width: 3px;
-            height: 3px;
-            background: var(--energy-orange);
-            border-radius: 50%;
-            opacity: 0.4;
-            animation: float 25s infinite linear;
-        }
-
-        @keyframes float {
-            from { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.4; }
-            90% { opacity: 0.4; }
-            to { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
-        }
-
-        /* Navigation */
+        /* Navigation - HEADER VERMELHO CLARO */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 1.5rem 5%;
+            padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            background: transparent;
+            background: var(--claro-red);
+            backdrop-filter: none;
+            border-bottom: 3px solid var(--claro-red-dark);
             transition: all 0.3s;
-        }
-
-        nav.scrolled {
-            background: rgba(5, 5, 5, 0.98);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(218, 41, 28, 0.2);
+            box-shadow: 0 4px 20px rgba(227, 6, 19, 0.3);
         }
 
         .logo {
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             font-weight: 900;
-            background: linear-gradient(135deg, var(--claro-red), var(--energy-orange), var(--warm-yellow));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -2px;
-            z-index: 1001;
+            color: white;
+            letter-spacing: -1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
 
         .nav-links {
             display: flex;
-            gap: 2.5rem;
+            gap: 2rem;
             list-style: none;
         }
 
         .nav-links a {
-            color: var(--light);
+            color: rgba(255, 255, 255, 0.95);
             text-decoration: none;
             font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s;
             position: relative;
             padding: 0.5rem 0;
-            transition: all 0.3s;
-            font-size: 1rem;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .nav-links a:hover {
+            color: white;
+            transform: translateY(-2px);
         }
 
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -4px;
             left: 0;
             width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--claro-red), var(--energy-orange));
+            height: 3px;
+            background: white;
             transition: width 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--warm-yellow);
+            border-radius: 2px;
         }
 
         .nav-links a:hover::after {
@@ -160,300 +141,325 @@
         }
 
         .claro-badge {
-            background: linear-gradient(135deg, var(--claro-red), var(--claro-dark-red));
-            padding: 0.6rem 1.8rem;
+            background: white;
+            color: var(--claro-red);
+            padding: 0.5rem 1.2rem;
             border-radius: 50px;
             font-weight: 800;
-            font-size: 0.9rem;
-            box-shadow: 0 4px 20px rgba(218, 41, 28, 0.5);
-            animation: pulse 2s infinite;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            z-index: 1001;
+            font-size: 0.85rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: 2px solid transparent;
+            transition: all 0.3s;
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); box-shadow: 0 4px 20px rgba(218, 41, 28, 0.5); }
-            50% { transform: scale(1.03); box-shadow: 0 6px 30px rgba(218, 41, 28, 0.7); }
+        .claro-badge:hover {
+            transform: scale(1.05);
+            border-color: white;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
 
-        /* HERO SECTION COM VÍDEO BACKGROUND */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        /* Main Content */
+        main {
+            margin-top: 80px;
+        }
+
+        /* Seção Destaque Comercial Claro - FUNDO VERMELHO GRADIENTE */
+        .claro-hero-section {
+            background: linear-gradient(135deg, var(--claro-red) 0%, var(--claro-red-dark) 100%);
+            padding: 5rem 5%;
+            border-bottom: none;
             position: relative;
-            padding: 0;
             overflow: hidden;
         }
 
-        /* Vídeo Background */
-        .hero-video-container {
+        .claro-hero-section::before {
+            content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            overflow: hidden;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            filter: blur(60px);
         }
 
-        .hero-video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            transform: translate(-50%, -50%);
-            object-fit: cover;
-            filter: brightness(0.4) contrast(1.1);
-        }
-
-        /* Overlay gradiente no vídeo */
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                linear-gradient(135deg, rgba(218, 41, 28, 0.3) 0%, rgba(10, 5, 5, 0.7) 50%, rgba(5, 5, 5, 0.9) 100%),
-                radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.4) 100%);
+        .claro-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            position: relative;
             z-index: 1;
         }
 
-        /* Conteúdo do Hero */
-        .hero-content {
-            text-align: center;
-            max-width: 1000px;
-            z-index: 2;
-            padding: 10rem 5% 6rem;
-            position: relative;
+        .claro-content h2 {
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
 
-        .hero-badge {
+        .claro-content p {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .claro-tag {
             display: inline-block;
-            background: rgba(218, 41, 28, 0.3);
-            backdrop-filter: blur(10px);
-            padding: 0.75rem 2rem;
-            border-radius: 50px;
-            margin-bottom: 2.5rem;
-            border: 1px solid rgba(218, 41, 28, 0.5);
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
             font-weight: 700;
-            color: var(--warm-yellow);
-            font-size: 1.1rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            animation: fadeInDown 1s ease-out;
+            color: white;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
         }
 
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
+        .claro-video {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
+            aspect-ratio: 16/9;
+            background: #000;
+            border: 4px solid rgba(255, 255, 255, 0.3);
         }
 
-        .hero h1 {
-            font-size: clamp(3.5rem, 10vw, 7rem);
-            font-weight: 900;
-            line-height: 0.95;
-            margin-bottom: 2rem;
-            background: linear-gradient(135deg, var(--light) 0%, var(--warm-yellow) 50%, var(--energy-orange) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: fadeInUp 1s ease-out 0.2s both;
-            text-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .hero p {
-            font-size: 1.6rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 3.5rem;
-            font-weight: 300;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            animation: fadeInUp 1s ease-out 0.4s both;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 1s ease-out 0.6s both;
+        .claro-video iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
         .btn {
-            padding: 1.2rem 3rem;
+            padding: 1rem 2.5rem;
             border-radius: 50px;
-            font-weight: 800;
+            font-weight: 700;
             text-decoration: none;
             transition: all 0.3s;
             border: none;
             cursor: pointer;
-            font-size: 1.1rem;
-            position: relative;
-            overflow: hidden;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--claro-red), var(--energy-orange));
-            color: var(--light);
-            box-shadow: 0 10px 40px rgba(218, 41, 28, 0.5);
+            background: white;
+            color: var(--claro-red);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            font-weight: 800;
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 50px rgba(218, 41, 28, 0.7);
+            background: var(--background);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
         }
 
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            color: var(--light);
-            border: 2px solid rgba(255, 255, 255, 0.4);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.25);
-            border-color: var(--warm-yellow);
-            color: var(--warm-yellow);
-        }
-
-        /* Scroll Indicator */
-        .scroll-indicator {
-            position: absolute;
-            bottom: 3rem;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-            color: var(--warm-yellow);
-            z-index: 2;
-            cursor: pointer;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-            40% { transform: translateX(-50%) translateY(-20px); }
-            60% { transform: translateX(-50%) translateY(-10px); }
-        }
-
-        /* Sound Toggle */
-        .sound-toggle {
-            position: absolute;
-            bottom: 3rem;
-            right: 3rem;
-            z-index: 2;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 1.2rem;
-        }
-
-        .sound-toggle:hover {
-            background: rgba(218, 41, 28, 0.5);
-            transform: scale(1.1);
-        }
-
-        /* Section Styles */
+        /* Seções Gerais */
         section {
-            padding: 6rem 5%;
-            position: relative;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-header h2 {
-            font-size: 3.5rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--light), var(--warm-yellow));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .section-header p {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 1.3rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Video News Section */
-        .video-news {
-            background: linear-gradient(180deg, transparent 0%, rgba(218, 41, 28, 0.05) 100%);
-        }
-
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 2.5rem;
+            padding: 4rem 5%;
             max-width: 1400px;
             margin: 0 auto;
         }
 
-        .video-card {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 24px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            cursor: pointer;
+        .section-header {
+            margin-bottom: 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
         }
 
-        .video-card::before {
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--claro-red);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
             content: '';
             position: absolute;
-            top: 0;
+            bottom: -10px;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(218, 41, 28, 0.2), rgba(255, 107, 53, 0.2));
-            opacity: 0;
-            transition: opacity 0.3s;
-            z-index: 1;
+            width: 80px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--claro-red), var(--claro-red-light));
+            border-radius: 3px;
+        }
+
+        .view-all {
+            color: var(--claro-red);
+            text-decoration: none;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .view-all:hover {
+            gap: 0.8rem;
+            color: var(--claro-red-dark);
+            transform: translateX(5px);
+        }
+
+        /* Notícias em Destaque */
+        .news-destaques {
+            background: linear-gradient(180deg, #fff5f5 0%, var(--background) 100%);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .news-card {
+            background: var(--surface);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px var(--shadow);
+            transition: all 0.3s;
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            border-top: 4px solid transparent;
+        }
+
+        .news-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(227, 6, 19, 0.15);
+            border-top-color: var(--claro-red);
+        }
+
+        .news-image {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            display: block;
+        }
+
+        .news-content {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-tag {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+            width: fit-content;
+            letter-spacing: 0.5px;
+        }
+
+        .tag-premios { background: linear-gradient(135deg, #FFE5E5, #fff); color: var(--claro-red); border: 1px solid #FFD1D1; }
+        .tag-festivais { background: linear-gradient(135deg, #FFF3E0, #fff); color: var(--cat-festivais); border: 1px solid #FFE0B2; }
+        .tag-lancamentos { background: linear-gradient(135deg, #FFF8E1, #fff); color: var(--cat-lancamentos); border: 1px solid #FFECB3; }
+        .tag-industria { background: linear-gradient(135deg, #E8F5E9, #fff); color: var(--cat-industria); border: 1px solid #C8E6C9; }
+        .tag-casa { background: linear-gradient(135deg, #EDE7F6, #fff); color: var(--cat-casa); border: 1px solid #D1C4E9; }
+
+        .news-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .news-excerpt {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .news-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 2px solid #f0f0f0;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .news-source {
+            font-weight: 700;
+            color: var(--claro-red);
+        }
+
+        .news-link {
+            color: var(--claro-red);
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+
+        .news-link:hover {
+            color: var(--claro-red-dark);
+            transform: translateX(3px);
+        }
+
+        /* Video News */
+        .video-news {
+            background: var(--background);
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .video-card {
+            background: var(--surface);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px var(--shadow);
+            transition: all 0.3s;
+            border: 1px solid var(--border);
+            cursor: pointer;
+            border-bottom: 4px solid transparent;
         }
 
         .video-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 25px 50px rgba(218, 41, 28, 0.3);
-            border-color: var(--claro-red);
-        }
-
-        .video-card:hover::before {
-            opacity: 1;
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(227, 6, 19, 0.2);
+            border-bottom-color: var(--claro-red);
         }
 
         .video-container {
-            width: 100%;
-            height: 280px;
             position: relative;
-            background: var(--gray);
+            aspect-ratio: 16/9;
             overflow: hidden;
         }
 
@@ -465,45 +471,40 @@
         }
 
         .video-card:hover .video-container img {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         .video-overlay {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.3);
+            inset: 0;
+            background: rgba(227, 6, 19, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 2;
-            transition: opacity 0.3s;
+            transition: all 0.3s;
         }
 
         .video-card:hover .video-overlay {
-            opacity: 0;
+            background: rgba(227, 6, 19, 0.1);
         }
 
         .play-btn-large {
             width: 80px;
             height: 80px;
-            background: rgba(218, 41, 28, 0.9);
+            background: var(--claro-red);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(227, 6, 19, 0.4);
             transition: all 0.3s;
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 4px solid rgba(255, 255, 255, 0.3);
         }
 
         .play-btn-large:hover {
-            transform: scale(1.1);
-            background: var(--claro-red);
-            box-shadow: 0 15px 40px rgba(218, 41, 28, 0.6);
+            transform: scale(1.15);
+            background: var(--claro-red-light);
+            box-shadow: 0 15px 40px rgba(227, 6, 19, 0.5);
         }
 
         .play-btn-large::after {
@@ -514,167 +515,95 @@
         }
 
         .video-info {
-            padding: 2rem;
-            position: relative;
-            z-index: 2;
+            padding: 1.5rem;
         }
 
         .video-tag {
             display: inline-block;
-            background: linear-gradient(135deg, var(--claro-red), var(--energy-orange));
-            color: var(--light);
+            background: linear-gradient(135deg, #FFE5E5, #fff);
+            color: var(--claro-red);
             padding: 0.4rem 1rem;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 800;
-            margin-bottom: 1rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            margin-bottom: 0.75rem;
+            border: 1px solid #FFD1D1;
+        }
+
+        .video-tag.streaming { 
+            background: linear-gradient(135deg, #FFE5E5, #fff); 
+            color: var(--claro-red); 
+            border: 1px solid #FFD1D1;
         }
 
         .video-info h3 {
-            font-size: 1.4rem;
+            font-size: 1.25rem;
             font-weight: 700;
-            margin-bottom: 0.75rem;
-            line-height: 1.3;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
         }
 
         .video-info p {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 1rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
             line-height: 1.5;
         }
 
-        /* Categories Section */
-        .categories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .category-card {
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 28px;
-            padding: 3.5rem 2.5rem;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.4s;
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-        }
-
-        .category-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, var(--claro-red), var(--energy-orange));
-            opacity: 0;
-            transition: opacity 0.4s;
-            z-index: 0;
-        }
-
-        .category-card:hover::before {
-            opacity: 0.08;
-        }
-
-        .category-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--claro-red);
-            box-shadow: 0 20px 40px rgba(218, 41, 28, 0.2);
-        }
-
-        .category-icon {
-            width: 90px;
-            height: 90px;
-            margin: 0 auto 2rem;
-            background: linear-gradient(135deg, var(--claro-red), var(--energy-orange));
-            border-radius: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            position: relative;
-            z-index: 1;
-            box-shadow: 0 10px 30px rgba(218, 41, 28, 0.3);
-        }
-
-        .category-card h3 {
-            font-size: 1.6rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .category-card p {
-            color: rgba(255, 255, 255, 0.6);
-            position: relative;
-            z-index: 1;
-            font-size: 1.1rem;
-            line-height: 1.5;
-        }
-
-        .category-card .arrow {
-            margin-top: 2rem;
-            font-size: 2rem;
-            color: var(--warm-yellow);
-            opacity: 0;
-            transform: translateX(-20px);
-            transition: all 0.3s;
-            position: relative;
-            z-index: 1;
-        }
-
-        .category-card:hover .arrow {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        /* Latest News Section */
+        /* Latest News List */
         .latest-news {
-            background: rgba(255, 255, 255, 0.01);
-            border-radius: 32px;
-            padding: 3rem;
-            margin: 2rem 0;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: var(--surface);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-top: 3rem;
+            border: 2px solid #FFE5E5;
+            box-shadow: 0 10px 40px rgba(227, 6, 19, 0.08);
+        }
+
+        .latest-news h3 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: var(--claro-red);
+        }
+
+        .latest-news > p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
         }
 
         .news-list {
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 1rem;
         }
 
         .news-item {
             display: flex;
-            gap: 1.5rem;
-            padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            gap: 1rem;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, #FFFBF8, #fff);
+            border-radius: 12px;
+            border: 2px solid transparent;
             transition: all 0.3s;
             cursor: pointer;
         }
 
         .news-item:hover {
-            background: rgba(218, 41, 28, 0.1);
-            border-color: rgba(218, 41, 28, 0.3);
-            transform: translateX(10px);
+            background: white;
+            border-color: var(--claro-red);
+            transform: translateX(8px);
+            box-shadow: 0 10px 30px rgba(227, 6, 19, 0.1);
         }
 
         .news-thumb {
-            width: 120px;
-            height: 80px;
-            border-radius: 12px;
-            background: linear-gradient(135deg, var(--gray), #2a2a2a);
-            flex-shrink: 0;
+            width: 100px;
+            height: 70px;
+            border-radius: 10px;
             overflow: hidden;
+            flex-shrink: 0;
+            border: 2px solid #FFE5E5;
         }
 
         .news-thumb img {
@@ -683,51 +612,54 @@
             object-fit: cover;
         }
 
-        .news-content h4 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: var(--light);
+        .news-item-content h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            color: var(--text-primary);
         }
 
-        .news-content p {
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.95rem;
+        .news-item-content p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.4;
         }
 
-        .news-meta {
+        .news-item-meta {
             display: flex;
-            gap: 1rem;
-            margin-top: 0.75rem;
-            font-size: 0.85rem;
-            color: var(--energy-orange);
+            gap: 0.75rem;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--claro-red);
+            font-weight: 600;
         }
 
         /* Trailers Section */
         .trailers-section {
-            background: linear-gradient(180deg, rgba(218, 41, 28, 0.05) 0%, transparent 100%);
+            background: linear-gradient(135deg, #fff5f5 0%, var(--surface) 100%);
         }
 
         .trailer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
         }
 
         .trailer-card {
             position: relative;
-            border-radius: 20px;
+            border-radius: 16px;
             overflow: hidden;
             aspect-ratio: 16/9;
-            background: var(--gray);
             cursor: pointer;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.4s;
+            box-shadow: 0 4px 20px var(--shadow);
+            transition: all 0.3s;
+            border: 3px solid transparent;
         }
 
         .trailer-card:hover {
             transform: scale(1.03);
+            box-shadow: 0 20px 50px rgba(227, 6, 19, 0.25);
             border-color: var(--claro-red);
-            box-shadow: 0 20px 40px rgba(218, 41, 28, 0.3);
         }
 
         .trailer-card img {
@@ -739,51 +671,59 @@
         .trailer-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 60%);
+            background: linear-gradient(to top, rgba(227, 6, 19, 0.9) 0%, transparent 60%);
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 2rem;
-            transition: opacity 0.3s;
+            padding: 1.5rem;
+            transition: all 0.3s;
         }
 
         .trailer-card:hover .trailer-overlay {
-            opacity: 0;
+            background: linear-gradient(to top, rgba(227, 6, 19, 0.95) 0%, rgba(227, 6, 19, 0.2) 100%);
         }
 
         .trailer-title {
+            color: white;
             font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
+            font-weight: 800;
+            margin-bottom: 0.25rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .trailer-meta {
             color: var(--warm-yellow);
-            font-weight: 600;
+            font-size: 0.95rem;
+            font-weight: 700;
         }
 
         /* Shorts Section */
+        .shorts-section {
+            background: var(--background);
+        }
+
         .shorts-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 1.5rem;
         }
 
         .short-card {
             aspect-ratio: 9/16;
-            background: var(--gray);
-            border-radius: 20px;
+            background: var(--surface-dark);
+            border-radius: 16px;
             overflow: hidden;
             position: relative;
             cursor: pointer;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.4s;
+            box-shadow: 0 4px 20px var(--shadow);
+            transition: all 0.3s;
+            border: 3px solid transparent;
         }
 
         .short-card:hover {
-            transform: translateY(-5px) scale(1.02);
-            border-color: var(--energy-orange);
-            box-shadow: 0 15px 30px rgba(255, 107, 53, 0.3);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(227, 6, 19, 0.3);
+            border-color: var(--claro-red);
         }
 
         .short-card img {
@@ -795,48 +735,114 @@
         .short-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 50%);
+            background: linear-gradient(to top, rgba(227, 6, 19, 0.9) 0%, transparent 50%);
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 1.5rem;
+            padding: 1rem;
+            color: white;
         }
 
         .short-title {
-            font-weight: 700;
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
+            font-weight: 800;
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
         }
 
         .short-views {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            opacity: 0.9;
+            font-weight: 600;
+        }
+
+        /* Curtas Recomendados */
+        .curtas-section {
+            background: linear-gradient(135deg, #FFE5E5 0%, var(--background) 100%);
+        }
+
+        .curtas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .curta-card {
+            background: var(--surface);
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+            border: 3px dashed #FFD1D1;
+            transition: all 0.3s;
+        }
+
+        .curta-card:hover {
+            border-color: var(--claro-red);
+            background: white;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(227, 6, 19, 0.15);
+        }
+
+        .curta-placeholder {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .curta-card h4 {
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        /* Indústria Section */
+        .industria-section {
+            background: var(--surface);
+        }
+
+        .industria-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .industria-card {
+            background: linear-gradient(135deg, #FFFBF8, #fff);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px var(--shadow);
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .industria-card:hover {
+            box-shadow: 0 15px 40px rgba(227, 6, 19, 0.15);
+            border-color: var(--claro-red);
+            transform: translateY(-5px);
         }
 
         /* Podcast Section */
         .podcast-section {
-            background: linear-gradient(135deg, rgba(218, 41, 28, 0.1), rgba(255, 107, 53, 0.05));
+            background: linear-gradient(135deg, #FFE5E5 0%, var(--background) 100%);
         }
 
         .podcast-showcase {
             display: grid;
-            grid-template-columns: 400px 1fr;
-            gap: 4rem;
+            grid-template-columns: 350px 1fr;
+            gap: 3rem;
             align-items: center;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 32px;
-            padding: 3rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            max-width: 1200px;
-            margin: 0 auto;
+            background: var(--surface);
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 40px rgba(227, 6, 19, 0.1);
+            border: 2px solid #FFE5E5;
         }
 
         .podcast-cover {
-            position: relative;
-            border-radius: 24px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 20px 50px rgba(227, 6, 19, 0.2);
             aspect-ratio: 1;
+            border: 4px solid var(--claro-red);
         }
 
         .podcast-cover img {
@@ -846,65 +852,57 @@
         }
 
         .podcast-content h3 {
-            font-size: 2.8rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--light), var(--warm-yellow));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--claro-red);
+            margin-bottom: 0.5rem;
         }
 
         .podcast-host {
-            color: var(--energy-orange);
+            color: var(--claro-red-dark);
             font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
         }
 
         .podcast-desc {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
             line-height: 1.7;
-            margin-bottom: 2rem;
+            font-size: 1.05rem;
         }
 
         .podcast-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 2.5rem;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
         }
 
         .podcast-tag {
-            background: rgba(218, 41, 28, 0.2);
-            padding: 0.75rem 1.5rem;
-            border-radius: 30px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            border: 1px solid rgba(218, 41, 28, 0.3);
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .podcast-tag:hover {
-            background: var(--claro-red);
-            transform: scale(1.05);
+            background: linear-gradient(135deg, #FFE5E5, #fff);
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--claro-red);
+            border: 1px solid #FFD1D1;
         }
 
         .podcast-player {
-            background: rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #FFFBF8, #fff);
             border-radius: 16px;
-            padding: 1.5rem;
+            padding: 1.2rem;
             display: flex;
             align-items: center;
-            gap: 1.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            gap: 1rem;
+            border: 2px solid #FFE5E5;
         }
 
         .play-button {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, var(--claro-red), var(--energy-orange));
+            background: var(--claro-red);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -912,11 +910,14 @@
             cursor: pointer;
             transition: all 0.3s;
             flex-shrink: 0;
+            box-shadow: 0 8px 25px rgba(227, 6, 19, 0.3);
+            border: 3px solid rgba(255, 255, 255, 0.3);
         }
 
         .play-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 10px 30px rgba(218, 41, 28, 0.5);
+            transform: scale(1.15);
+            background: var(--claro-red-light);
+            box-shadow: 0 12px 35px rgba(227, 6, 19, 0.4);
         }
 
         .play-button::after {
@@ -932,164 +933,234 @@
 
         .player-title {
             font-weight: 700;
-            margin-bottom: 0.25rem;
+            color: var(--text-primary);
+            font-size: 1rem;
         }
 
         .player-time {
-            color: rgba(255, 255, 255, 0.5);
+            color: var(--claro-red);
             font-size: 0.9rem;
+            font-weight: 600;
         }
 
-        .progress-bar {
-            width: 100%;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 2px;
-            margin-top: 0.75rem;
+        /* Dangerous People - COM IMAGEM REAL */
+        .dangerous-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            position: relative;
             overflow: hidden;
         }
 
-        .progress-fill {
-            width: 35%;
-            height: 100%;
-            background: linear-gradient(90deg, var(--claro-red), var(--energy-orange));
-            border-radius: 2px;
+        .dangerous-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(227,6,19,0.1)" stroke-width="0.5"/></svg>');
+            background-size: 50px 50px;
+            opacity: 0.5;
         }
 
-        /* Experiences Section */
-        .experiences {
-            background: 
-                linear-gradient(135deg, rgba(218, 41, 28, 0.1) 0%, rgba(10, 5, 5, 0.95) 100%),
-                url('https://images.unsplash.com/photo-1489599849927-152d9b164e7b?w=1920&q=80') center/cover fixed;
+        .dangerous-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
             position: relative;
-            padding: 8rem 5%;
+            z-index: 1;
+        }
+
+        .dangerous-image {
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border: 4px solid var(--claro-red);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .dangerous-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .dangerous-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .dangerous-content .tag-casa {
+            background: rgba(227, 6, 19, 0.2);
+            color: white;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(227, 6, 19, 0.5);
+        }
+
+        .dangerous-content h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .dangerous-content p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.15rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Experiences Section - VERMELHO INTENSO */
+        .experiences {
+            background: linear-gradient(135deg, var(--claro-red) 0%, var(--claro-red-dark) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
         }
 
         .experiences::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(5, 5, 5, 0.85);
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            filter: blur(60px);
         }
 
         .experiences-content {
             position: relative;
             z-index: 1;
-            max-width: 1400px;
-            margin: 0 auto;
+        }
+
+        .experiences .section-title {
+            color: white;
+        }
+
+        .experiences .section-title::after {
+            background: white;
+            height: 5px;
         }
 
         .benefits-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-            margin-top: 4rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
         }
 
         .benefit-item {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            padding: 2.5rem 2rem;
-            border-radius: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
             text-align: center;
-            transition: all 0.4s;
+            transition: all 0.3s;
         }
 
         .benefit-item:hover {
-            transform: translateY(-10px);
-            background: rgba(218, 41, 28, 0.15);
-            border-color: var(--claro-red);
-            box-shadow: 0 20px 40px rgba(218, 41, 28, 0.2);
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.25);
+            border-color: white;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
         }
 
         .benefit-icon {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            display: block;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
         }
 
         .benefit-item h4 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            color: var(--warm-yellow);
-            font-weight: 800;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: white;
+            font-weight: 700;
         }
 
         .benefit-item p {
-            color: rgba(255, 255, 255, 0.7);
-            line-height: 1.6;
+            font-size: 0.95rem;
+            opacity: 0.95;
         }
 
-        .claro-cta {
-            background: linear-gradient(135deg, var(--claro-red), var(--claro-dark-red));
-            color: white;
-            padding: 4rem;
-            border-radius: 32px;
+        .claro-cta-box {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 2.5rem;
+            border-radius: 20px;
             text-align: center;
-            margin-top: 4rem;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 30px 60px rgba(218, 41, 28, 0.3);
+            margin-top: 2rem;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
         }
 
-        .claro-cta h3 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            font-weight: 900;
+        .claro-cta-box h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
         }
 
-        .claro-cta p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
+        .claro-cta-box p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
         }
 
         /* Shop Section */
+        .shop-section {
+            background: var(--background);
+        }
+
         .shop-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
         }
 
         .shop-card {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 24px;
+            background: var(--surface);
+            border-radius: 16px;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.4s;
+            box-shadow: 0 4px 20px var(--shadow);
+            transition: all 0.3s;
+            border: 2px solid transparent;
         }
 
         .shop-card:hover {
             transform: translateY(-10px);
-            border-color: var(--energy-orange);
-            box-shadow: 0 20px 40px rgba(255, 107, 53, 0.2);
+            box-shadow: 0 25px 50px rgba(227, 6, 19, 0.2);
+            border-color: var(--claro-red);
         }
 
         .shop-image {
-            width: 100%;
-            height: 250px;
-            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            height: 200px;
+            background: linear-gradient(135deg, #FFE5E5, #fff);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
+            font-size: 3.5rem;
             position: relative;
-            overflow: hidden;
         }
 
         .shop-badge {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
+            top: 0.75rem;
+            right: 0.75rem;
             background: var(--claro-red);
             color: white;
-            padding: 0.5rem 1rem;
+            padding: 0.4rem 1rem;
             border-radius: 20px;
-            font-weight: 700;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
+            font-weight: 800;
+            box-shadow: 0 4px 15px rgba(227, 6, 19, 0.3);
         }
 
         .shop-info {
@@ -1097,12 +1168,14 @@
         }
 
         .shop-info h4 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            font-weight: 700;
         }
 
         .shop-price {
-            color: var(--warm-yellow);
+            color: var(--claro-red);
             font-size: 1.5rem;
             font-weight: 800;
             margin-bottom: 1rem;
@@ -1110,83 +1183,88 @@
 
         .shop-btn {
             width: 100%;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: white;
-            border-radius: 12px;
+            padding: 0.9rem;
+            background: var(--background);
+            border: 2px solid #FFE5E5;
+            color: var(--claro-red);
+            border-radius: 10px;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s;
+            font-size: 0.95rem;
         }
 
         .shop-btn:hover {
             background: var(--claro-red);
+            color: white;
             border-color: var(--claro-red);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(227, 6, 19, 0.3);
         }
 
-        /* App Section */
+        /* App Section - VERMELHO CLARO */
         .app-section {
-            background: linear-gradient(135deg, var(--claro-red), var(--energy-orange));
-            border-radius: 40px;
-            margin: 0 5%;
-            padding: 5rem;
+            background: linear-gradient(135deg, var(--claro-red) 0%, var(--claro-red-dark) 100%);
+            border-radius: 24px;
+            margin: 0 5% 4rem;
+            padding: 4rem;
             position: relative;
             overflow: hidden;
+            max-width: 1300px;
+            border: 3px solid rgba(255, 255, 255, 0.2);
         }
 
         .app-section::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 700px;
-            height: 700px;
+            top: -30%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
-            filter: blur(80px);
+            filter: blur(60px);
         }
 
         .app-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 5rem;
+            gap: 3rem;
             align-items: center;
             position: relative;
             z-index: 1;
         }
 
         .app-text h2 {
-            font-size: 3.5rem;
-            font-weight: 900;
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
+            color: white;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
 
         .app-text p {
-            font-size: 1.3rem;
-            opacity: 0.95;
-            margin-bottom: 2rem;
-            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
         }
 
         .store-badges {
             display: flex;
-            gap: 1.5rem;
+            gap: 1rem;
             flex-wrap: wrap;
         }
 
         .store-badge {
             background: rgba(0, 0, 0, 0.3);
-            padding: 1.2rem 2rem;
-            border-radius: 16px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.3s;
-            cursor: pointer;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            color: white;
             font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1.05rem;
         }
 
         .store-badge:hover {
@@ -1199,107 +1277,103 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1.5rem;
+            gap: 1rem;
         }
 
         .qr-code {
-            width: 220px;
-            height: 220px;
+            width: 200px;
+            height: 200px;
             background: white;
-            border-radius: 24px;
+            border-radius: 20px;
             padding: 1.5rem;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            color: var(--dark);
+            color: var(--text-secondary);
             text-align: center;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            border: 4px solid rgba(255, 255, 255, 0.5);
         }
 
         .qr-placeholder {
-            width: 140px;
-            height: 140px;
-            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
-            border-radius: 12px;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
+            font-size: 4rem;
+            margin-bottom: 0.5rem;
         }
 
-        /* Footer */
+        /* Footer - VERMELHO ESCURO */
         footer {
-            background: rgba(0, 0, 0, 0.5);
+            background: linear-gradient(135deg, #8B0000 0%, var(--claro-red-dark) 100%);
+            color: white;
             padding: 5rem 5% 2rem;
-            border-top: 1px solid rgba(218, 41, 28, 0.2);
-            margin-top: 6rem;
+            border-top: 4px solid var(--claro-red);
         }
 
         .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: 2fr repeat(3, 1fr);
-            gap: 4rem;
-            margin-bottom: 4rem;
-            max-width: 1400px;
-            margin-left: auto;
-            margin-right: auto;
+            gap: 3rem;
+            margin-bottom: 3rem;
         }
 
         .footer-brand h3 {
             font-size: 2.5rem;
             font-weight: 900;
-            background: linear-gradient(135deg, var(--claro-red), var(--energy-orange));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 1.5rem;
+            color: white;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .footer-brand p {
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.85);
             line-height: 1.7;
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
+            font-size: 1.05rem;
         }
 
         .footer-section h4 {
-            color: var(--warm-yellow);
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
+            color: white;
+            font-size: 1.2rem;
             font-weight: 800;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 0.5rem;
+            display: inline-block;
         }
 
         .footer-section ul {
             list-style: none;
         }
 
-        .footer-section ul li {
-            margin-bottom: 1rem;
+        .footer-section li {
+            margin-bottom: 0.85rem;
         }
 
         .footer-section a {
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.85);
             text-decoration: none;
             transition: all 0.3s;
+            font-weight: 500;
             font-size: 1.05rem;
         }
 
         .footer-section a:hover {
-            color: var(--energy-orange);
-            padding-left: 5px;
+            color: white;
+            transform: translateX(5px);
+            display: inline-block;
         }
 
         .social-links {
             display: flex;
             gap: 1rem;
-            margin-top: 2rem;
+            margin-top: 1.5rem;
         }
 
         .social-icon {
             width: 50px;
             height: 50px;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.15);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -1307,73 +1381,51 @@
             transition: all 0.3s;
             cursor: pointer;
             font-size: 1.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
         }
 
         .social-icon:hover {
-            background: var(--claro-red);
-            transform: translateY(-5px) rotate(360deg);
-            border-color: var(--claro-red);
+            background: white;
+            transform: translateY(-5px) scale(1.1);
+            color: var(--claro-red);
+            border-color: white;
         }
 
         .footer-bottom {
-            text-align: center;
-            padding-top: 3rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.4);
             max-width: 1400px;
             margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 2px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
         }
 
-        .footer-bottom .claro-logo {
-            color: var(--claro-red);
+        .claro-powered {
+            color: white;
             font-weight: 800;
-            margin-top: 1rem;
-            display: inline-block;
-        }
-
-        /* Section Headers with lines */
-        .section-title-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .section-line {
-            flex: 1;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, rgba(218, 41, 28, 0.5), transparent);
-        }
-
-        .view-all {
-            color: var(--energy-orange);
-            text-decoration: none;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s;
-        }
-
-        .view-all:hover {
-            color: var(--warm-yellow);
-            gap: 1rem;
+            font-size: 1.1rem;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         /* Mobile Menu */
         .mobile-menu-btn {
             display: none;
             flex-direction: column;
-            gap: 6px;
+            gap: 5px;
             cursor: pointer;
             z-index: 1001;
         }
 
         .mobile-menu-btn span {
-            width: 30px;
+            width: 25px;
             height: 3px;
-            background: var(--light);
+            background: white;
             transition: all 0.3s;
             border-radius: 3px;
         }
@@ -1383,7 +1435,7 @@
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, 0.95);
+            background: rgba(139, 0, 0, 0.95);
             z-index: 2000;
             align-items: center;
             justify-content: center;
@@ -1396,18 +1448,17 @@
 
         .modal-content {
             width: 100%;
-            max-width: 1000px;
+            max-width: 900px;
             aspect-ratio: 16/9;
             background: black;
-            border-radius: 20px;
+            border-radius: 16px;
             overflow: hidden;
             position: relative;
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
-            border: 2px solid rgba(218, 41, 28, 0.3);
+            border: 4px solid var(--claro-red);
         }
 
-        .modal-content iframe,
-        .modal-content video {
+        .modal-content iframe {
             width: 100%;
             height: 100%;
             border: none;
@@ -1415,37 +1466,41 @@
 
         .close-modal {
             position: absolute;
-            top: -50px;
+            top: -60px;
             right: 0;
             color: white;
             font-size: 2.5rem;
             cursor: pointer;
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(218, 41, 28, 0.8);
+            background: var(--claro-red);
             border-radius: 50%;
             transition: all 0.3s;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            font-weight: 300;
         }
 
         .close-modal:hover {
-            background: var(--claro-red);
-            transform: rotate(90deg);
+            transform: rotate(90deg) scale(1.1);
+            background: var(--claro-red-light);
         }
 
         /* Responsive */
         @media (max-width: 1024px) {
-            .podcast-showcase {
-                grid-template-columns: 1fr;
-            }
-            
+            .claro-container,
+            .dangerous-container,
+            .podcast-showcase,
             .app-content {
                 grid-template-columns: 1fr;
-                text-align: center;
             }
-            
+
+            .industria-grid {
+                grid-template-columns: 1fr;
+            }
+
             .footer-content {
                 grid-template-columns: 1fr 1fr;
             }
@@ -1460,71 +1515,40 @@
                 display: flex;
             }
 
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-
-            .video-grid {
-                grid-template-columns: 1fr;
+            .shorts-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .footer-content {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            section {
+                padding: 3rem 5%;
             }
 
             .app-section {
-                margin: 0 2%;
-                padding: 3rem 2rem;
+                margin: 0 2% 3rem;
+                padding: 2.5rem;
             }
 
-            .claro-cta {
-                padding: 2rem;
+            .claro-content h2 {
+                font-size: 2rem;
             }
 
-            .sound-toggle {
-                bottom: 1.5rem;
-                right: 1.5rem;
+            .section-title {
+                font-size: 1.8rem;
             }
-        }
-
-        /* Loading Animation */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 12px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--darker);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(var(--claro-red), var(--energy-orange));
-            border-radius: 6px;
-            border: 3px solid var(--darker);
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(var(--energy-orange), var(--warm-yellow));
         }
     </style>
 </head>
 <body>
-    <!-- Background Animation Global -->
-    <div class="bg-animation"></div>
-    <div class="particles" id="particles"></div>
-
     <!-- Video Modal -->
     <div class="video-modal" id="videoModal">
         <div class="modal-content">
@@ -1533,13 +1557,16 @@
         </div>
     </div>
 
-    <!-- Navigation -->
-    <nav id="navbar">
+    <!-- Navigation - HEADER VERMELHO -->
+    <nav>
         <div class="logo">SMOB SHORTS</div>
         <ul class="nav-links">
-            <li><a href="#news">Video News</a></li>
+            <li><a href="#claro-destaque">Claro</a></li>
+            <li><a href="#noticias">Notícias</a></li>
+            <li><a href="#video-news">Video News</a></li>
             <li><a href="#trailers">Trailers</a></li>
             <li><a href="#shorts">Shorts</a></li>
+            <li><a href="#curtas">Curtas</a></li>
             <li><a href="#podcasts">Podcasts</a></li>
             <li><a href="#experiences">Experiências</a></li>
             <li><a href="#shop">Shop</a></li>
@@ -1552,466 +1579,567 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION COM VÍDEO BACKGROUND -->
-    <section class="hero">
-        <!-- Vídeo Background -->
-        <div class="hero-video-container">
-            <!-- Substitua o src pelo seu vídeo real -->
-            <video class="hero-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=1920&q=80">
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-702-large.mp4" type="video/mp4">
-                <!-- Fallback para imagem estática -->
-                <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=1920&q=80" alt="SMOB Shorts">
-            </video>
-        </div>
-        
-        <!-- Overlay gradiente -->
-        <div class="hero-overlay"></div>
-
-        <!-- Conteúdo -->
-        <div class="hero-content">
-            <div class="hero-badge">🎬 Entretenimento Premium</div>
-            <h1>Entretenimento curto premium para assistir em qualquer lugar.</h1>
-            <p>Um canal patrocinado pela Claro com vídeos curtos, jornal em vídeo, trailers, podcasts e experiências.</p>
-            <div class="cta-buttons">
-                <a href="#news" class="btn btn-primary">Explorar Conteúdo</a>
-                <a href="#experiences" class="btn btn-secondary">Benefícios Claro</a>
-            </div>
-        </div>
-
-        <!-- Scroll Indicator -->
-        <div class="scroll-indicator" onclick="document.getElementById('news').scrollIntoView({behavior: 'smooth'})">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 5v14M19 12l-7 7-7-7"/>
-            </svg>
-        </div>
-
-        <!-- Sound Toggle -->
-        <button class="sound-toggle" id="soundToggle" onclick="toggleSound()" title="Ativar som">
-            🔇
-        </button>
-    </section>
-
-    <!-- Video News Section -->
-    <section class="video-news" id="news">
-        <div class="section-header fade-in">
-            <h2>SMOB Video News</h2>
-            <p>As principais notícias do cinema, curtas, séries e streaming em vídeos rápidos.</p>
-        </div>
-        
-        <div class="section-title-wrapper fade-in">
-            <div class="section-line"></div>
-            <a href="#" class="view-all">Ver todos →</a>
-        </div>
-
-        <div class="video-grid">
-            <!-- Video 1 -->
-            <div class="video-card fade-in" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-                <div class="video-container">
-                    <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&q=80" alt="Netflix">
-                    <div class="video-overlay">
-                        <div class="play-btn-large"></div>
-                    </div>
+    <main>
+        <!-- DESTAQUE COMERCIAL CLARO - FUNDO VERMELHO -->
+        <section class="claro-hero-section" id="claro-destaque">
+            <div class="claro-container">
+                <div class="claro-content">
+                    <span class="claro-tag">Conteúdo Exclusivo Claro</span>
+                    <h2>Com a Claro você se conecta + com o que ama</h2>
+                    <p>Assista aos melhores conteúdos de cinema e audiovisual. Conexão que inspira e entretém.</p>
+                    <a href="https://www.youtube.com/watch?v=r_HEOiauEcs" target="_blank" class="btn btn-primary">
+                        ▶ Assistir Agora
+                    </a>
                 </div>
-                <div class="video-info">
-                    <span class="video-tag">Streaming</span>
-                    <h3>Netflix investe em produção nacional de curtas</h3>
-                    <p>Novos talentos brasileiros ganham espaço na plataforma com investimento de R$ 50 milhões em 2024.</p>
+                <div class="claro-video">
+                    <iframe src="https://www.youtube.com/embed/v1-EVt78Si0?rel=0&modestbranding=1" 
+                            title="Com a Claro você se conecta + com o que ama"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
                 </div>
             </div>
+        </section>
 
-            <!-- Video 2 -->
-            <div class="video-card fade-in" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-                <div class="video-container">
-                    <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=800&q=80" alt="Festival">
-                    <div class="video-overlay">
-                        <div class="play-btn-large"></div>
-                    </div>
-                </div>
-                <div class="video-info">
-                    <span class="video-tag">Festivais</span>
-                    <h3>Clermont-Ferrand: brasileiros levam 3 prêmios</h3>
-                    <p>Cinema nacional brilha no maior festival de curtas do mundo com produções independentes.</p>
-                </div>
+        <!-- NOTÍCIAS EM DESTAQUE -->
+        <section class="news-destaques" id="noticias">
+            <div class="section-header">
+                <h2 class="section-title">Notícias em Destaque</h2>
+                <a href="#" class="view-all">Ver todas →</a>
             </div>
-
-            <!-- Video 3 -->
-            <div class="video-card fade-in" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-                <div class="video-container">
-                    <img src="https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?w=800&q=80" alt="Cinema">
-                    <div class="video-overlay">
-                        <div class="play-btn-large"></div>
-                    </div>
-                </div>
-                <div class="video-info">
-                    <span class="video-tag">Cinema</span>
-                    <h3>Novos diretores revolucionam o horror nacional</h3>
-                    <p>Filmes de terror brasileiros ganham reconhecimento internacional e viralizam nas redes.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Latest News List -->
-        <div class="latest-news fade-in" style="margin-top: 4rem;">
-            <h3 style="font-size: 1.8rem; margin-bottom: 2rem; color: var(--warm-yellow);">Latest News</h3>
-            <p style="color: rgba(255,255,255,0.6); margin-bottom: 2rem;">Atualizações rápidas do mundo do entretenimento.</p>
             
-            <div class="news-list">
-                <div class="news-item">
-                    <div class="news-thumb">
-                        <img src="https://images.unsplash.com/photo-1489599849927-152d9b164e7b?w=400&q=80" alt="News">
-                    </div>
+            <div class="news-grid">
+                <!-- Berlinale -->
+                <article class="news-card">
+                    <img src="https://www.gov.br/cultura/pt-br/assuntos/noticias/brasil-conquista-tres-premios-na-76a-edicao-do-berlinale/premier-feito-pipa-2.png/@@images/8361669f-2f5a-4f2f-88ab-3ccd42807732.png" 
+                         alt="Premiação na Berlinale"
+                         class="news-image"
+                         loading="lazy">
                     <div class="news-content">
-                        <h4>HBO Max anuncia nova série brasileira de suspense</h4>
-                        <p>Produção terá 8 episódios e estreia prevista para o segundo semestre...</p>
+                        <span class="news-tag tag-premios">Prêmios</span>
+                        <h3 class="news-title">Brasil encerra a Berlinale com três prêmios</h3>
+                        <p class="news-excerpt">
+                            Produções brasileiras foram reconhecidas com três prêmios na 76ª edição do festival em Berlim, 
+                            reforçando o momento internacional do nosso cinema.
+                        </p>
                         <div class="news-meta">
-                            <span>🎬 Cinema</span>
-                            <span>•</span>
-                            <span>há 2 horas</span>
+                            <span class="news-source">Ministério da Cultura</span>
+                            <a href="https://www.gov.br/cultura/pt-br/assuntos/noticias/brasil-conquista-tres-premios-na-76a-edicao-do-berlinale" 
+                               target="_blank" class="news-link">Ler →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Oscar 2026 - IMAGEM CORRIGIDA -->
+                <article class="news-card">
+                    <img src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=800&q=80" 
+                         alt="Oscar 2026 - Estatueta dourada"
+                         class="news-image"
+                         loading="lazy">
+                    <div class="news-content">
+                        <span class="news-tag tag-premios">Prêmios</span>
+                        <h3 class="news-title">Oscar 2026 divulga lista completa de indicados</h3>
+                        <p class="news-excerpt">
+                            A Academia divulgou os indicados e o cenário deste ano já redesenha a corrida 
+                            pelas principais categorias.
+                        </p>
+                        <div class="news-meta">
+                            <span class="news-source">Omelete</span>
+                            <a href="https://www.omelete.com.br/oscar-2026/oscar-2026-indicados" 
+                               target="_blank" class="news-link">Ler →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Cinema Brasileiro Atual -->
+                <article class="news-card">
+                    <img src="https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?w=800&q=80" 
+                         alt="Cinema Brasileiro"
+                         class="news-image"
+                         loading="lazy">
+                    <div class="news-content">
+                        <span class="news-tag tag-lancamentos">Cinema Nacional</span>
+                        <h3 class="news-title">Cinema brasileiro bate recorde de bilheteria em 2025</h3>
+                        <p class="news-excerpt">
+                            Produções nacionais conquistam cada vez mais espaço nas salas de cinema, 
+                            com crescimento de 35% no público em relação ao ano anterior.
+                        </p>
+                        <div class="news-meta">
+                            <span class="news-source">ANCINE</span>
+                            <a href="https://www.ancine.gov.br" 
+                               target="_blank" class="news-link">Ler →</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- VIDEO NEWS - SEM NETFLIX -->
+        <section class="video-news" id="video-news">
+            <div class="section-header">
+                <h2 class="section-title">SMOB Video News</h2>
+                <a href="#" class="view-all">Ver todos →</a>
+            </div>
+            
+            <div class="video-grid">
+                <!-- HBO Max -->
+                <article class="video-card" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                    <div class="video-container">
+                        <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&q=80" alt="HBO Max">
+                        <div class="video-overlay">
+                            <div class="play-btn-large"></div>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <span class="video-tag streaming">Streaming</span>
+                        <h3>HBO Max anuncia nova série brasileira de suspense</h3>
+                        <p>Produção terá 8 episódios e estreia prevista para o segundo semestre, com elenco de peso.</p>
+                    </div>
+                </article>
+
+                <article class="video-card" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                    <div class="video-container">
+                        <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=800&q=80" alt="Festival">
+                        <div class="video-overlay">
+                            <div class="play-btn-large"></div>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <span class="video-tag tag-festivais">Festivais</span>
+                        <h3>Clermont-Ferrand: brasileiros levam 3 prêmios</h3>
+                        <p>Cinema nacional brilha no maior festival de curtas do mundo com produções independentes.</p>
+                    </div>
+                </article>
+
+                <article class="video-card" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                    <div class="video-container">
+                        <img src="https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?w=800&q=80" alt="Cinema">
+                        <div class="video-overlay">
+                            <div class="play-btn-large"></div>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <span class="video-tag tag-lancamentos">Cinema</span>
+                        <h3>Novos diretores revolucionam o horror nacional</h3>
+                        <p>Filmes de terror brasileiros ganham reconhecimento internacional e viralizam nas redes.</p>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Latest News List - SÓ NOTÍCIAS DE PARCEIROS CLARO -->
+            <div class="latest-news">
+                <h3>Latest News</h3>
+                <p>Atualizações rápidas do mundo do entretenimento - Parceiros Claro</p>
+                
+                <div class="news-list">
+                    <!-- HBO Max - IMAGEM CORRIGIDA -->
+                    <div class="news-item">
+                        <div class="news-thumb">
+                            <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=400&q=80" alt="HBO Max">
+                        </div>
+                        <div class="news-item-content">
+                            <h4>HBO Max anuncia nova série brasileira de suspense</h4>
+                            <p>Produção terá 8 episódios e estreia prevista para o segundo semestre...</p>
+                            <div class="news-item-meta">
+                                <span>🎬 Cinema</span>
+                                <span>•</span>
+                                <span>há 2 horas</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="news-item">
+                        <div class="news-thumb">
+                            <img src="https://images.unsplash.com/photo-1489599849927-152d9b164e7b?w=400&q=80" alt="News">
+                        </div>
+                        <div class="news-item-content">
+                            <h4>Amazon Prime Video investe em documentários nacionais</h4>
+                            <p>Nova linha de conteúdo focada em histórias brasileiras reais...</p>
+                            <div class="news-item-meta">
+                                <span>📺 Streaming</span>
+                                <span>•</span>
+                                <span>há 5 horas</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="news-item">
+                        <div class="news-thumb">
+                            <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=400&q=80" alt="News">
+                        </div>
+                        <div class="news-item-content">
+                            <h4>Festival de Gramado abre inscrições para curtas</h4>
+                            <p>Prazo para envio de filmes vai até 30 de junho...</p>
+                            <div class="news-item-meta">
+                                <span>🏆 Festivais</span>
+                                <span>•</span>
+                                <span>há 1 dia</span>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="news-item">
-                    <div class="news-thumb">
-                        <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=400&q=80" alt="News">
-                    </div>
-                    <div class="news-content">
-                        <h4>Amazon Prime Video investe em documentários nacionais</h4>
-                        <p>Nova linha de conteúdo focada em histórias brasileiras reais...</p>
-                        <div class="news-meta">
-                            <span>📺 Streaming</span>
-                            <span>•</span>
-                            <span>há 5 horas</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="news-item">
-                    <div class="news-thumb">
-                        <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=400&q=80" alt="News">
-                    </div>
-                    <div class="news-content">
-                        <h4>Festival de Gramado abre inscrições para curtas</h4>
-                        <p>Prazo para envio de filmes vai até 30 de junho...</p>
-                        <div class="news-meta">
-                            <span>🏆 Festivais</span>
-                            <span>•</span>
-                            <span>há 1 dia</span>
-                        </div>
-                    </div>
+                <div style="text-align: center; margin-top: 1.5rem;">
+                    <a href="#" class="view-all">Ver todas as notícias →</a>
                 </div>
             </div>
-            
-            <div style="text-align: center; margin-top: 2rem;">
-                <a href="#" class="view-all">Ver todas as notícias →</a>
+        </section>
+
+        <!-- TRAILERS -->
+        <section class="trailers-section" id="trailers">
+            <div class="section-header">
+                <h2 class="section-title">Trailers & Premieres</h2>
+                <a href="#" class="view-all">Ver todos →</a>
             </div>
-        </div>
-    </section>
 
-    <!-- Trailers Section -->
-    <section class="trailers-section" id="trailers">
-        <div class="section-header fade-in">
-            <h2>Trailers & Premieres</h2>
-            <p>Lançamentos, trailers de curtas e estreias especiais.</p>
-        </div>
-
-        <div class="section-title-wrapper fade-in">
-            <div class="section-line"></div>
-            <a href="#" class="view-all">Ver todos →</a>
-        </div>
-
-        <div class="trailer-grid">
-            <div class="trailer-card fade-in" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-                <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=800&q=80" alt="Trailer">
-                <div class="trailer-overlay">
-                    <div class="play-btn-large" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
-                    <div style="z-index: 2;">
+            <div class="trailer-grid">
+                <div class="trailer-card" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                    <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=800&q=80" alt="Trailer">
+                    <div class="trailer-overlay">
                         <div class="trailer-title">O Último Trem</div>
                         <div class="trailer-meta">Drama • 2024</div>
                     </div>
                 </div>
-            </div>
 
-            <div class="trailer-card fade-in" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-                <img src="https://images.unsplash.com/photo-1489599849927-152d9b164e7b?w=800&q=80" alt="Trailer">
-                <div class="trailer-overlay">
-                    <div class="play-btn-large" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
-                    <div style="z-index: 2;">
+                <div class="trailer-card" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                    <img src="https://images.unsplash.com/photo-1489599849927-152d9b164e7b?w=800&q=80" alt="Trailer">
+                    <div class="trailer-overlay">
                         <div class="trailer-title">Noite de Estreia</div>
                         <div class="trailer-meta">Suspense • 2024</div>
                     </div>
                 </div>
-            </div>
 
-            <div class="trailer-card fade-in" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-                <img src="https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?w=800&q=80" alt="Trailer">
-                <div class="trailer-overlay">
-                    <div class="play-btn-large" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
-                    <div style="z-index: 2;">
+                <div class="trailer-card" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                    <img src="https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?w=800&q=80" alt="Trailer">
+                    <div class="trailer-overlay">
                         <div class="trailer-title">Cidade Invisível</div>
                         <div class="trailer-meta">Ficção • 2024</div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Shorts Section -->
-    <section id="shorts">
-        <div class="section-header fade-in">
-            <h2>Shorts</h2>
-            <p>Conteúdos rápidos para assistir em movimento.</p>
-        </div>
-
-        <div class="section-title-wrapper fade-in">
-            <div class="section-line"></div>
-            <a href="#" class="view-all">Ver todos →</a>
-        </div>
-
-        <div class="shorts-grid">
-            <div class="short-card fade-in" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-                <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=600&q=80" alt="Short">
-                <div class="short-overlay">
-                    <div class="short-title">Dicas de Direção</div>
-                    <div class="short-views">125K views • 45s</div>
-                </div>
+        <!-- SHORTS -->
+        <section class="shorts-section" id="shorts">
+            <div class="section-header">
+                <h2 class="section-title">Shorts</h2>
+                <a href="#" class="view-all">Ver todos →</a>
             </div>
 
-            <div class="short-card fade-in" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-                <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=600&q=80" alt="Short">
-                <div class="short-overlay">
-                    <div class="short-title">Bastidores do Festival</div>
-                    <div class="short-views">89K views • 60s</div>
+            <div class="shorts-grid">
+                <div class="short-card" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                    <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=600&q=80" alt="Short">
+                    <div class="short-overlay">
+                        <div class="short-title">Dicas de Direção</div>
+                        <div class="short-views">125K views • 45s</div>
+                    </div>
+                </div>
+
+                <div class="short-card" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                    <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=600&q=80" alt="Short">
+                    <div class="short-overlay">
+                        <div class="short-title">Bastidores do Festival</div>
+                        <div class="short-views">89K views • 60s</div>
+                    </div>
+                </div>
+
+                <div class="short-card" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                    <img src="https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?w=600&q=80" alt="Short">
+                    <div class="short-overlay">
+                        <div class="short-title">Review Rápido</div>
+                        <div class="short-views">234K views • 30s</div>
+                    </div>
+                </div>
+
+                <div class="short-card" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                    <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=600&q=80" alt="Short">
+                    <div class="short-overlay">
+                        <div class="short-title">Entrevista Exclusiva</div>
+                        <div class="short-views">156K views • 90s</div>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="short-card fade-in" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-                <img src="https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?w=600&q=80" alt="Short">
-                <div class="short-overlay">
-                    <div class="short-title">Review Rápido</div>
-                    <div class="short-views">234K views • 30s</div>
+        <!-- CURTAS RECOMENDADOS -->
+        <section class="curtas-section" id="curtas">
+            <div class="section-header">
+                <h2 class="section-title">Curtas Recomendados</h2>
+                <span style="color: var(--text-muted); font-size: 0.9rem;">Curadoria semanal do canal</span>
+            </div>
+            
+            <div class="curtas-grid">
+                <div class="curta-card">
+                    <div class="curta-placeholder">🎬</div>
+                    <h4>Em breve, seleção semanal de curtas e estreias</h4>
+                </div>
+                <div class="curta-card">
+                    <div class="curta-placeholder">🎭</div>
+                    <h4>Em breve, seleção semanal de curtas e estreias</h4>
+                </div>
+                <div class="curta-card">
+                    <div class="curta-placeholder">🎪</div>
+                    <h4>Em breve, seleção semanal de curtas e estreias</h4>
+                </div>
+                <div class="curta-card">
+                    <div class="curta-placeholder">🎨</div>
+                    <h4>Em breve, seleção semanal de curtas e estreias</h4>
+                </div>
+                <div class="curta-card">
+                    <div class="curta-placeholder">🎸</div>
+                    <h4>Em breve, seleção semanal de curtas e estreias</h4>
+                </div>
+                <div class="curta-card">
+                    <div class="curta-placeholder">🎪</div>
+                    <h4>Em breve, seleção semanal de curtas e estreias</h4>
                 </div>
             </div>
+        </section>
 
-            <div class="short-card fade-in" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-                <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=600&q=80" alt="Short">
-                <div class="short-overlay">
-                    <div class="short-title">Entrevista Exclusiva</div>
-                    <div class="short-views">156K views • 90s</div>
-                </div>
+        <!-- INDÚSTRIA DO AUDIOVISUAL -->
+        <section class="industria-section">
+            <div class="section-header">
+                <h2 class="section-title">Indústria do Audiovisual no Brasil</h2>
             </div>
-        </div>
-    </section>
+            
+            <div class="industria-grid">
+                <article class="industria-card">
+                    <span class="news-tag tag-industria">Indústria</span>
+                    <h3 style="font-size: 1.2rem; font-weight: 700; margin: 0.75rem 0; line-height: 1.3;">
+                        Audiovisual brasileiro amplia intercâmbio com Índia e Coreia do Sul
+                    </h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.6; font-size: 0.95rem;">
+                        Missão oficial leva delegação do audiovisual para aproximar mercados, 
+                        financiar coproduções e ampliar exportação de conteúdo.
+                    </p>
+                    <a href="https://agenciabrasil.ebc.com.br/cultura/noticia/2026-02/audiovisual-brasileiro-amplia-intercambio-com-india-e-coreia-do-sul" 
+                       target="_blank" class="news-link">Ler na Agência Brasil →</a>
+                </article>
 
-    <!-- Podcasts Section -->
-    <section class="podcast-section" id="podcasts">
-        <div class="section-header fade-in">
-            <h2>Podcasts</h2>
-            <p>Conversas sobre entretenimento, carreira, bastidores e cultura pop.</p>
-        </div>
-
-        <div class="podcast-showcase fade-in">
-            <div class="podcast-cover">
-                <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=600&q=80" alt="SMOB Talks">
+                <article class="industria-card">
+                    <span class="news-tag tag-industria">Política Pública</span>
+                    <h3 style="font-size: 1.2rem; font-weight: 700; margin: 0.75rem 0; line-height: 1.3;">
+                        Setor audiovisual lança entidade e estudo por política pública
+                    </h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.6; font-size: 0.95rem;">
+                        A criação da federação e o estudo reforçam o audiovisual como indústria 
+                        estratégica e base para políticas públicas.
+                    </p>
+                    <a href="https://agenciabrasil.ebc.com.br/cultura/noticia/2025-10/setor-audiovisual-lanca-entidade-e-estudo-na-busca-de-politica-publica" 
+                       target="_blank" class="news-link">Ler na Agência Brasil →</a>
+                </article>
             </div>
-            <div class="podcast-content">
-                <h3>SMOB Talks</h3>
-                <div class="podcast-host">Com Maria Silva</div>
-                <p class="podcast-desc">
-                    Entrevistas exclusivas com os maiores nomes do cinema e da TV brasileira. 
-                    Bastidores, histórias inéditas e muita cultura pop. Novos episódios toda terça-feira.
-                </p>
-                <div class="podcast-tags">
-                    <span class="podcast-tag">Melhores Momentos</span>
-                    <span class="podcast-tag">Entrevistas</span>
-                    <span class="podcast-tag">Reações</span>
-                    <span class="podcast-tag">Dicas</span>
+        </section>
+
+        <!-- PODCASTS -->
+        <section class="podcast-section" id="podcasts">
+            <div class="section-header">
+                <h2 class="section-title">Podcasts</h2>
+                <a href="#" class="view-all">Ver todos →</a>
+            </div>
+
+            <div class="podcast-showcase">
+                <div class="podcast-cover">
+                    <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=600&q=80" alt="SMOB Talks">
                 </div>
-                
-                <div class="podcast-player">
-                    <div class="play-button" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')"></div>
-                    <div class="player-info">
-                        <div class="player-title">Ep. 42: Conversa com Wagner Moura</div>
-                        <div class="player-time">45:30 • Reproduzir episódio completo</div>
-                        <div class="progress-bar">
-                            <div class="progress-fill"></div>
+                <div class="podcast-content">
+                    <h3>SMOB Talks</h3>
+                    <div class="podcast-host">Com Maria Silva</div>
+                    <p class="podcast-desc">
+                        Entrevistas exclusivas com os maiores nomes do cinema e da TV brasileira. 
+                        Bastidores, histórias inéditas e muita cultura pop.
+                    </p>
+                    <div class="podcast-tags">
+                        <span class="podcast-tag">Melhores Momentos</span>
+                        <span class="podcast-tag">Entrevistas</span>
+                        <span class="podcast-tag">Reações</span>
+                        <span class="podcast-tag">Dicas</span>
+                    </div>
+                    <div class="podcast-player">
+                        <div class="play-button" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')"></div>
+                        <div class="player-info">
+                            <div class="player-title">Ep. 42: Conversa com Wagner Moura</div>
+                            <div class="player-time">45:30 • Reproduzir episódio completo</div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Experiences Section -->
-    <section class="experiences" id="experiences">
-        <div class="experiences-content">
-            <div class="section-header fade-in">
-                <h2>Experiences</h2>
-                <p>Viva o entretenimento além da tela. Benefícios exclusivos para clientes Claro.</p>
-            </div>
-
-            <div class="benefits-grid">
-                <div class="benefit-item fade-in">
-                    <span class="benefit-icon">🎥</span>
-                    <h4>Visitar sets de filmagem</h4>
-                    <p>Conheça os bastidores das produções mais esperadas do ano com acesso exclusivo.</p>
+        <!-- DANGEROUS PEOPLE - COM IMAGEM -->
+        <section class="dangerous-section" id="dangerous">
+            <div class="dangerous-container">
+                <div class="dangerous-image">
+                    <!-- IMAGEM DO DANGEROUS PEOPLE - SUBSTITUA PELO CAMINHO REAL -->
+                    <img src="assets/dangerous-people.jpg" 
+                         alt="Dangerous People - Projeto de Curadoria"
+                         onerror="this.src='https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=800&q=80'">
                 </div>
-
-                <div class="benefit-item fade-in">
-                    <span class="benefit-icon">🎭</span>
-                    <h4>Participar como figurante</h4>
-                    <p>Faça parte de cenas de filmes e séries nacionais. Uma experiência única!</p>
-                </div>
-
-                <div class="benefit-item fade-in">
-                    <span class="benefit-icon">⭐</span>
-                    <h4>Pré-estreias exclusivas</h4>
-                    <p>Assista antes de todo mundo aos lançamentos mais aguardados do cinema.</p>
-                </div>
-
-                <div class="benefit-item fade-in">
-                    <span class="benefit-icon">🎟️</span>
-                    <h4>Sessões privadas de cinema</h4>
-                    <p>Eventos exclusivos para clientes Claro com experiência VIP completa.</p>
+                
+                <div class="dangerous-content">
+                    <span class="news-tag tag-casa">Da Nossa Redação</span>
+                    <h2>Dangerous People inicia nova fase de desenvolvimento e curadoria editorial</h2>
+                    <p>
+                        O projeto Dangerous People avança para uma nova etapa, ampliando curadoria, 
+                        seleção de curtas e cobertura de festivais e lançamentos. A proposta é 
+                        fortalecer um canal vivo de descobertas, com olhar editorial e ritmo de 
+                        atualizações constantes.
+                    </p>
+                    <a href="#" class="btn btn-primary">Ler mais →</a>
                 </div>
             </div>
+        </section>
 
-            <div class="claro-cta fade-in">
-                <h3>Cliente Claro?</h3>
-                <p>Acesse benefícios exclusivos e experiências únicas no SMOB Shorts.</p>
-                <button class="btn btn-secondary" style="background: white; color: var(--claro-red); border: none; font-weight: 900;">
-                    Ativar Benefícios
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Shop Section -->
-    <section id="shop">
-        <div class="section-header fade-in">
-            <h2>Shop</h2>
-            <p>Produtos licenciados de filmes e conteúdos parceiros.</p>
-        </div>
-
-        <div class="section-title-wrapper fade-in">
-            <div class="section-line"></div>
-            <a href="#" class="view-all">Ver loja →</a>
-        </div>
-
-        <div class="shop-grid">
-            <div class="shop-card fade-in">
-                <div class="shop-image">
-                    <span>👕</span>
-                    <span class="shop-badge">Novo</span>
+        <!-- EXPERIENCES - VERMELHO INTENSO -->
+        <section class="experiences" id="experiences">
+            <div class="experiences-content">
+                <div class="section-header">
+                    <h2 class="section-title">Experiences</h2>
+                    <a href="#" class="view-all" style="color: white;">Ver todos →</a>
                 </div>
-                <div class="shop-info">
-                    <h4>Camiseta SMOB Original</h4>
-                    <div class="shop-price">R$ 89,90</div>
-                    <button class="shop-btn">Adicionar ao Carrinho</button>
-                </div>
-            </div>
+                <p style="color: rgba(255,255,255,0.95); margin-bottom: 1rem; font-size: 1.1rem;">
+                    Viva o entretenimento além da tela. Benefícios exclusivos para clientes Claro.
+                </p>
 
-            <div class="shop-card fade-in">
-                <div class="shop-image">
-                    <span>🎒</span>
-                    <span class="shop-badge">-20%</span>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <span class="benefit-icon">🎥</span>
+                        <h4>Visitar sets de filmagem</h4>
+                        <p>Conheça os bastidores das produções</p>
+                    </div>
+
+                    <div class="benefit-item">
+                        <span class="benefit-icon">🎭</span>
+                        <h4>Participar como figurante</h4>
+                        <p>Faça parte de cenas de filmes</p>
+                    </div>
+
+                    <div class="benefit-item">
+                        <span class="benefit-icon">⭐</span>
+                        <h4>Pré-estreias exclusivas</h4>
+                        <p>Assista antes de todo mundo</p>
+                    </div>
+
+                    <div class="benefit-item">
+                        <span class="benefit-icon">🎟️</span>
+                        <h4>Sessões privadas de cinema</h4>
+                        <p>Eventos exclusivos para clientes</p>
+                    </div>
                 </div>
-                <div class="shop-info">
-                    <h4>Mochila Cinema Edition</h4>
-                    <div class="shop-price">R$ 149,90</div>
-                    <button class="shop-btn">Adicionar ao Carrinho</button>
+
+                <div class="claro-cta-box">
+                    <h3>Cliente Claro?</h3>
+                    <p>Acesse benefícios exclusivos e experiências únicas no SMOB Shorts.</p>
+                    <button class="btn btn-primary" style="background: white; color: var(--claro-red);">Ativar Benefícios</button>
                 </div>
             </div>
+        </section>
 
-            <div class="shop-card fade-in">
-                <div class="shop-image">
-                    <span>🎧</span>
+        <!-- SHOP -->
+        <section class="shop-section" id="shop">
+            <div class="section-header">
+                <h2 class="section-title">Shop</h2>
+                <a href="#" class="view-all">Ver loja →</a>
+            </div>
+
+            <div class="shop-grid">
+                <div class="shop-card">
+                    <div class="shop-image">
+                        <span>👕</span>
+                        <span class="shop-badge">Novo</span>
+                    </div>
+                    <div class="shop-info">
+                        <h4>Camiseta SMOB Original</h4>
+                        <div class="shop-price">R$ 89,90</div>
+                        <button class="shop-btn">Adicionar ao Carrinho</button>
+                    </div>
                 </div>
-                <div class="shop-info">
-                    <h4>Fones SMOB Podcast</h4>
-                    <div class="shop-price">R$ 199,90</div>
-                    <button class="shop-btn">Adicionar ao Carrinho</button>
+
+                <div class="shop-card">
+                    <div class="shop-image">
+                        <span>🎒</span>
+                        <span class="shop-badge">-20%</span>
+                    </div>
+                    <div class="shop-info">
+                        <h4>Mochila Cinema Edition</h4>
+                        <div class="shop-price">R$ 149,90</div>
+                        <button class="shop-btn">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+
+                <div class="shop-card">
+                    <div class="shop-image">
+                        <span>🎧</span>
+                    </div>
+                    <div class="shop-info">
+                        <h4>Fones SMOB Podcast</h4>
+                        <div class="shop-price">R$ 199,90</div>
+                        <button class="shop-btn">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+
+                <div class="shop-card">
+                    <div class="shop-image">
+                        <span>📱</span>
+                        <span class="shop-badge">Exclusivo</span>
+                    </div>
+                    <div class="shop-info">
+                        <h4>Capinha Claro x SMOB</h4>
+                        <div class="shop-price">R$ 59,90</div>
+                        <button class="shop-btn">Adicionar ao Carrinho</button>
+                    </div>
                 </div>
             </div>
 
-            <div class="shop-card fade-in">
-                <div class="shop-image">
-                    <span>📱</span>
-                    <span class="shop-badge">Exclusivo</span>
-                </div>
-                <div class="shop-info">
-                    <h4>Capinha Claro x SMOB</h4>
-                    <div class="shop-price">R$ 59,90</div>
-                    <button class="shop-btn">Adicionar ao Carrinho</button>
-                </div>
+            <div style="text-align: center; margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #FFE5E5, #fff); border-radius: 12px; border: 2px solid #FFD1D1;">
+                <p style="color: var(--claro-red); font-weight: 600;">
+                    🛒 <strong>Loja em desenvolvimento.</strong> Em breve com checkout completo.
+                </p>
             </div>
-        </div>
+        </section>
 
-        <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: rgba(255,255,255,0.03); border-radius: 16px; border: 1px solid rgba(255,255,255,0.1);">
-            <p style="color: rgba(255,255,255,0.6); font-size: 1.1rem;">
-                🛒 <strong>Loja em desenvolvimento.</strong> Em breve com checkout completo e entrega para todo o Brasil.
-            </p>
-        </div>
-    </section>
-
-    <!-- App Download Section -->
-    <section>
-        <div class="app-section fade-in">
+        <!-- APP DOWNLOAD - VERMELHO CLARO -->
+        <section class="app-section">
             <div class="app-content">
                 <div class="app-text">
                     <h2>Assista onde estiver</h2>
-                    <p>Disponível para celular, tablet e TV. Baixe agora e tenha acesso a conteúdos exclusivos, notificações de estreias e benefícios Claro.</p>
+                    <p>Disponível para celular, tablet e TV. Baixe agora e tenha acesso a conteúdos exclusivos.</p>
                     <div class="store-badges">
-                        <div class="store-badge">
-                            <span>🍎</span>
-                            <div>
-                                <div style="font-size: 0.75rem; opacity: 0.8;">Download on the</div>
-                                <div style="font-size: 1.2rem;">App Store</div>
-                            </div>
-                        </div>
-                        <div class="store-badge">
-                            <span>🤖</span>
-                            <div>
-                                <div style="font-size: 0.75rem; opacity: 0.8;">Get it on</div>
-                                <div style="font-size: 1.2rem;">Google Play</div>
-                            </div>
-                        </div>
+                        <div class="store-badge">🍎 App Store</div>
+                        <div class="store-badge">🤖 Google Play</div>
                     </div>
                 </div>
                 <div class="qr-section">
                     <div class="qr-code">
                         <div class="qr-placeholder">📱</div>
-                        <div style="font-weight: 700; color: var(--dark);">Escaneie para baixar</div>
-                        <div style="font-size: 0.8rem; color: #666; margin-top: 0.5rem;">SMOB Shorts App</div>
+                        <div style="font-size: 0.9rem; font-weight: 700; color: var(--claro-red);">Escaneie para baixar</div>
                     </div>
-                    <p style="text-align: center; opacity: 0.9; font-size: 1.1rem;">
-                        Ou escaneie o QR code com sua câmera
-                    </p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Footer -->
+    <!-- Footer - VERMELHO ESCURO -->
     <footer>
         <div class="footer-content">
             <div class="footer-brand">
                 <h3>SMOB SHORTS</h3>
-                <p>Entretenimento curto premium para assistir em qualquer lugar. Um canal patrocinado pela Claro com vídeos curtos, jornal em vídeo, trailers, podcasts e experiências.</p>
+                <p>Hub de curtas e notícias do audiovisual brasileiro. 
+                   Descubra festivais, prêmios, lançamentos e conteúdos exclusivos.</p>
                 <div class="social-links">
                     <div class="social-icon">📘</div>
                     <div class="social-icon">📸</div>
                     <div class="social-icon">🐦</div>
                     <div class="social-icon">▶️</div>
-                    <div class="social-icon">💼</div>
                 </div>
             </div>
             
             <div class="footer-section">
                 <h4>Conteúdo</h4>
                 <ul>
-                    <li><a href="#news">Video News</a></li>
-                    <li><a href="#trailers">Trailers & Premieres</a></li>
+                    <li><a href="#noticias">Notícias</a></li>
+                    <li><a href="#video-news">Video News</a></li>
+                    <li><a href="#trailers">Trailers</a></li>
                     <li><a href="#shorts">Shorts</a></li>
                     <li><a href="#podcasts">Podcasts</a></li>
                 </ul>
@@ -2022,7 +2150,6 @@
                 <ul>
                     <li><a href="#experiences">Benefícios Claro</a></li>
                     <li><a href="#">Pré-estreias</a></li>
-                    <li><a href="#">Eventos Exclusivos</a></li>
                     <li><a href="#shop">Shop</a></li>
                 </ul>
             </div>
@@ -2030,9 +2157,7 @@
             <div class="footer-section">
                 <h4>Institucional</h4>
                 <ul>
-                    <li><a href="#">Sobre o SMOB</a></li>
-                    <li><a href="#">Para Investidores</a></li>
-                    <li><a href="#">Carreiras</a></li>
+                    <li><a href="#">Sobre</a></li>
                     <li><a href="#">Contato</a></li>
                     <li><a href="#">Termos de Uso</a></li>
                     <li><a href="#">Privacidade</a></li>
@@ -2041,42 +2166,12 @@
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2024 SMOB Shorts. Todos os direitos reservados.</p>
-            <span class="claro-logo">Powered by Claro ❤️</span>
+            <span>&copy; 2026 SMOB Shorts. Todos os direitos reservados.</span>
+            <span class="claro-powered">Powered by Claro ❤️</span>
         </div>
     </footer>
 
     <script>
-        // Generate floating particles
-        const particlesContainer = document.getElementById('particles');
-        for (let i = 0; i < 60; i++) {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.animationDelay = Math.random() * 25 + 's';
-            particle.style.animationDuration = (20 + Math.random() * 15) + 's';
-            particle.style.background = Math.random() > 0.5 ? 'var(--claro-red)' : 'var(--energy-orange)';
-            particlesContainer.appendChild(particle);
-        }
-
-        // Video Hero Sound Toggle
-        let isMuted = true;
-        const heroVideo = document.querySelector('.hero-video');
-        const soundToggle = document.getElementById('soundToggle');
-
-        function toggleSound() {
-            isMuted = !isMuted;
-            heroVideo.muted = isMuted;
-            soundToggle.textContent = isMuted ? '🔇' : '🔊';
-            soundToggle.title = isMuted ? 'Ativar som' : 'Desativar som';
-            
-            // Animação no botão
-            soundToggle.style.transform = 'scale(1.2)';
-            setTimeout(() => {
-                soundToggle.style.transform = 'scale(1)';
-            }, 200);
-        }
-
         // Video Modal Functions
         function openVideo(url) {
             const modal = document.getElementById('videoModal');
@@ -2084,9 +2179,6 @@
             video.src = url + '?autoplay=1';
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
-            
-            // Pausar vídeo do hero quando abrir modal
-            heroVideo.pause();
         }
 
         function closeModal() {
@@ -2095,63 +2187,17 @@
             video.src = '';
             modal.classList.remove('active');
             document.body.style.overflow = 'auto';
-            
-            // Retomar vídeo do hero
-            heroVideo.play();
         }
 
-        // Close modal on background click
         document.getElementById('videoModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
-            }
+            if (e.target === this) closeModal();
         });
 
-        // Close on Escape key
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeModal();
-            }
+            if (e.key === 'Escape') closeModal();
         });
 
-        // Fade in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-
-        // Navbar scroll effect
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Mobile menu toggle
+        // Mobile menu
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navLinks = document.querySelector('.nav-links');
         
@@ -2165,131 +2211,26 @@
                 navLinks.style.left = '0';
                 navLinks.style.right = '0';
                 navLinks.style.flexDirection = 'column';
-                navLinks.style.background = 'rgba(5, 5, 5, 0.98)';
+                navLinks.style.background = 'rgba(227, 6, 19, 0.98)';
                 navLinks.style.padding = '2rem';
                 navLinks.style.gap = '1.5rem';
-                navLinks.style.borderTop = '1px solid rgba(218, 41, 28, 0.3)';
-                navLinks.style.backdropFilter = 'blur(20px)';
+                navLinks.style.borderTop = '2px solid rgba(255, 255, 255, 0.3)';
+                navLinks.style.boxShadow = '0 10px 30px rgba(0,0,0,0.3)';
             }
         });
 
-        // Shopping cart functionality
-        let cartCount = 0;
-        const shopBtns = document.querySelectorAll('.shop-btn');
-        
-        shopBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                cartCount++;
-                this.textContent = '✓ Adicionado!';
-                this.style.background = 'var(--energy-orange)';
-                
-                setTimeout(() => {
-                    this.textContent = 'Adicionar ao Carrinho';
-                    this.style.background = 'rgba(255, 255, 255, 0.1)';
-                }, 2000);
-                
-                showNotification(`Item adicionado! Total: ${cartCount}`);
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
 
-        function showNotification(message) {
-            const notif = document.createElement('div');
-            notif.style.cssText = `
-                position: fixed;
-                bottom: 30px;
-                right: 30px;
-                background: linear-gradient(135deg, var(--claro-red), var(--energy-orange));
-                color: white;
-                padding: 1rem 2rem;
-                border-radius: 12px;
-                font-weight: 700;
-                z-index: 3000;
-                box-shadow: 0 10px 30px rgba(218, 41, 28, 0.4);
-                animation: slideIn 0.3s ease;
-            `;
-            notif.textContent = message;
-            document.body.appendChild(notif);
-            
-            setTimeout(() => {
-                notif.style.animation = 'slideOut 0.3s ease';
-                setTimeout(() => notif.remove(), 300);
-            }, 3000);
-        }
-
-        // Add animations
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes slideIn {
-                from { transform: translateX(400px); opacity: 0; }
-                to { transform: translateX(0); opacity: 1; }
-            }
-            @keyframes slideOut {
-                from { transform: translateX(0); opacity: 1; }
-                to { transform: translateX(400px); opacity: 0; }
-            }
-        `;
-        document.head.appendChild(style);
-
-        // Lazy loading for images
-        const images = document.querySelectorAll('img');
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.style.opacity = '0';
-                    img.style.transition = 'opacity 0.5s';
-                    setTimeout(() => {
-                        img.style.opacity = '1';
-                    }, 100);
-                    observer.unobserve(img);
-                }
-            });
-        });
-
-        images.forEach(img => imageObserver.observe(img));
-
-        // Performance optimization
-        document.addEventListener('DOMContentLoaded', () => {
-            // Preload critical resources
-            const criticalImages = [
-                'https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=1920&q=80',
-                'https://images.unsplash.com/photo-1489599849927-152d9b164e7b?w=1920&q=80'
-            ];
-            
-            criticalImages.forEach(src => {
-                const img = new Image();
-                img.src = src;
-            });
-        });
-
-        // Analytics tracking
-        function trackEvent(eventName, data) {
-            console.log(`[Analytics] ${eventName}:`, data);
-        }
-
-        // Track video plays
-        document.querySelectorAll('.video-card, .trailer-card, .short-card').forEach(card => {
-            card.addEventListener('click', () => {
-                trackEvent('video_play', {
-                    title: card.querySelector('h3, .trailer-title, .short-title')?.textContent,
-                    section: card.closest('section')?.id
-                });
-            });
-        });
-
-        // Track CTA clicks
-        document.querySelectorAll('.btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                trackEvent('cta_click', {
-                    text: btn.textContent,
-                    type: btn.classList.contains('btn-primary') ? 'primary' : 'secondary'
-                });
-            });
-        });
-
-        console.log('🎬 SMOB Shorts MVP loaded successfully!');
-        console.log('📊 Ready for investor presentation');
-        console.log('🔴 Powered by Claro');
+        console.log('🎬 SMOB Shorts - Site Completo');
+        console.log('🔴 Identidade Visual Claro - Vermelho Dominante');
+        console.log('✅ Conteúdo atualizado e otimizado');
     </script>
 </body>
 </html>
