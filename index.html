@@ -429,7 +429,7 @@
             transform: translateX(3px);
         }
 
-        /* Video News */
+        /* MINUTO SMOB - COM VÍDEOS REAIS E CHAMADAS */
         .video-news {
             background: var(--background);
         }
@@ -550,6 +550,17 @@
             line-height: 1.5;
         }
 
+        .video-chamada {
+            background: linear-gradient(135deg, #FFFBF8, #fff);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            border-left: 4px solid var(--claro-red);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
         /* Latest News List */
         .latest-news {
             background: var(--surface);
@@ -634,7 +645,7 @@
             font-weight: 600;
         }
 
-        /* Trailers Section */
+        /* VEM POR AÍ - TRAILERS */
         .trailers-section {
             background: linear-gradient(135deg, #fff5f5 0%, var(--surface) 100%);
         }
@@ -794,7 +805,7 @@
             font-size: 1rem;
         }
 
-        /* Indústria Section */
+        /* BASTIDORES DO MERCADO */
         .industria-section {
             background: var(--surface);
         }
@@ -820,7 +831,7 @@
             transform: translateY(-5px);
         }
 
-        /* Podcast Section */
+        /* PAPO DE CINEMA */
         .podcast-section {
             background: linear-gradient(135deg, #FFE5E5 0%, var(--background) 100%);
         }
@@ -1563,11 +1574,11 @@
         <ul class="nav-links">
             <li><a href="#claro-destaque">Claro</a></li>
             <li><a href="#noticias">Notícias</a></li>
-            <li><a href="#video-news">Video News</a></li>
-            <li><a href="#trailers">Trailers</a></li>
+            <li><a href="#video-news">Minuto SMOB</a></li>
+            <li><a href="#trailers">Vem por Aí</a></li>
             <li><a href="#shorts">Shorts</a></li>
             <li><a href="#curtas">Curtas</a></li>
-            <li><a href="#podcasts">Podcasts</a></li>
+            <li><a href="#podcasts">Papo de Cinema</a></li>
             <li><a href="#experiences">Experiências</a></li>
             <li><a href="#shop">Shop</a></li>
         </ul>
@@ -1674,65 +1685,76 @@
             </div>
         </section>
 
-        <!-- VIDEO NEWS - SEM NETFLIX -->
+        <!-- MINUTO SMOB - COM VÍDEOS REAIS E CHAMADAS -->
         <section class="video-news" id="video-news">
             <div class="section-header">
-                <h2 class="section-title">SMOB Video News</h2>
+                <h2 class="section-title">Minuto SMOB</h2>
                 <a href="#" class="view-all">Ver todos →</a>
             </div>
             
             <div class="video-grid">
-                <!-- HBO Max -->
-                <article class="video-card" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-                    <div class="video-container">
-                        <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&q=80" alt="HBO Max">
-                        <div class="video-overlay">
-                            <div class="play-btn-large"></div>
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <span class="video-tag streaming">Streaming</span>
-                        <h3>HBO Max anuncia nova série brasileira de suspense</h3>
-                        <p>Produção terá 8 episódios e estreia prevista para o segundo semestre, com elenco de peso.</p>
-                    </div>
-                </article>
+                <!-- Streaming - TV AO VIVO -->
+               <!-- FOMENTO - EDITAL TV BRASIL (FSA) -->
+<article class="video-card" onclick="openVideo('https://www.youtube.com/embed/qnase73Ou20')">
+  <div class="video-container">
+    <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&q=80" alt="Fomento ao Audiovisual">
+    <div class="video-overlay">
+      <div class="play-btn-large"></div>
+    </div>
+  </div>
+  <div class="video-info">
+    <span class="video-tag streaming">Fomento</span>
+    <h3>TV Brasil lança seleção com investimento recorde</h3>
+    <p>Edital público injeta recursos do Fundo Setorial do Audiovisual em produções independentes brasileiras.</p>
+    <div class="video-chamada">
+      "O investimento fortalece produtoras regionais e amplia a presença do conteúdo nacional na TV pública..."
+    </div>
+  </div>
+</article>
 
-                <article class="video-card" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-                    <div class="video-container">
-                        <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=800&q=80" alt="Festival">
-                        <div class="video-overlay">
-                            <div class="play-btn-large"></div>
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <span class="video-tag tag-festivais">Festivais</span>
-                        <h3>Clermont-Ferrand: brasileiros levam 3 prêmios</h3>
-                        <p>Cinema nacional brilha no maior festival de curtas do mundo com produções independentes.</p>
-                    </div>
-                </article>
+<!-- POLÍTICA PÚBLICA - INVESTIMENTO 1,6 BI NO AUDIOVISUAL -->
+<article class="video-card" onclick="openVideo('https://www.youtube.com/embed/Uc-iXqgCX-Y')">
+  <div class="video-container">
+    <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=800&q=80" alt="Política Pública Audiovisual">
+    <div class="video-overlay">
+      <div class="play-btn-large"></div>
+    </div>
+  </div>
+  <div class="video-info">
+    <span class="video-tag tag-festivais">Política Pública</span>
+    <h3>Governo anuncia novos incentivos ao audiovisual</h3>
+    <p>Medidas e aportes reforçam a cadeia do cinema e da TV, com foco em produção, distribuição e regionalização.</p>
+    <div class="video-chamada">
+      "O pacote mira retomada do setor, geração de emprego e aumento da competitividade do conteúdo brasileiro..."
+    </div>
+  </div>
+</article>
 
-                <article class="video-card" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-                    <div class="video-container">
-                        <img src="https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?w=800&q=80" alt="Cinema">
-                        <div class="video-overlay">
-                            <div class="play-btn-large"></div>
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <span class="video-tag tag-lancamentos">Cinema</span>
-                        <h3>Novos diretores revolucionam o horror nacional</h3>
-                        <p>Filmes de terror brasileiros ganham reconhecimento internacional e viralizam nas redes.</p>
-                    </div>
-                </article>
+<!-- EDITAIS - ARRANJOS REGIONAIS (FSA/ANCINE) -->
+<article class="video-card" onclick="openVideo('https://www.youtube.com/embed/HciPHuKHuD8')">
+  <div class="video-container">
+    <img src="https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?w=800&q=80" alt="Editais e Arranjos Regionais">
+    <div class="video-overlay">
+      <div class="play-btn-large"></div>
+    </div>
+  </div>
+  <div class="video-info">
+    <span class="video-tag tag-lancamentos">Editais</span>
+    <h3>Arranjos Regionais reforçam fomento fora do eixo</h3>
+    <p>Programa direciona investimento complementar para fortalecer produção audiovisual em todas as regiões.</p>
+    <div class="video-chamada">
+      "A lógica é destravar produção local com recurso estruturado, governança e impacto direto na cadeia regional..."
+    </div>
+  </div>
+</article>
             </div>
 
-            <!-- Latest News List - SÓ NOTÍCIAS DE PARCEIROS CLARO -->
+            <!-- Latest News List -->
             <div class="latest-news">
-                <h3>Latest News</h3>
-                <p>Atualizações rápidas do mundo do entretenimento - Parceiros Claro</p>
+                <h3>Últimas do Minuto SMOB</h3>
+                <p>Atualizações rápidas do mundo do entretenimento</p>
                 
                 <div class="news-list">
-                    <!-- HBO Max - IMAGEM CORRIGIDA -->
                     <div class="news-item">
                         <div class="news-thumb">
                             <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=400&q=80" alt="HBO Max">
@@ -1747,22 +1769,7 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="news-item">
-                        <div class="news-thumb">
-                            <img src="https://images.unsplash.com/photo-1489599849927-152d9b164e7b?w=400&q=80" alt="News">
-                        </div>
-                        <div class="news-item-content">
-                            <h4>Amazon Prime Video investe em documentários nacionais</h4>
-                            <p>Nova linha de conteúdo focada em histórias brasileiras reais...</p>
-                            <div class="news-item-meta">
-                                <span>📺 Streaming</span>
-                                <span>•</span>
-                                <span>há 5 horas</span>
-                            </div>
-                        </div>
-                    </div>
-
+                   
                     <div class="news-item">
                         <div class="news-thumb">
                             <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=400&q=80" alt="News">
@@ -1785,41 +1792,108 @@
             </div>
         </section>
 
-        <!-- TRAILERS -->
+        <!-- VEM POR AÍ - TRAILERS REAIS -->
         <section class="trailers-section" id="trailers">
             <div class="section-header">
-                <h2 class="section-title">Trailers & Premieres</h2>
+                <h2 class="section-title">Vem por Aí</h2>
                 <a href="#" class="view-all">Ver todos →</a>
             </div>
 
             <div class="trailer-grid">
-                <div class="trailer-card" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-                    <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=800&q=80" alt="Trailer">
-                    <div class="trailer-overlay">
-                        <div class="trailer-title">O Último Trem</div>
-                        <div class="trailer-meta">Drama • 2024</div>
-                    </div>
-                </div>
+				
+<div class="trailer-card" onclick="openVideo('https://www.youtube.com/embed/Ox8ZLF6cGM0')">
+  <img
+    src="https://i.ytimg.com/vi/Ox8ZLF6cGM0/maxresdefault.jpg"
+    onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/Ox8ZLF6cGM0/hqdefault.jpg';"
+    alt="Superman Trailer"
+    style="width:100%;height:100%;object-fit:cover;display:block;"
+    loading="lazy"
+  >
+  <div class="trailer-overlay">
+    <div class="trailer-title">Superman</div>
+    <div class="trailer-meta">Ação • 2025</div>
+  </div>
+</div>
 
-                <div class="trailer-card" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-                    <img src="https://images.unsplash.com/photo-1489599849927-152d9b164e7b?w=800&q=80" alt="Trailer">
-                    <div class="trailer-overlay">
-                        <div class="trailer-title">Noite de Estreia</div>
-                        <div class="trailer-meta">Suspense • 2024</div>
-                    </div>
-                </div>
-
-                <div class="trailer-card" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-                    <img src="https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?w=800&q=80" alt="Trailer">
-                    <div class="trailer-overlay">
-                        <div class="trailer-title">Cidade Invisível</div>
-                        <div class="trailer-meta">Ficção • 2024</div>
-                    </div>
-                </div>
+      <!-- Trailer 2: Wicked -->
+<div class="trailer-card" onclick="openVideo('https://www.youtube.com/embed/G-OnUavOiIQ')">
+  <img
+    src="https://i.ytimg.com/vi/G-OnUavOiIQ/maxresdefault.jpg"
+    onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/G-OnUavOiIQ/hqdefault.jpg';"
+    alt="Wicked Trailer"
+    style="width:100%;height:100%;object-fit:cover;display:block;"
+    loading="lazy"
+  >
+  <div class="trailer-overlay">
+    <div class="trailer-title">Wicked</div>
+    <div class="trailer-meta">Fantasia • 2024</div>
+  </div>
+</div>
             </div>
         </section>
+		
 
-        <!-- SHORTS -->
+
+ <!-- TRAILERS -->
+<section class="trailers-section" id="trailers">
+  <div class="section-header">
+    <h2 class="section-title">Trailers & Premieres</h2>
+    <a href="#" class="view-all">Ver todos →</a>
+  </div>
+
+  <div class="trailer-grid">
+
+  <div class="trailer-card" onclick="openVideo('https://www.youtube.com/embed/qWfMLd-9pBk')">
+  <img
+    src="https://img.youtube.com/vi/qWfMLd-9pBk/maxresdefault.jpg"
+    onerror="this.onerror=null;this.src='https://img.youtube.com/vi/qWfMLd-9pBk/hqdefault.jpg';"
+    alt="Trailer Cidade; Campo"
+    loading="lazy"
+    referrerpolicy="no-referrer"
+    style="width:100%;height:100%;object-fit:cover;display:block;"
+  >
+  <div class="trailer-overlay">
+    <div class="trailer-title">Cidade; Campo</div>
+    <div class="trailer-meta">Drama • 2024</div>
+  </div>
+</div>
+
+<div class="trailer-card" onclick="openVideo('https://www.youtube.com/embed/mfxuOP62w_U')">
+  <img
+    src="https://img.youtube.com/vi/mfxuOP62w_U/maxresdefault.jpg"
+    onerror="this.onerror=null;this.src='https://img.youtube.com/vi/mfxuOP62w_U/hqdefault.jpg';"
+    alt="Trailer Baby"
+    loading="lazy"
+    referrerpolicy="no-referrer"
+    style="width:100%;height:100%;object-fit:cover;display:block;"
+  >
+  <div class="trailer-overlay">
+    <div class="trailer-title">Baby</div>
+    <div class="trailer-meta">Drama • 2024</div>
+  </div>
+</div>
+
+    <!-- MOTEL DESTINO -->
+ <div class="trailer-card" onclick="openVideo('https://www.youtube.com/embed/SGcKf26-FR4')">
+    <img
+      src="https://img.youtube.com/vi/SGcKf26-FR4/maxresdefault.jpg"
+      onerror="this.onerror=null;this.src='https://img.youtube.com/vi/SGcKf26-FR4/hqdefault.jpg';"
+      alt="Trailer Motel Destino"
+      loading="lazy"
+      referrerpolicy="no-referrer"
+      style="width:100%;height:100%;object-fit:cover;display:block;"
+    >
+    <div class="trailer-overlay">
+      <div class="trailer-title">Motel Destino</div>
+      <div class="trailer-meta">Thriller • 2024</div>
+    </div>
+  </div>
+
+  </div>
+</section>
+
+
+        <!-- SHORTS - SEM RICK ASTLEY -->
         <section class="shorts-section" id="shorts">
             <div class="section-header">
                 <h2 class="section-title">Shorts</h2>
@@ -1827,7 +1901,7 @@
             </div>
 
             <div class="shorts-grid">
-                <div class="short-card" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                <div class="short-card" onclick="openVideo('https://www.youtube.com/embed/8SbUC-UaAxE')">
                     <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=600&q=80" alt="Short">
                     <div class="short-overlay">
                         <div class="short-title">Dicas de Direção</div>
@@ -1835,7 +1909,7 @@
                     </div>
                 </div>
 
-                <div class="short-card" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                <div class="short-card" onclick="openVideo('https://www.youtube.com/embed/3JZ_D3ELwOQ')">
                     <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=600&q=80" alt="Short">
                     <div class="short-overlay">
                         <div class="short-title">Bastidores do Festival</div>
@@ -1843,7 +1917,7 @@
                     </div>
                 </div>
 
-                <div class="short-card" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                <div class="short-card" onclick="openVideo('https://www.youtube.com/embed/k2qgadTqPp0')">
                     <img src="https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?w=600&q=80" alt="Short">
                     <div class="short-overlay">
                         <div class="short-title">Review Rápido</div>
@@ -1851,7 +1925,7 @@
                     </div>
                 </div>
 
-                <div class="short-card" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                <div class="short-card" onclick="openVideo('https://www.youtube.com/embed/1w7OgIMMRc4')">
                     <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=600&q=80" alt="Short">
                     <div class="short-overlay">
                         <div class="short-title">Entrevista Exclusiva</div>
@@ -1896,25 +1970,12 @@
             </div>
         </section>
 
-        <!-- INDÚSTRIA DO AUDIOVISUAL -->
+        <!-- BASTIDORES DO MERCADO -->
         <section class="industria-section">
             <div class="section-header">
-                <h2 class="section-title">Indústria do Audiovisual no Brasil</h2>
+                <h2 class="section-title">Bastidores do Mercado</h2>
             </div>
-            
-            <div class="industria-grid">
-                <article class="industria-card">
-                    <span class="news-tag tag-industria">Indústria</span>
-                    <h3 style="font-size: 1.2rem; font-weight: 700; margin: 0.75rem 0; line-height: 1.3;">
-                        Audiovisual brasileiro amplia intercâmbio com Índia e Coreia do Sul
-                    </h3>
-                    <p style="color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.6; font-size: 0.95rem;">
-                        Missão oficial leva delegação do audiovisual para aproximar mercados, 
-                        financiar coproduções e ampliar exportação de conteúdo.
-                    </p>
-                    <a href="https://agenciabrasil.ebc.com.br/cultura/noticia/2026-02/audiovisual-brasileiro-amplia-intercambio-com-india-e-coreia-do-sul" 
-                       target="_blank" class="news-link">Ler na Agência Brasil →</a>
-                </article>
+          
 
                 <article class="industria-card">
                     <span class="news-tag tag-industria">Política Pública</span>
@@ -1931,20 +1992,20 @@
             </div>
         </section>
 
-        <!-- PODCASTS -->
+        <!-- PAPO DE CINEMA -->
         <section class="podcast-section" id="podcasts">
             <div class="section-header">
-                <h2 class="section-title">Podcasts</h2>
+                <h2 class="section-title">Papo de Cinema</h2>
                 <a href="#" class="view-all">Ver todos →</a>
             </div>
 
             <div class="podcast-showcase">
                 <div class="podcast-cover">
-                    <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=600&q=80" alt="SMOB Talks">
+                    <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=600&q=80" alt="Papo de Cinema">
                 </div>
                 <div class="podcast-content">
-                    <h3>SMOB Talks</h3>
-                    <div class="podcast-host">Com Maria Silva</div>
+                    <h3>Papo de Cinema</h3>
+                    <div class="podcast-host">Com Wagner Moura</div>
                     <p class="podcast-desc">
                         Entrevistas exclusivas com os maiores nomes do cinema e da TV brasileira. 
                         Bastidores, histórias inéditas e muita cultura pop.
@@ -1956,21 +2017,20 @@
                         <span class="podcast-tag">Dicas</span>
                     </div>
                     <div class="podcast-player">
-                        <div class="play-button" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')"></div>
+                        <div class="play-button" onclick="openVideo('https://www.youtube.com/watch?v=IntI0gahUSg')"></div>
                         <div class="player-info">
                             <div class="player-title">Ep. 42: Conversa com Wagner Moura</div>
-                            <div class="player-time">45:30 • Reproduzir episódio completo</div>
+                            <div class="player-time">1: 30h • Reproduzir episódio completo</div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- DANGEROUS PEOPLE - COM IMAGEM -->
+        <!-- DANGEROUS PEOPLE -->
         <section class="dangerous-section" id="dangerous">
             <div class="dangerous-container">
                 <div class="dangerous-image">
-                    <!-- IMAGEM DO DANGEROUS PEOPLE - SUBSTITUA PELO CAMINHO REAL -->
                     <img src="assets/dangerous-people.jpg" 
                          alt="Dangerous People - Projeto de Curadoria"
                          onerror="this.src='https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=800&q=80'">
@@ -1990,7 +2050,7 @@
             </div>
         </section>
 
-        <!-- EXPERIENCES - VERMELHO INTENSO -->
+        <!-- EXPERIENCES -->
         <section class="experiences" id="experiences">
             <div class="experiences-content">
                 <div class="section-header">
@@ -2098,7 +2158,7 @@
             </div>
         </section>
 
-        <!-- APP DOWNLOAD - VERMELHO CLARO -->
+        <!-- APP DOWNLOAD -->
         <section class="app-section">
             <div class="app-content">
                 <div class="app-text">
@@ -2119,7 +2179,7 @@
         </section>
     </main>
 
-    <!-- Footer - VERMELHO ESCURO -->
+    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-brand">
@@ -2138,10 +2198,10 @@
                 <h4>Conteúdo</h4>
                 <ul>
                     <li><a href="#noticias">Notícias</a></li>
-                    <li><a href="#video-news">Video News</a></li>
-                    <li><a href="#trailers">Trailers</a></li>
+                    <li><a href="#video-news">Minuto SMOB</a></li>
+                    <li><a href="#trailers">Vem por Aí</a></li>
                     <li><a href="#shorts">Shorts</a></li>
-                    <li><a href="#podcasts">Podcasts</a></li>
+                    <li><a href="#podcasts">Papo de Cinema</a></li>
                 </ul>
             </div>
 
@@ -2228,9 +2288,9 @@
             });
         });
 
-        console.log('🎬 SMOB Shorts - Site Completo');
-        console.log('🔴 Identidade Visual Claro - Vermelho Dominante');
-        console.log('✅ Conteúdo atualizado e otimizado');
+        console.log('🎬 SMOB Shorts - Site Atualizado');
+        console.log('🔴 Identidade Visual Claro');
+        console.log('✅ Minuto SMOB, Vem por Aí, Bastidores, Papo de Cinema');
     </script>
 </body>
 </html>
