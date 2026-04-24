@@ -1771,6 +1771,1088 @@
             .section-title {
                 font-size: 1.8rem;
             }
+
+            .destaque-semana {
+                height: 450px;
+            }
+
+            .destaque-content h2 {
+                font-size: 2.2rem;
+            }
+
+            .destaque-actions {
+                flex-direction: column;
+            }
+
+            .destaque-btn-play,
+            .destaque-btn-info {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* ===== DESTAQUE DA SEMANA - BANNER TIPO NETFLIX ===== */
+        .destaque-semana {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .destaque-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center top;
+            filter: brightness(0.5) saturate(1.1);
+            animation: slowZoom 20s ease-in-out infinite alternate;
+        }
+
+        @keyframes slowZoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.08); }
+        }
+
+        .destaque-gradient {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, #0a0a0a 0%, rgba(10,10,10,0.7) 30%, rgba(10,10,10,0.2) 60%, transparent 100%);
+        }
+
+        .destaque-vignette {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 70% 50%, transparent 30%, rgba(10,10,10,0.6) 100%);
+        }
+
+        .destaque-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 5% 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .destaque-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--claro-red);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(227,6,19,0.4);
+            animation: pulse-badge 2s ease infinite;
+        }
+
+        @keyframes pulse-badge {
+            0%, 100% { box-shadow: 0 4px 15px rgba(227,6,19,0.4); }
+            50% { box-shadow: 0 4px 25px rgba(227,6,19,0.7); }
+        }
+
+        .destaque-badge .material-symbols-outlined {
+            font-size: 18px;
+        }
+
+        .destaque-content h2 {
+            color: white;
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 0.75rem;
+            line-height: 1.1;
+            text-shadow: 0 2px 30px rgba(0,0,0,0.7);
+            max-width: 700px;
+        }
+
+        .destaque-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            color: rgba(255,255,255,0.7);
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .destaque-meta .meta-tag {
+            background: rgba(255,255,255,0.15);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .destaque-desc {
+            color: rgba(255,255,255,0.8);
+            font-size: 1.15rem;
+            line-height: 1.7;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .destaque-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .destaque-btn-play {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: white;
+            color: #1a1a1a;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .destaque-btn-play:hover {
+            transform: scale(1.05);
+            background: #f0f0f0;
+        }
+
+        .destaque-btn-play .material-symbols-outlined {
+            font-size: 24px;
+        }
+
+        .destaque-btn-info {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .destaque-btn-info:hover {
+            background: rgba(255,255,255,0.25);
+            transform: scale(1.05);
+        }
+
+        /* ===== SHARE BUTTON ===== */
+        .share-btn {
+            position: absolute;
+            top: 0.75rem;
+            right: 0.75rem;
+            width: 36px;
+            height: 36px;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid rgba(255,255,255,0.15);
+            color: white;
+            z-index: 5;
+            opacity: 0;
+        }
+
+        .curta-item:hover .share-btn {
+            opacity: 1;
+        }
+
+        .share-btn:hover {
+            background: var(--claro-red);
+            transform: scale(1.1);
+        }
+
+        .share-btn .material-symbols-outlined {
+            font-size: 18px;
+        }
+
+        /* ===== SHOP MELHORADO ===== */
+        .shop-card-v2 {
+            background: var(--surface);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px var(--shadow);
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .shop-card-v2:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(227, 6, 19, 0.2);
+            border-color: var(--claro-red);
+        }
+
+        .shop-image-v2 {
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shop-image-v2 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .shop-card-v2:hover .shop-image-v2 img {
+            transform: scale(1.05);
+        }
+
+        .shop-info-v2 {
+            padding: 1.5rem;
+        }
+
+        .shop-info-v2 h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        .shop-price-v2 {
+            color: var(--claro-red);
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .shop-btn-v2 {
+            width: 100%;
+            padding: 0.9rem;
+            background: var(--claro-red);
+            border: none;
+            color: white;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 15px rgba(227,6,19,0.3);
+        }
+
+        .shop-btn-v2:hover {
+            background: var(--claro-red-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(227,6,19,0.4);
+        }
+
+        .shop-coming-soon {
+            display: inline-block;
+            background: linear-gradient(135deg, #FFE5E5, #fff);
+            color: var(--claro-red);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-top: 0.5rem;
+            border: 1px solid #FFD1D1;
+        }
+
+        /* ===== CURADORIA MELHORADA ===== */
+        .curta-card-v2 {
+            background: var(--surface);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+            box-shadow: 0 4px 20px var(--shadow);
+        }
+
+        .curta-card-v2:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(227, 6, 19, 0.15);
+            border-color: var(--claro-red);
+        }
+
+        .curta-card-v2 .curta-card-img {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            display: block;
+        }
+
+        .curta-card-v2 .curta-card-body {
+            padding: 1.5rem;
+            text-align: left;
+        }
+
+        .curta-card-v2 h4 {
+            color: var(--text-primary);
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .curta-card-v2 p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .curta-card-v2 .btn-sm {
+            padding: 0.6rem 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* ===== SESSÃO CURTAS SMOB - ESTILO NETFLIX ===== */
+
+        .curtas-smob-section {
+            background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .curtas-smob-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 400px;
+            background: radial-gradient(ellipse at 50% 0%, rgba(227, 6, 19, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .curtas-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .curtas-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .curtas-header .section-title {
+            color: white;
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 20px rgba(227, 6, 19, 0.3);
+        }
+
+        .curtas-header .section-title::after {
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(90deg, transparent, var(--claro-red), transparent);
+            width: 120px;
+        }
+
+        .curtas-header p {
+            color: rgba(255,255,255,0.6);
+            font-size: 1.1rem;
+            margin-top: 1rem;
+        }
+
+        /* Grid dos temas */
+        .temas-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .tema-card {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            aspect-ratio: 3/4;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid rgba(255,255,255,0.1);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+
+        .tema-card:hover {
+            transform: translateY(-12px) scale(1.03);
+            border-color: rgba(255,255,255,0.3);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.6), 0 0 40px rgba(227, 6, 19, 0.15);
+        }
+
+        .tema-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.6s;
+        }
+
+        .tema-card:hover .tema-bg {
+            transform: scale(1.1);
+        }
+
+        .tema-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.5rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);
+            transition: all 0.3s;
+        }
+
+        .tema-card:hover .tema-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.5) 60%, rgba(227,6,19,0.1) 100%);
+        }
+
+        .tema-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+        }
+
+        .tema-title {
+            color: white;
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 0.25rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .tema-subtitle {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tema-play {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            width: 70px;
+            height: 70px;
+            background: var(--claro-red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.4s;
+            box-shadow: 0 10px 30px rgba(227,6,19,0.5);
+            border: 3px solid rgba(255,255,255,0.3);
+        }
+
+        .tema-card:hover .tema-play {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .tema-play::after {
+            content: '▶';
+            color: white;
+            font-size: 1.8rem;
+            margin-left: 5px;
+        }
+
+        .tema-count {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(10px);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 700;
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        /* Gallery Overlay */
+        .gallery-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(5, 5, 5, 0.98);
+            z-index: 3000;
+            overflow-y: auto;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .gallery-overlay.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .gallery-header {
+            position: sticky;
+            top: 0;
+            background: linear-gradient(180deg, rgba(5,5,5,0.98) 0%, rgba(5,5,5,0.9) 70%, transparent 100%);
+            padding: 2rem 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 10;
+            backdrop-filter: blur(20px);
+        }
+
+        .gallery-header-info {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .gallery-back {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid rgba(255,255,255,0.2);
+            color: white;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .gallery-back:hover {
+            background: var(--claro-red);
+            border-color: var(--claro-red);
+            transform: scale(1.1);
+        }
+
+        .gallery-title-group h2 {
+            color: white;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.25rem;
+        }
+
+        .gallery-title-group span {
+            color: rgba(255,255,255,0.5);
+            font-size: 1rem;
+        }
+
+        .gallery-close {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid rgba(255,255,255,0.2);
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 300;
+        }
+
+        .gallery-close:hover {
+            background: var(--claro-red);
+            border-color: var(--claro-red);
+            transform: rotate(90deg);
+        }
+
+        /* Carrossel de curtas */
+        .gallery-content {
+            padding: 2rem 5% 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .gallery-carousel-wrapper {
+            position: relative;
+        }
+
+        .gallery-carousel {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .curta-item {
+            background: rgba(255,255,255,0.03);
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255,255,255,0.08);
+            animation: slideUp 0.5s ease backwards;
+        }
+
+        .curta-item:nth-child(1) { animation-delay: 0.05s; }
+        .curta-item:nth-child(2) { animation-delay: 0.1s; }
+        .curta-item:nth-child(3) { animation-delay: 0.15s; }
+        .curta-item:nth-child(4) { animation-delay: 0.2s; }
+        .curta-item:nth-child(5) { animation-delay: 0.25s; }
+        .curta-item:nth-child(6) { animation-delay: 0.3s; }
+        .curta-item:nth-child(7) { animation-delay: 0.35s; }
+        .curta-item:nth-child(8) { animation-delay: 0.4s; }
+
+        .curta-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(227, 6, 19, 0.5);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 30px rgba(227, 6, 19, 0.1);
+        }
+
+        .curta-thumb {
+            position: relative;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+        }
+
+        .curta-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .curta-item:hover .curta-thumb img {
+            transform: scale(1.1);
+        }
+
+        .curta-number {
+            position: absolute;
+            top: 0.75rem;
+            left: 0.75rem;
+            background: var(--claro-red);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.85rem;
+            box-shadow: 0 4px 15px rgba(227,6,19,0.4);
+        }
+
+        .curta-play-btn {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(227, 6, 19, 0.15);
+            transition: all 0.3s;
+            opacity: 0;
+        }
+
+        .curta-item:hover .curta-play-btn {
+            opacity: 1;
+            background: rgba(227, 6, 19, 0.25);
+        }
+
+        .curta-play-btn .play-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--claro-red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(227,6,19,0.5);
+            border: 3px solid rgba(255,255,255,0.3);
+            transform: scale(0.8);
+            transition: transform 0.3s;
+        }
+
+        .curta-item:hover .curta-play-btn .play-icon {
+            transform: scale(1);
+        }
+
+        .curta-play-btn .play-icon::after {
+            content: '▶';
+            color: white;
+            font-size: 1.5rem;
+            margin-left: 4px;
+        }
+
+        .curta-info {
+            padding: 1.2rem;
+        }
+
+        .curta-info-title {
+            color: white;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+            line-height: 1.3;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .curta-info-director {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .curta-info-director strong {
+            color: rgba(255,255,255,0.7);
+            font-weight: 600;
+        }
+
+        /* Scroll hint */
+        .scroll-hint {
+            text-align: center;
+            margin-top: 2rem;
+            color: rgba(255,255,255,0.3);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        /* Tema badges */
+        .tema-badge {
+            display: inline-block;
+            padding: 0.35rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-crime { background: rgba(139, 0, 0, 0.3); color: #ff6b6b; border: 1px solid rgba(255, 107, 107, 0.2); }
+        .badge-aventura { background: rgba(232, 93, 4, 0.3); color: #ffb627; border: 1px solid rgba(255, 182, 39, 0.2); }
+        .badge-terror { background: rgba(26, 26, 46, 0.5); color: #a0a0c0; border: 1px solid rgba(160, 160, 192, 0.2); }
+        .badge-animacao { background: rgba(106, 76, 147, 0.3); color: #c9b8e8; border: 1px solid rgba(201, 184, 232, 0.2); }
+        .badge-humor { background: rgba(45, 106, 79, 0.3); color: #74c69d; border: 1px solid rgba(116, 198, 157, 0.2); }
+
+        /* ===== GALLERY HERO HEADER ===== */
+        .gallery-hero {
+            position: relative;
+            width: 100%;
+            height: 380px;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .gallery-hero-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.4) saturate(1.2);
+            transform: scale(1.05);
+            transition: transform 8s ease;
+        }
+
+        .gallery-overlay.active .gallery-hero-bg {
+            transform: scale(1);
+        }
+
+        .gallery-hero-gradient {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(5,5,5,1) 0%, rgba(5,5,5,0.7) 40%, rgba(5,5,5,0.3) 100%);
+        }
+
+        .gallery-hero-accent {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+        }
+
+        .accent-crime { background: linear-gradient(90deg, #8B0000, #E30613, #8B0000); }
+        .accent-aventura { background: linear-gradient(90deg, #E85D04, #F48C06, #E85D04); }
+        .accent-terror { background: linear-gradient(90deg, #1A1A2E, #0F3460, #1A1A2E); }
+        .accent-animacao { background: linear-gradient(90deg, #6A4C93, #9B5DE5, #6A4C93); }
+        .accent-humor { background: linear-gradient(90deg, #2D6A4F, #40916C, #2D6A4F); }
+
+        .gallery-hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 5% 2.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .gallery-hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .gallery-hero-label .material-symbols-outlined {
+            font-size: 18px;
+        }
+
+        .gallery-hero h2 {
+            color: white;
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 0.75rem;
+            line-height: 1.1;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+        }
+
+        .gallery-hero p {
+            color: rgba(255,255,255,0.75);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            max-width: 700px;
+            margin-bottom: 1.5rem;
+        }
+
+        .gallery-hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--claro-red);
+            color: white;
+            padding: 0.85rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(227,6,19,0.4);
+        }
+
+        .gallery-hero-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(227,6,19,0.5);
+            background: #ff1a26;
+        }
+
+        .gallery-hero-cta .material-symbols-outlined {
+            font-size: 20px;
+        }
+
+        /* ===== TICKER ESTREIAS - ESTILO BLOOMBERG ===== */
+        .estreias-section {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+            border-top: 2px solid var(--claro-red);
+            border-bottom: 2px solid var(--claro-red);
+        }
+
+        .estreias-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 150px;
+            height: 100%;
+            background: linear-gradient(90deg, #0a0a0a 0%, transparent 100%);
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .estreias-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 100%;
+            background: linear-gradient(270deg, #0a0a0a 0%, transparent 100%);
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .estreias-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1rem 5% 0.5rem;
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .estreias-header .live-dot {
+            width: 8px;
+            height: 8px;
+            background: #00ff00;
+            border-radius: 50%;
+            animation: pulse-dot 1.5s ease infinite;
+            box-shadow: 0 0 10px #00ff00;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
+        }
+
+        .ticker-wrap {
+            width: 100%;
+            overflow: hidden;
+            padding: 0.75rem 0 1.25rem;
+        }
+
+        .ticker {
+            display: inline-flex;
+            white-space: nowrap;
+            animation: ticker-scroll 40s linear infinite;
+        }
+
+        .ticker:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes ticker-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .ticker-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 2rem;
+            border-right: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.85);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .ticker-item:hover {
+            color: white;
+            background: rgba(227,6,19,0.1);
+        }
+
+        .ticker-item .ticker-film {
+            font-weight: 700;
+            color: var(--claro-red-light);
+        }
+
+        .ticker-item .ticker-tag {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tag-estreia { background: var(--claro-red); color: white; }
+        .tag-cartaz { background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.8); }
+        .tag-breve { background: rgba(255,182,39,0.2); color: #ffb627; }
+
+        /* ===== RESPONSIVE GALLERY HERO ===== */
+        @media (max-width: 768px) {
+            .gallery-hero {
+                height: 320px;
+            }
+            .gallery-hero h2 {
+                font-size: 2rem;
+            }
+            .gallery-hero p {
+                font-size: 0.95rem;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1280px) {
+            .temas-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .gallery-carousel {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .temas-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .gallery-carousel {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .curtas-header .section-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .temas-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            .gallery-carousel {
+                grid-template-columns: 1fr;
+            }
+            .tema-card {
+                aspect-ratio: 4/5;
+            }
+            .tema-title {
+                font-size: 1.3rem;
+            }
+            .gallery-header {
+                padding: 1.5rem 5%;
+            }
+            .gallery-title-group h2 {
+                font-size: 1.5rem;
+            }
+            .curtas-header .section-title {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
@@ -1788,10 +2870,12 @@
         <div class="logo">SMOB SHORTS</div>
         <ul class="nav-links">
             <li><a href="#claro-destaque">Claro</a></li>
+            <li><a href="#estreias">Estreias</a></li>
             <li><a href="#noticias">Notícias</a></li>
             <li><a href="#video-news">Minuto SMOB</a></li>
             <li><a href="#trailers">Vem por Aí</a></li>
             <li><a href="#shorts">Shorts</a></li>
+            <li><a href="#curtas-smob">Curtas SMOB</a></li>
             <li><a href="#curtas">Curtas</a></li>
             <li><a href="#podcasts">Papo de Cinema</a></li>
             <li><a href="#experiences">Experiências</a></li>
@@ -1831,6 +2915,851 @@
                 </div>
             </div>
         </section>
+
+        <!-- ESTREIAS NO CINEMA - TICKER ESTILO BLOOMBERG -->
+        <section class="estreias-section" id="estreias">
+            <div class="estreias-header">
+                <div class="live-dot"></div>
+                <span>Em cartaz e estreias — Não perca no cinema</span>
+            </div>
+            <div class="ticker-wrap">
+                <div class="ticker">
+                    <div class="ticker-item">
+                        <span class="ticker-film">Motel Destino</span>
+                        <span>— Karim Aïnouz</span>
+                        <span class="ticker-tag tag-estreia">Estreia</span>
+                    </div>
+                    <div class="ticker-item">
+                        <span class="ticker-film">Cidade; Campo</span>
+                        <span>— Juliana Rojas</span>
+                        <span class="ticker-tag tag-cartaz">Em cartaz</span>
+                    </div>
+                    <div class="ticker-item">
+                        <span class="ticker-film">Baby</span>
+                        <span>— Marcelo Caetano</span>
+                        <span class="ticker-tag tag-cartaz">Em cartaz</span>
+                    </div>
+                    <div class="ticker-item">
+                        <span class="ticker-film">Superman</span>
+                        <span>— James Gunn</span>
+                        <span class="ticker-tag tag-breve">Breve</span>
+                    </div>
+                    <div class="ticker-item">
+                        <span class="ticker-film">Ainda Estou Aqui</span>
+                        <span>— Walter Salles</span>
+                        <span class="ticker-tag tag-estreia">Estreia</span>
+                    </div>
+                    <div class="ticker-item">
+                        <span class="ticker-film">Chico Buarque — Eu Que Não Amo Você</span>
+                        <span>— Documentário</span>
+                        <span class="ticker-tag tag-cartaz">Em cartaz</span>
+                    </div>
+                    <div class="ticker-item">
+                        <span class="ticker-film">O Macaco</span>
+                        <span>— Osgood Perkins</span>
+                        <span class="ticker-tag tag-breve">Breve</span>
+                    </div>
+                    <div class="ticker-item">
+                        <span class="ticker-film">Os Fantasmas Ainda se Divertem</span>
+                        <span>— Tim Burton</span>
+                        <span class="ticker-tag tag-breve">Breve</span>
+                    </div>
+                    <div class="ticker-item">
+                        <span class="ticker-film">O Homem Cão</span>
+                        <span>— Luc Besson</span>
+                        <span class="ticker-tag tag-cartaz">Em cartaz</span>
+                    </div>
+                    <div class="ticker-item">
+                        <span class="ticker-film">Um Filme Minecraft</span>
+                        <span>— Jared Hess</span>
+                        <span class="ticker-tag tag-cartaz">Em cartaz</span>
+                    </div>
+                    <!-- Duplicados para loop contínuo -->
+                    <div class="ticker-item">
+                        <span class="ticker-film">Motel Destino</span>
+                        <span>— Karim Aïnouz</span>
+                        <span class="ticker-tag tag-estreia">Estreia</span>
+                    </div>
+                    <div class="ticker-item">
+                        <span class="ticker-film">Cidade; Campo</span>
+                        <span>— Juliana Rojas</span>
+                        <span class="ticker-tag tag-cartaz">Em cartaz</span>
+                    </div>
+                    <div class="ticker-item">
+                        <span class="ticker-film">Baby</span>
+                        <span>— Marcelo Caetano</span>
+                        <span class="ticker-tag tag-cartaz">Em cartaz</span>
+                    </div>
+                    <div class="ticker-item">
+                        <span class="ticker-film">Superman</span>
+                        <span>— James Gunn</span>
+                        <span class="ticker-tag tag-breve">Breve</span>
+                    </div>
+                    <div class="ticker-item">
+                        <span class="ticker-film">Ainda Estou Aqui</span>
+                        <span>— Walter Salles</span>
+                        <span class="ticker-tag tag-estreia">Estreia</span>
+                    </div>
+                    <div class="ticker-item">
+                        <span class="ticker-film">Chico Buarque — Eu Que Não Amo Você</span>
+                        <span>— Documentário</span>
+                        <span class="ticker-tag tag-cartaz">Em cartaz</span>
+                    </div>
+                    <div class="ticker-item">
+                        <span class="ticker-film">O Macaco</span>
+                        <span>— Osgood Perkins</span>
+                        <span class="ticker-tag tag-breve">Breve</span>
+                    </div>
+                    <div class="ticker-item">
+                        <span class="ticker-film">Os Fantasmas Ainda se Divertem</span>
+                        <span>— Tim Burton</span>
+                        <span class="ticker-tag tag-breve">Breve</span>
+                    </div>
+                    <div class="ticker-item">
+                        <span class="ticker-film">O Homem Cão</span>
+                        <span>— Luc Besson</span>
+                        <span class="ticker-tag tag-cartaz">Em cartaz</span>
+                    </div>
+                    <div class="ticker-item">
+                        <span class="ticker-film">Um Filme Minecraft</span>
+                        <span>— Jared Hess</span>
+                        <span class="ticker-tag tag-cartaz">Em cartaz</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DESTAQUE DA SEMANA -->
+        <div class="destaque-semana">
+            <div class="destaque-bg" style="background-image: url('https://img.youtube.com/vi/QQyZGWY1HaY/maxresdefault.jpg');"></div>
+            <div class="destaque-gradient"></div>
+            <div class="destaque-vignette"></div>
+            <div class="destaque-content">
+                <div class="destaque-badge">
+                    <span class="material-symbols-outlined">star</span>
+                    Destaque da Semana
+                </div>
+                <h2>Trust</h2>
+                <div class="destaque-meta">
+                    <span class="meta-tag">Coleção Crime</span>
+                    <span>Diretor: Shri Ananda</span>
+                </div>
+                <p class="destaque-desc">
+                    Uma seleção especial das coleções SMOB. Cada semana um curta diferente ganha destaque — descubra histórias que vão te surpreender, emocionar e fazer pensar.
+                </p>
+                <div class="destaque-actions">
+                    <button class="destaque-btn-play" onclick="openVideo('https://www.youtube.com/embed/QQyZGWY1HaY')">
+                        <span class="material-symbols-outlined">play_arrow</span>
+                        Assistir Agora
+                    </button>
+                    <button class="destaque-btn-info" onclick="openGallery('crime')">
+                        <span class="material-symbols-outlined">theaters</span>
+                        Ver Coleção Crime
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- CURTAS SMOB - ESTILO NETFLIX -->
+        <section class="curtas-smob-section" id="curtas-smob">
+            <div class="curtas-container">
+                <div class="curtas-header">
+                    <h2 class="section-title">Curtas SMOB</h2>
+                    <p>Escolha um tema e mergulhe em histórias selecionadas. 40 curtas, 5 universos.</p>
+                </div>
+
+                <div class="temas-grid">
+                    <!-- CRIME -->
+                    <div class="tema-card" onclick="openGallery('crime')">
+                        <div class="tema-bg" style="background: linear-gradient(135deg, #8B0000 0%, #E30613 100%);"></div>
+                        <div class="tema-overlay">
+                            <span class="tema-count">8 curtas</span>
+                            <div class="tema-play"></div>
+                            <div class="tema-icon"><span class="material-symbols-outlined" style="font-size:3rem;color:white;">gavel</span></div>
+                            <div class="tema-title">Crime</div>
+                            <div class="tema-subtitle">Dangerous People</div>
+                        </div>
+                    </div>
+
+                    <!-- AVENTURA -->
+                    <div class="tema-card" onclick="openGallery('aventura')">
+                        <div class="tema-bg" style="background: linear-gradient(135deg, #E85D04 0%, #F48C06 100%);"></div>
+                        <div class="tema-overlay">
+                            <span class="tema-count">8 curtas</span>
+                            <div class="tema-play"></div>
+                            <div class="tema-icon"><span class="material-symbols-outlined" style="font-size:3rem;color:white;">rocket_launch</span></div>
+                            <div class="tema-title">Aventura</div>
+                            <div class="tema-subtitle">Adventure Zone</div>
+                        </div>
+                    </div>
+
+                    <!-- TERROR -->
+                    <div class="tema-card" onclick="openGallery('terror')">
+                        <div class="tema-bg" style="background: linear-gradient(135deg, #1A1A2E 0%, #16213E 50%, #0F3460 100%);"></div>
+                        <div class="tema-overlay">
+                            <span class="tema-count">8 curtas</span>
+                            <div class="tema-play"></div>
+                            <div class="tema-icon"><span class="material-symbols-outlined" style="font-size:3rem;color:white;">dark_mode</span></div>
+                            <div class="tema-title">Terror</div>
+                            <div class="tema-subtitle">Dark Nights</div>
+                        </div>
+                    </div>
+
+                    <!-- ANIMAÇÃO -->
+                    <div class="tema-card" onclick="openGallery('animacao')">
+                        <div class="tema-bg" style="background: linear-gradient(135deg, #6A4C93 0%, #9B5DE5 100%);"></div>
+                        <div class="tema-overlay">
+                            <span class="tema-count">8 curtas</span>
+                            <div class="tema-play"></div>
+                            <div class="tema-icon"><span class="material-symbols-outlined" style="font-size:3rem;color:white;">palette</span></div>
+                            <div class="tema-title">Animação</div>
+                            <div class="tema-subtitle">Kids Time</div>
+                        </div>
+                    </div>
+
+                    <!-- HUMOR -->
+                    <div class="tema-card" onclick="openGallery('humor')">
+                        <div class="tema-bg" style="background: linear-gradient(135deg, #2D6A4F 0%, #40916C 100%);"></div>
+                        <div class="tema-overlay">
+                            <span class="tema-count">8 curtas</span>
+                            <div class="tema-play"></div>
+                            <div class="tema-icon"><span class="material-symbols-outlined" style="font-size:3rem;color:white;">sentiment_very_satisfied</span></div>
+                            <div class="tema-title">Humor</div>
+                            <div class="tema-subtitle">Comedy Club</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALLERY OVERLAYS -->
+
+        <!-- CRIME GALLERY -->
+        <div class="gallery-overlay" id="gallery-crime">
+            <div class="gallery-header">
+                <div class="gallery-header-info">
+                    <div class="gallery-back" onclick="closeGallery('crime')">
+                        <span class="material-symbols-outlined">arrow_back</span>
+                    </div>
+                    <div class="gallery-title-group">
+                        <h2>Coleção Crime</h2>
+                        <span class="tema-badge badge-crime">Dangerous People • 8 curtas</span>
+                    </div>
+                </div>
+                <div class="gallery-close" onclick="closeGallery('crime')">×</div>
+            </div>
+            <div class="gallery-hero">
+                <div class="gallery-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1400&q=80');"></div>
+                <div class="gallery-hero-gradient"></div>
+                <div class="gallery-hero-accent accent-crime"></div>
+                <div class="gallery-hero-content">
+                    <div class="gallery-hero-label">
+                        <span class="material-symbols-outlined">theaters</span>
+                        Seleção especial SMOB
+                    </div>
+                    <h2>Dangerous People</h2>
+                    <p>Histórias onde a linha entre certo e errado se desfaz. Tramas intensas, reviravoltas inesperadas e personagens que vivem nas sombras do sistema. 8 curtas que exploram o lado mais sombrio da natureza humana — da traição ao redenção, do suspense à justiça.</p>
+                    <div class="gallery-hero-cta" onclick="document.getElementById('crime-grid').scrollIntoView({behavior:'smooth'})">
+                        <span class="material-symbols-outlined">play_circle</span>
+                        Explorar seleção
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-content" id="crime-grid">
+                <div class="gallery-carousel">
+                    <div class="curta-item" onclick="openVideo('https://www.youtube.com/embed/QQyZGWY1HaY')">
+                        <div class="curta-thumb">
+                            <img src="https://img.youtube.com/vi/QQyZGWY1HaY/maxresdefault.jpg" alt="Trust" loading="lazy">
+                            <span class="curta-number">01</span>
+                            <div class="curta-play-btn"><div class="play-icon"></div></div>
+                        </div>
+                        <div class="curta-info">
+                            <div class="curta-info-title">Trust</div>
+                            <div class="curta-info-director"><strong>Diretor:</strong> Shri Ananda</div>
+                        </div>
+                    </div>
+                    <div class="curta-item" onclick="openVideo('https://www.youtube.com/embed/DkKqlrLcMw8')">
+                        <div class="curta-thumb">
+                            <img src="https://img.youtube.com/vi/DkKqlrLcMw8/maxresdefault.jpg" alt="One Body, One Lie, One Terrifying Choice" loading="lazy">
+                            <span class="curta-number">02</span>
+                            <div class="curta-play-btn"><div class="play-icon"></div></div>
+                        </div>
+                        <div class="curta-info">
+                            <div class="curta-info-title">One Body, One Lie, One Terrifying Choice</div>
+                            <div class="curta-info-director"><strong>Diretor:</strong> Caterine Mack</div>
+                        </div>
+                    </div>
+                    <div class="curta-item" onclick="openVideo('https://www.youtube.com/embed/ihpQLPouJqw')">
+                        <div class="curta-thumb">
+                            <img src="https://img.youtube.com/vi/ihpQLPouJqw/maxresdefault.jpg" alt="Munkie" loading="lazy">
+                            <span class="curta-number">03</span>
+                            <div class="curta-play-btn"><div class="play-icon"></div></div>
+                        </div>
+                        <div class="curta-info">
+                            <div class="curta-info-title">Munkie</div>
+                            <div class="curta-info-director"><strong>Diretor:</strong> Steven Chow</div>
+                        </div>
+                    </div>
+                    <div class="curta-item" onclick="openVideo('https://www.youtube.com/embed/u_tfT6WR5eY')">
+                        <div class="curta-thumb">
+                            <img src="https://img.youtube.com/vi/u_tfT6WR5eY/maxresdefault.jpg" alt="Kismet" loading="lazy">
+                            <span class="curta-number">04</span>
+                            <div class="curta-play-btn"><div class="play-icon"></div></div>
+                        </div>
+                        <div class="curta-info">
+                            <div class="curta-info-title">Kismet</div>
+                            <div class="curta-info-director"><strong>Diretor:</strong> Mike Smith</div>
+                        </div>
+                    </div>
+                    <div class="curta-item" onclick="openVideo('https://www.youtube.com/embed/o9r2lYnv6Pc')">
+                        <div class="curta-thumb">
+                            <img src="https://img.youtube.com/vi/o9r2lYnv6Pc/maxresdefault.jpg" alt="Passage" loading="lazy">
+                            <span class="curta-number">05</span>
+                            <div class="curta-play-btn"><div class="play-icon"></div></div>
+                        </div>
+                        <div class="curta-info">
+                            <div class="curta-info-title">Passage</div>
+                            <div class="curta-info-director"><strong>Diretor:</strong> Victor D Ponten</div>
+                        </div>
+                    </div>
+                    <div class="curta-item" onclick="openVideo('https://www.youtube.com/embed/cxI0j-9cH40')">
+                        <div class="curta-thumb">
+                            <img src="https://img.youtube.com/vi/cxI0j-9cH40/maxresdefault.jpg" alt="Locked In" loading="lazy">
+                            <span class="curta-number">06</span>
+                            <div class="curta-play-btn"><div class="play-icon"></div></div>
+                        </div>
+                        <div class="curta-info">
+                            <div class="curta-info-title">Locked In</div>
+                            <div class="curta-info-director"><strong>Diretor:</strong> Anas Sfagsi</div>
+                        </div>
+                    </div>
+                    <div class="curta-item" onclick="openVideo('https://www.youtube.com/embed/d4AVPwEysZE')">
+                        <div class="curta-thumb">
+                            <img src="https://img.youtube.com/vi/d4AVPwEysZE/maxresdefault.jpg" alt="Bits" loading="lazy">
+                            <span class="curta-number">07</span>
+                            <div class="curta-play-btn"><div class="play-icon"></div></div>
+                        </div>
+                        <div class="curta-info">
+                            <div class="curta-info-title">Bits</div>
+                            <div class="curta-info-director"><strong>Diretor:</strong> Lilliya Scarlett Reid</div>
+                        </div>
+                    </div>
+                    <div class="curta-item" onclick="openVideo('https://www.youtube.com/embed/zr6eyzhKC1w')">
+                        <div class="curta-thumb">
+                            <img src="https://img.youtube.com/vi/zr6eyzhKC1w/maxresdefault.jpg" alt="Gridlock" loading="lazy">
+                            <span class="curta-number">08</span>
+                            <div class="curta-play-btn"><div class="play-icon"></div></div>
+                        </div>
+                        <div class="curta-info">
+                            <div class="curta-info-title">Gridlock</div>
+                            <div class="curta-info-director"><strong>Diretor:</strong> Ian Hunt Duffy</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AVENTURA GALLERY -->
+        <div class="gallery-overlay" id="gallery-aventura">
+            <div class="gallery-header">
+                <div class="gallery-header-info">
+                    <div class="gallery-back" onclick="closeGallery('aventura')">
+                        <span class="material-symbols-outlined">arrow_back</span>
+                    </div>
+                    <div class="gallery-title-group">
+                        <h2>Coleção Aventura</h2>
+                        <span class="tema-badge badge-aventura">Adventure Zone • 8 curtas</span>
+                    </div>
+                </div>
+                <div class="gallery-close" onclick="closeGallery('aventura')">×</div>
+            </div>
+            <div class="gallery-hero">
+                <div class="gallery-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1534447677768-be436bb09401?w=1400&q=80');"></div>
+                <div class="gallery-hero-gradient"></div>
+                <div class="gallery-hero-accent accent-aventura"></div>
+                <div class="gallery-hero-content">
+                    <div class="gallery-hero-label">
+                        <span class="material-symbols-outlined">rocket_launch</span>
+                        Seleção especial SMOB
+                    </div>
+                    <h2>Adventure Zone</h2>
+                    <p>Embarque em jornadas que ultrapassam fronteiras. De mundos distantes a realidades perturbadoras, cada curta é uma porta para o desconhecido. 8 histórias que desafiam limites, provocam reflexões e provam que a maior aventura está em ver o mundo com outros olhos.</p>
+                    <div class="gallery-hero-cta" onclick="document.getElementById('aventura-grid').scrollIntoView({behavior:'smooth'})">
+                        <span class="material-symbols-outlined">play_circle</span>
+                        Explorar seleção
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-content" id="aventura-grid">
+                <div class="gallery-carousel">
+                    <div class="curta-item" onclick="openVideo('https://www.youtube.com/embed/Y3hjZJ9AJ5s')">
+                        <div class="curta-thumb">
+                            <img src="https://img.youtube.com/vi/Y3hjZJ9AJ5s/maxresdefault.jpg" alt="Ambition" loading="lazy">
+                            <span class="curta-number">01</span>
+                            <div class="curta-play-btn"><div class="play-icon"></div></div>
+                        </div>
+                        <div class="curta-info">
+                            <div class="curta-info-title">Ambition</div>
+                            <div class="curta-info-director"><strong>Diretor:</strong> Tomek Bagiński</div>
+                        </div>
+                    </div>
+                    <div class="curta-item" onclick="openVideo('https://www.youtube.com/embed/YpoU8PdYjYQ')">
+                        <div class="curta-thumb">
+                            <img src="https://img.youtube.com/vi/YpoU8PdYjYQ/maxresdefault.jpg" alt="Uncanny Valley" loading="lazy">
+                            <span class="curta-number">02</span>
+                            <div class="curta-play-btn"><div class="play-icon"></div></div>
+                        </div>
+                        <div class="curta-info">
+                            <div class="curta-info-title">Uncanny Valley</div>
+                            <div class="curta-info-director"><strong>Diretor:</strong> Federico Heller</div>
+                        </div>
+                    </div>
+                    <div class="curta-item" onclick="openVideo('https://www.youtube.com/embed/6GBVco9hIK8')">
+                        <div class="curta-thumb">
+                            <img src="https://img.youtube.com/vi/6GBVco9hIK8/maxresdefault.jpg" alt="The Phone Call" loading="lazy">
+                            <span class="curta-number">03</span>
+                            <div class="curta-play-btn"><div class="play-icon"></div></div>
+                        </div>
+                        <div class="curta-info">
+                            <div class="curta-info-title">The Phone Call</div>
+                            <div class="curta-info-director"><strong>Diretor:</strong> Mat Kirkby</div>
+                        </div>
+                    </div>
+                    <div class="curta-item" onclick="openVideo('https://www.youtube.com/embed/XD1xITV3sS4')">
+                        <div class="curta-thumb">
+                            <img src="https://img.youtube.com/vi/XD1xITV3sS4/maxresdefault.jpg" alt="The Gift" loading="lazy">
+                            <span class="curta-number">04</span>
+                            <div class="curta-play-btn"><div class="play-icon"></div></div>
+                        </div>
+                        <div class="curta-info">
+                            <div class="curta-info-title">The Gift</div>
+                            <div class="curta-info-director"><strong>Diretor:</strong> Carl E. Rinsch</div>
+                        </div>
+                    </div>
+                    <div class="curta-item" onclick="openVideo('https://www.youtube.com/embed/qzYFS5BBESY')">
+                        <div class="curta-thumb">
+                            <img src="https://img.youtube.com/vi/qzYFS5BBESY/maxresdefault.jpg" alt="The Long Goodbye" loading="lazy">
+                            <span class="curta-number">05</span>
+                            <div class="curta-play-btn"><div class="play-icon"></div></div>
+                        </div>
+                        <div class="curta-info">
+                            <div class="curta-info-title">The Long Goodbye</div>
+                            <div class="curta-info-director"><strong>Diretor:</strong> Aneil Karia</div>
+                        </div>
+                    </div>
+                    <div class="curta-item" onclick="openVideo('https://www.youtube.com/embed/EiBWrJzYe_U')">
+                        <div class="curta-thumb">
+                            <img src="https://img.youtube.com/vi/EiBWrJzYe_U/maxresdefault.jpg" alt="Curfew" loading="lazy">
+                            <span class="curta-number">06</span>
+                            <div class="curta-play-btn"><div class="play-icon"></div></div>
+                        </div>
+                        <div class="curta-info">
+                            <div class="curta-info-title">Curfew</div>
+                            <div class="curta-info-director"><strong>Diretor:</strong> Shawn Christensen</div>
+                        </div>
+                    </div>
+                    <div class="curta-item" onclick="openVideo('https://www.youtube.com/embed/UnQqWF60TcQ')">
+                        <div class="curta-thumb">
+                            <img src="https://img.youtube.com/vi/UnQqWF60TcQ/maxresdefault.jpg" alt="Prospect" loading="lazy">
+                            <span class="curta-number">07</span>
+                            <div class="curta-play-btn"><div class="play-icon"></div></div>
+                        </div>
+                        <div class="curta-info">
+                            <div class="curta-info-title">Prospect</div>
+                            <div class="curta-info-director"><strong>Diretores:</strong> Zeek Earl & Chris Caldwell</div>
+                        </div>
+                    </div>
+                    <div class="curta-item" onclick="openVideo('https://www.youtube.com/embed/Vy2S1bELYJs')">
+                        <div class="curta-thumb">
+                            <img src="https://img.youtube.com/vi/Vy2S1bELYJs/maxresdefault.jpg" alt="Thunder Road" loading="lazy">
+                            <span class="curta-number">08</span>
+                            <div class="curta-play-btn"><div class="play-icon"></div></div>
+                        </div>
+                        <div class="curta-info">
+                            <div class="curta-info-title">Thunder Road</div>
+                            <div class="curta-info-director"><strong>Diretor:</strong> Jim Cummings</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TERROR GALLERY -->
+        <div class="gallery-overlay" id="gallery-terror">
+            <div class="gallery-header">
+                <div class="gallery-header-info">
+                    <div class="gallery-back" onclick="closeGallery('terror')">
+                        <span class="material-symbols-outlined">arrow_back</span>
+                    </div>
+                    <div class="gallery-title-group">
+                        <h2>Coleção Terror</h2>
+                        <span class="tema-badge badge-terror">Dark Nights • 8 curtas</span>
+                    </div>
+                </div>
+                <div class="gallery-close" onclick="closeGallery('terror')">×</div>
+            </div>
+            <div class="gallery-hero">
+                <div class="gallery-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1509248961158-e54f6934749c?w=1400&q=80');"></div>
+                <div class="gallery-hero-gradient"></div>
+                <div class="gallery-hero-accent accent-terror"></div>
+                <div class="gallery-hero-content">
+                    <div class="gallery-hero-label">
+                        <span class="material-symbols-outlined">dark_mode</span>
+                        Seleção especial SMOB
+                    </div>
+                    <h2>Dark Nights</h2>
+                    <p>O medo vem em muitas formas — e nesta coleção, ele está em cada frame. 8 curtas de terror que exploram o desconhecido, o sobrenatural e os cantos mais escuros da psique humana. Não é para os fracos de coração. Apague as luzes e aperte o play.</p>
+                    <div class="gallery-hero-cta" onclick="document.getElementById('terror-grid').scrollIntoView({behavior:'smooth'})">
+                        <span class="material-symbols-outlined">play_circle</span>
+                        Explorar seleção
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-content" id="terror-grid">
+                <div class="gallery-carousel">
+                    <div class="curta-item" onclick="openVideo('https://www.youtube.com/embed/Zt1QVC295gc')">
+                        <div class="curta-thumb">
+                            <img src="https://img.youtube.com/vi/Zt1QVC295gc/maxresdefault.jpg" alt="Other Side of the Box" loading="lazy">
+                            <span class="curta-number">01</span>
+                            <div class="curta-play-btn"><div class="play-icon"></div></div>
+                        </div>
+                        <div class="curta-info">
+                            <div class="curta-info-title">Other Side of the Box</div>
+                            <div class="curta-info-director"><strong>Diretor:</strong> Caleb J. Phillips</div>
+                        </div>
+                    </div>
+                    <div class="curta-item" onclick="openVideo('https://www.youtube.com/embed/Z6MHi7cyn_U')">
+                        <div class="curta-thumb">
+                            <img src="https://img.youtube.com/vi/Z6MHi7cyn_U/maxresdefault.jpg" alt="Who's There" loading="lazy">
+                            <span class="curta-number">02</span>
+                            <div class="curta-play-btn"><div class="play-icon"></div></div>
+                        </div>
+                        <div class="curta-info">
+                            <div class="curta-info-title">Who's There</div>
+                            <div class="curta-info-director"><strong>Diretor:</strong> Ryan Doris</div>
+                        </div>
+                    </div>
+                    <div class="curta-item" onclick="openVideo('https://www.youtube.com/embed/Z6MHi7cyn_U')">
+                        <div class="curta-thumb">
+                            <img src="https://img.youtube.com/vi/Z6MHi7cyn_U/maxresdefault.jpg" alt="The Chair" loading="lazy">
+                            <span class="curta-number">03</span>
+                            <div class="curta-play-btn"><div class="play-icon"></div></div>
+                        </div>
+                        <div class="curta-info">
+                            <div class="curta-info-title">The Chair</div>
+                            <div class="curta-info-director"><strong>Diretor:</strong> Curry Barker</div>
+                        </div>
+                    </div>
+                    <div class="curta-item" onclick="openVideo('https://www.youtube.com/embed/ZOdhYcyK6rk')">
+                        <div class="curta-thumb">
+                            <img src="https://img.youtube.com/vi/ZOdhYcyK6rk/maxresdefault.jpg" alt="We Die Alone" loading="lazy">
+                            <span class="curta-number">04</span>
+                            <div class="curta-play-btn"><div class="play-icon"></div></div>
+                        </div>
+                        <div class="curta-info">
+                            <div class="curta-info-title">We Die Alone</div>
+                            <div class="curta-info-director"><strong>Diretor:</strong> Marc Cartwright</div>
+                        </div>
+                    </div>
+                    <div class="curta-item" onclick="openVideo('https://www.youtube.com/embed/ZOdhYcyK6rk')">
+                        <div class="curta-thumb">
+                            <img src="https://img.youtube.com/vi/ZOdhYcyK6rk/maxresdefault.jpg" alt="Terror By Night" loading="lazy">
+                            <span class="curta-number">05</span>
+                            <div class="curta-play-btn"><div class="play-icon"></div></div>
+                        </div>
+                        <div class="curta-info">
+                            <div class="curta-info-title">Terror By Night</div>
+                            <div class="curta-info-director"><strong>Diretor:</strong> Dean Butler</div>
+                        </div>
+                    </div>
+                    <div class="curta-item" onclick="openVideo('https://www.youtube.com/embed/wyBMRQ59a90')">
+                        <div class="curta-thumb">
+                            <img src="https://img.youtube.com/vi/wyBMRQ59a90/maxresdefault.jpg" alt="Mary's Mixtape" loading="lazy">
+                            <span class="curta-number">06</span>
+                            <div class="curta-play-btn"><div class="play-icon"></div></div>
+                        </div>
+                        <div class="curta-info">
+                            <div class="curta-info-title">Mary's Mixtape</div>
+                            <div class="curta-info-director"><strong>Diretor:</strong> Sam Prim</div>
+                        </div>
+                    </div>
+                    <div class="curta-item" onclick="openVideo('https://www.youtube.com/embed/BGInFswk4xc')">
+                        <div class="curta-thumb">
+                            <img src="https://img.youtube.com/vi/BGInFswk4xc/maxresdefault.jpg" alt="Wake" loading="lazy">
+                            <span class="curta-number">07</span>
+                            <div class="curta-play-btn"><div class="play-icon"></div></div>
+                        </div>
+                        <div class="curta-info">
+                            <div class="curta-info-title">Wake</div>
+                            <div class="curta-info-director"><strong>Diretor:</strong> Sean Carter</div>
+                        </div>
+                    </div>
+                    <div class="curta-item" onclick="openVideo('https://www.youtube.com/embed/j3vTGtROSK4')">
+                        <div class="curta-thumb">
+                            <img src="https://img.youtube.com/vi/j3vTGtROSK4/maxresdefault.jpg" alt="Play Me" loading="lazy">
+                            <span class="curta-number">08</span>
+                            <div class="curta-play-btn"><div class="play-icon"></div></div>
+                        </div>
+                        <div class="curta-info">
+                            <div class="curta-info-title">Play Me</div>
+                            <div class="curta-info-director"><strong>Diretor:</strong> Calleb Phillips</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ANIMAÇÃO GALLERY -->
+        <div class="gallery-overlay" id="gallery-animacao">
+            <div class="gallery-header">
+                <div class="gallery-header-info">
+                    <div class="gallery-back" onclick="closeGallery('animacao')">
+                        <span class="material-symbols-outlined">arrow_back</span>
+                    </div>
+                    <div class="gallery-title-group">
+                        <h2>Coleção Animação</h2>
+                        <span class="tema-badge badge-animacao">Kids Time • 8 curtas</span>
+                    </div>
+                </div>
+                <div class="gallery-close" onclick="closeGallery('animacao')">×</div>
+            </div>
+            <div class="gallery-hero">
+                <div class="gallery-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=1400&q=80');"></div>
+                <div class="gallery-hero-gradient"></div>
+                <div class="gallery-hero-accent accent-animacao"></div>
+                <div class="gallery-hero-content">
+                    <div class="gallery-hero-label">
+                        <span class="material-symbols-outlined">palette</span>
+                        Seleção especial SMOB
+                    </div>
+                    <h2>Kids Time</h2>
+                    <p>Arte em movimento. 8 curtas de animação que provam que não existem limites para a imaginação. Do stop-motion ao CGI, cada frame é uma pintura viva. Histórias que emocionam crianças e adultos, com mensagens universais contadas através de universos visuais únicos.</p>
+                    <div class="gallery-hero-cta" onclick="document.getElementById('animacao-grid').scrollIntoView({behavior:'smooth'})">
+                        <span class="material-symbols-outlined">play_circle</span>
+                        Explorar seleção
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-content" id="animacao-grid">
+                <div class="gallery-carousel">
+                    <div class="curta-item" onclick="openVideo('https://www.youtube.com/embed/0pteQRu9mW4')">
+                        <div class="curta-thumb">
+                            <img src="https://img.youtube.com/vi/0pteQRu9mW4/maxresdefault.jpg" alt="Alike" loading="lazy">
+                            <span class="curta-number">01</span>
+                            <div class="curta-play-btn"><div class="play-icon"></div></div>
+                        </div>
+                        <div class="curta-info">
+                            <div class="curta-info-title">Alike</div>
+                            <div class="curta-info-director"><strong>Diretores:</strong> Daniel Martínez Lara & Rafa Canon Méndez</div>
+                        </div>
+                    </div>
+                    <div class="curta-item" onclick="openVideo('https://www.youtube.com/embed/5SnR-e0QG-4')">
+                        <div class="curta-thumb">
+                            <img src="https://img.youtube.com/vi/5SnR-e0QG-4/maxresdefault.jpg" alt="One Small Step" loading="lazy">
+                            <span class="curta-number">02</span>
+                            <div class="curta-play-btn"><div class="play-icon"></div></div>
+                        </div>
+                        <div class="curta-info">
+                            <div class="curta-info-title">One Small Step</div>
+                            <div class="curta-info-director"><strong>Diretor:</strong> Andrew Chesworth</div>
+                        </div>
+                    </div>
+                    <div class="curta-item" onclick="openVideo('https://www.youtube.com/embed/AQP66drMEDc')">
+                        <div class="curta-thumb">
+                            <img src="https://img.youtube.com/vi/AQP66drMEDc/maxresdefault.jpg" alt="In a Heartbeat" loading="lazy">
+                            <span class="curta-number">03</span>
+                            <div class="curta-play-btn"><div class="play-icon"></div></div>
+                        </div>
+                        <div class="curta-info">
+                            <div class="curta-info-title">In a Heartbeat</div>
+                            <div class="curta-info-director"><strong>Diretores:</strong> Beth David & Esteban Bravo</div>
+                        </div>
+                    </div>
+                    <div class="curta-item" onclick="openVideo('https://www.youtube.com/embed/OcU51241WfE')">
+                        <div class="curta-thumb">
+                            <img src="https://img.youtube.com/vi/OcU51241WfE/maxresdefault.jpg" alt="Umbrella" loading="lazy">
+                            <span class="curta-number">04</span>
+                            <div class="curta-play-btn"><div class="play-icon"></div></div>
+                        </div>
+                        <div class="curta-info">
+                            <div class="curta-info-title">Umbrella</div>
+                            <div class="curta-info-director"><strong>Diretores:</strong> Helena Hilario & Mario Pece</div>
+                        </div>
+                    </div>
+                    <div class="curta-item" onclick="openVideo('https://www.youtube.com/embed/73kErejkJb0')">
+                        <div class="curta-thumb">
+                            <img src="https://img.youtube.com/vi/73kErejkJb0/maxresdefault.jpg" alt="The Maker" loading="lazy">
+                            <span class="curta-number">05</span>
+                            <div class="curta-play-btn"><div class="play-icon"></div></div>
+                        </div>
+                        <div class="curta-info">
+                            <div class="curta-info-title">The Maker</div>
+                            <div class="curta-info-director"><strong>Diretor:</strong> Cristopher Kezelos</div>
+                        </div>
+                    </div>
+                    <div class="curta-item" onclick="openVideo('https://www.youtube.com/embed/CMT3FHunZnc')">
+                        <div class="curta-thumb">
+                            <img src="https://img.youtube.com/vi/CMT3FHunZnc/maxresdefault.jpg" alt="Welcome to Otown" loading="lazy">
+                            <span class="curta-number">06</span>
+                            <div class="curta-play-btn"><div class="play-icon"></div></div>
+                        </div>
+                        <div class="curta-info">
+                            <div class="curta-info-title">Welcome to Otown</div>
+                            <div class="curta-info-director"><strong>Diretor:</strong> Euni Cho</div>
+                        </div>
+                    </div>
+                    <div class="curta-item" onclick="openVideo('https://www.youtube.com/embed/mJNrR5rER8w')">
+                        <div class="curta-thumb">
+                            <img src="https://img.youtube.com/vi/mJNrR5rER8w/maxresdefault.jpg" alt="Caldera" loading="lazy">
+                            <span class="curta-number">07</span>
+                            <div class="curta-play-btn"><div class="play-icon"></div></div>
+                        </div>
+                        <div class="curta-info">
+                            <div class="curta-info-title">Caldera</div>
+                            <div class="curta-info-director"><strong>Diretor:</strong> Chris Perry</div>
+                        </div>
+                    </div>
+                    <div class="curta-item" onclick="openVideo('https://www.youtube.com/embed/MzlHbA_FA68')">
+                        <div class="curta-thumb">
+                            <img src="https://img.youtube.com/vi/MzlHbA_FA68/maxresdefault.jpg" alt="Johnny Express" loading="lazy">
+                            <span class="curta-number">08</span>
+                            <div class="curta-play-btn"><div class="play-icon"></div></div>
+                        </div>
+                        <div class="curta-info">
+                            <div class="curta-info-title">Johnny Express</div>
+                            <div class="curta-info-director"><strong>Diretor:</strong> Kyungmin Woo</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- HUMOR GALLERY -->
+        <div class="gallery-overlay" id="gallery-humor">
+            <div class="gallery-header">
+                <div class="gallery-header-info">
+                    <div class="gallery-back" onclick="closeGallery('humor')">
+                        <span class="material-symbols-outlined">arrow_back</span>
+                    </div>
+                    <div class="gallery-title-group">
+                        <h2>Coleção Humor</h2>
+                        <span class="tema-badge badge-humor">Comedy Club • 8 curtas</span>
+                    </div>
+                </div>
+                <div class="gallery-close" onclick="closeGallery('humor')">×</div>
+            </div>
+            <div class="gallery-hero">
+                <div class="gallery-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=1400&q=80');"></div>
+                <div class="gallery-hero-gradient"></div>
+                <div class="gallery-hero-accent accent-humor"></div>
+                <div class="gallery-hero-content">
+                    <div class="gallery-hero-label">
+                        <span class="material-symbols-outlined">sentiment_very_satisfied</span>
+                        Seleção especial SMOB
+                    </div>
+                    <h2>Comedy Club</h2>
+                    <p>A melhor comédia é a que surpreende. 8 curtas que vão do humor absurdo à sátira afiada, passando pelo nonsense e pelo humor negro. Prepare-se para rir, se surpreender e ver o mundo de um ângulo completamente diferente — e bem mais engraçado.</p>
+                    <div class="gallery-hero-cta" onclick="document.getElementById('humor-grid').scrollIntoView({behavior:'smooth'})">
+                        <span class="material-symbols-outlined">play_circle</span>
+                        Explorar seleção
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-content" id="humor-grid">
+                <div class="gallery-carousel">
+                    <div class="curta-item" onclick="openVideo('https://www.youtube.com/embed/UTWUxhmMdBg')">
+                        <div class="curta-thumb">
+                            <img src="https://img.youtube.com/vi/UTWUxhmMdBg/maxresdefault.jpg" alt="Snack Attack" loading="lazy">
+                            <span class="curta-number">01</span>
+                            <div class="curta-play-btn"><div class="play-icon"></div></div>
+                        </div>
+                        <div class="curta-info">
+                            <div class="curta-info-title">Snack Attack</div>
+                            <div class="curta-info-director"><strong>Diretor:</strong> Andrew Cadelago</div>
+                        </div>
+                    </div>
+                    <div class="curta-item" onclick="openVideo('https://www.youtube.com/embed/8LnoT2Cmodo')">
+                        <div class="curta-thumb">
+                            <img src="https://img.youtube.com/vi/8LnoT2Cmodo/maxresdefault.jpg" alt="The Shitty Ride" loading="lazy">
+                            <span class="curta-number">02</span>
+                            <div class="curta-play-btn"><div class="play-icon"></div></div>
+                        </div>
+                        <div class="curta-info">
+                            <div class="curta-info-title">The Shitty Ride</div>
+                            <div class="curta-info-director"><strong>Diretor:</strong> Cole Doran</div>
+                        </div>
+                    </div>
+                    <div class="curta-item" onclick="openVideo('https://www.youtube.com/embed/HVURhTZeHKk')">
+                        <div class="curta-thumb">
+                            <img src="https://img.youtube.com/vi/HVURhTZeHKk/maxresdefault.jpg" alt="CopyCat" loading="lazy">
+                            <span class="curta-number">03</span>
+                            <div class="curta-play-btn"><div class="play-icon"></div></div>
+                        </div>
+                        <div class="curta-info">
+                            <div class="curta-info-title">CopyCat</div>
+                            <div class="curta-info-director"><strong>Diretor:</strong> Eric Bielakiewicz</div>
+                        </div>
+                    </div>
+                    <div class="curta-item" onclick="openVideo('https://www.youtube.com/embed/eU0OshPGP6I')">
+                        <div class="curta-thumb">
+                            <img src="https://img.youtube.com/vi/eU0OshPGP6I/maxresdefault.jpg" alt="We Can't Live Without Cosmos" loading="lazy">
+                            <span class="curta-number">04</span>
+                            <div class="curta-play-btn"><div class="play-icon"></div></div>
+                        </div>
+                        <div class="curta-info">
+                            <div class="curta-info-title">We Can't Live Without Cosmos</div>
+                            <div class="curta-info-director"><strong>Diretor:</strong> Konstantin Bronzit</div>
+                        </div>
+                    </div>
+                    <div class="curta-item" onclick="openVideo('https://www.youtube.com/embed/6VJNC87RiuA')">
+                        <div class="curta-thumb">
+                            <img src="https://img.youtube.com/vi/6VJNC87RiuA/maxresdefault.jpg" alt="Sorry Omeleto" loading="lazy">
+                            <span class="curta-number">05</span>
+                            <div class="curta-play-btn"><div class="play-icon"></div></div>
+                        </div>
+                        <div class="curta-info">
+                            <div class="curta-info-title">Sorry Omeleto</div>
+                            <div class="curta-info-director"><strong>Diretores:</strong> Adam Schaller & Alex Getlin</div>
+                        </div>
+                    </div>
+                    <div class="curta-item" onclick="openVideo('https://www.youtube.com/embed/w_Rue9iWHJE')">
+                        <div class="curta-thumb">
+                            <img src="https://img.youtube.com/vi/w_Rue9iWHJE/maxresdefault.jpg" alt="Pictures I Don't Remember Taking" loading="lazy">
+                            <span class="curta-number">06</span>
+                            <div class="curta-play-btn"><div class="play-icon"></div></div>
+                        </div>
+                        <div class="curta-info">
+                            <div class="curta-info-title">Pictures I Don't Remember Taking</div>
+                            <div class="curta-info-director"><strong>Diretores:</strong> Cindy Cullom and Guy J. Jackson</div>
+                        </div>
+                    </div>
+                    <div class="curta-item" onclick="openVideo('https://www.youtube.com/embed/gdkyGLxkin0')">
+                        <div class="curta-thumb">
+                            <img src="https://img.youtube.com/vi/gdkyGLxkin0/maxresdefault.jpg" alt="One-Minute Time Machine" loading="lazy">
+                            <span class="curta-number">07</span>
+                            <div class="curta-play-btn"><div class="play-icon"></div></div>
+                        </div>
+                        <div class="curta-info">
+                            <div class="curta-info-title">One-Minute Time Machine</div>
+                            <div class="curta-info-director"><strong>Diretor:</strong> Devon Avery</div>
+                        </div>
+                    </div>
+                    <div class="curta-item" onclick="openVideo('https://www.youtube.com/embed/cQNM_YF_1jA')">
+                        <div class="curta-thumb">
+                            <img src="https://img.youtube.com/vi/cQNM_YF_1jA/maxresdefault.jpg" alt="The Horribly Slow Murderer..." loading="lazy">
+                            <span class="curta-number">08</span>
+                            <div class="curta-play-btn"><div class="play-icon"></div></div>
+                        </div>
+                        <div class="curta-info">
+                            <div class="curta-info-title">The Horribly Slow Murderer...</div>
+                            <div class="curta-info-director"><strong>Diretor:</strong> Richard Gale</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FIM CURTAS SMOB -->
 
         <section class="smob-purpose" id="proposta">
             <div class="purpose-intro">
@@ -2200,37 +4129,67 @@
             </div>
         </section>
 
-        <!-- CURTAS RECOMENDADOS -->
+        <!-- CURADORIA DE CURTAS - MELHORADA -->
         <section class="curtas-section" id="curtas">
             <div class="section-header">
                 <h2 class="section-title">Curadoria de Curtas</h2>
                 <span style="color: var(--text-muted); font-size: 0.9rem;">Seleção editorial de descobertas, novos olhares e filmes em circulação</span>
             </div>
-            
+
             <div class="curtas-grid">
-                <div class="curta-card">
-                    <div class="curta-placeholder"><span class="material-symbols-outlined">movie</span></div>
-                    <h4>Festival do Rio e curtas em evidência</h4>
+                <div class="curta-card-v2" onclick="openGallery('crime')">
+                    <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=600&q=80" alt="Festival do Rio" class="curta-card-img" loading="lazy">
+                    <div class="curta-card-body">
+                        <span class="news-tag tag-premios">Festival do Rio</span>
+                        <h4>Curtas que estão fazendo barulho no circuito</h4>
+                        <p>Descubra o que o Festival do Rio e outras mostras estão revelando sobre o cinema curto contemporâneo.</p>
+                        <a class="btn btn-primary btn-sm">Explorar seleção</a>
+                    </div>
                 </div>
-                <div class="curta-card">
-                    <div class="curta-placeholder"><span class="material-symbols-outlined">movie</span></div>
-                    <h4>Cinema brasileiro em novos formatos</h4>
+                <div class="curta-card-v2" onclick="openGallery('humor')">
+                    <img src="https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?w=600&q=80" alt="Cinema Brasileiro" class="curta-card-img" loading="lazy">
+                    <div class="curta-card-body">
+                        <span class="news-tag tag-lancamentos">Cinema Nacional</span>
+                        <h4>Cinema brasileiro em novos formatos</h4>
+                        <p>Diretores brasileiros estão usando o formato curto para experimentar linguagens e contar histórias poderosas.</p>
+                        <a class="btn btn-primary btn-sm">Explorar seleção</a>
+                    </div>
                 </div>
-                <div class="curta-card">
-                    <div class="curta-placeholder"><span class="material-symbols-outlined">movie</span></div>
-                    <h4>Descobertas do circuito de festivais</h4>
+                <div class="curta-card-v2" onclick="openGallery('aventura')">
+                    <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?w=600&q=80" alt="Descobertas" class="curta-card-img" loading="lazy">
+                    <div class="curta-card-body">
+                        <span class="news-tag tag-festivais">Descobertas</span>
+                        <h4>O melhor do circuito internacional de festivais</h4>
+                        <p>Curtas premiados em Cannes, Berlim, Sundance e outras mostras que você precisa conhecer.</p>
+                        <a class="btn btn-primary btn-sm">Explorar seleção</a>
+                    </div>
                 </div>
-                <div class="curta-card">
-                    <div class="curta-placeholder"><span class="material-symbols-outlined">movie</span></div>
-                    <h4>Animação, linguagem e direção de arte</h4>
+                <div class="curta-card-v2" onclick="openGallery('animacao')">
+                    <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&q=80" alt="Animação" class="curta-card-img" loading="lazy">
+                    <div class="curta-card-body">
+                        <span class="news-tag tag-casa">Animação</span>
+                        <h4>Animação, linguagem e direção de arte</h4>
+                        <p>O formato curto é terra fértil para experimentação visual. Conheça trabalhos que expandem o que a animação pode ser.</p>
+                        <a class="btn btn-primary btn-sm">Explorar seleção</a>
+                    </div>
                 </div>
-                <div class="curta-card">
-                    <div class="curta-placeholder"><span class="material-symbols-outlined">movie</span></div>
-                    <h4>Música, imagem e experiência audiovisual</h4>
+                <div class="curta-card-v2" onclick="openGallery('terror')">
+                    <img src="https://images.unsplash.com/photo-1509248961158-e54f6934749c?w=600&q=80" alt="Terror" class="curta-card-img" loading="lazy">
+                    <div class="curta-card-body">
+                        <span class="news-tag tag-industria">Terror & Suspense</span>
+                        <h4>Música, imagem e experiência audiovisual</h4>
+                        <p>Curtas que usam som e imagem para criar atmosferas únicas. Experiências cinematográficas intensas em poucos minutos.</p>
+                        <a class="btn btn-primary btn-sm">Explorar seleção</a>
+                    </div>
                 </div>
-                <div class="curta-card">
-                    <div class="curta-placeholder"><span class="material-symbols-outlined">movie</span></div>
-                    <h4>Seleção curta para ver e compartilhar</h4>
+                <div class="curta-card-v2" onclick="openGallery('humor')">
+                    <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=600&q=80" alt="Comédia" class="curta-card-img" loading="lazy">
+                    <div class="curta-card-body">
+                        <span class="news-tag tag-lancamentos">Comédia</span>
+                        <h4>Seleção curta para ver e compartilhar</h4>
+                        <p>As melhores histórias são as que a gente conta para os outros. Uma seleção de curtas perfeitas para maratonar junto.</p>
+                        <a class="btn btn-primary btn-sm">Explorar seleção</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -2368,57 +4327,62 @@
             </div>
 
             <div class="shop-grid">
-                <div class="shop-card">
-                    <div class="shop-image">
-                        <span class="material-symbols-outlined">checkroom</span>
+                <div class="shop-card-v2">
+                    <div class="shop-image-v2" style="background: linear-gradient(135deg, #1a1a1a, #2d2d2d);">
+                        <span class="material-symbols-outlined" style="font-size: 4rem; color: var(--claro-red);">checkroom</span>
                         <span class="shop-badge">Novo</span>
                     </div>
-                    <div class="shop-info">
-                        <h4>Camiseta edição SMOB x Claro</h4>
-                        <div class="shop-price">R$ 89,90</div>
-                        <button class="shop-btn">Exemplo de licenciamento</button>
+                    <div class="shop-info-v2">
+                        <h4>Camiseta SMOB x Claro — Edição Limitada</h4>
+                        <div class="shop-price-v2">R$ 89,90</div>
+                        <span class="shop-coming-soon">Em breve para clientes Claro</span>
                     </div>
                 </div>
 
-                <div class="shop-card">
-                    <div class="shop-image">
-                        <span class="material-symbols-outlined">work</span>
+                <div class="shop-card-v2">
+                    <div class="shop-image-v2" style="background: linear-gradient(135deg, #1a1a1a, #2d2d2d);">
+                        <span class="material-symbols-outlined" style="font-size: 4rem; color: #ffb627;">work</span>
                         <span class="shop-badge">-20%</span>
                     </div>
-                    <div class="shop-info">
-                        <h4>Kit experiência cinema</h4>
-                        <div class="shop-price">R$ 149,90</div>
-                        <button class="shop-btn">Exemplo de licenciamento</button>
+                    <div class="shop-info-v2">
+                        <h4>Kit Experiência Cinema SMOB</h4>
+                        <div class="shop-price-v2">R$ 149,90 <span style="font-size:0.9rem;color:var(--text-muted);text-decoration:line-through;">R$ 189,90</span></div>
+                        <span class="shop-coming-soon">Disponível em parcerias</span>
                     </div>
                 </div>
 
-                <div class="shop-card">
-                    <div class="shop-image">
-                        <span class="material-symbols-outlined">headphones</span>
+                <div class="shop-card-v2">
+                    <div class="shop-image-v2" style="background: linear-gradient(135deg, #1a1a1a, #2d2d2d);">
+                        <span class="material-symbols-outlined" style="font-size: 4rem; color: #6A4C93;">headphones</span>
                     </div>
-                    <div class="shop-info">
-                        <h4>Produto de marca para ativações</h4>
-                        <div class="shop-price">R$ 199,90</div>
-                        <button class="shop-btn">Exemplo de licenciamento</button>
+                    <div class="shop-info-v2">
+                        <h4>Headphone SMOB — Edição Especial</h4>
+                        <div class="shop-price-v2">R$ 199,90</div>
+                        <span class="shop-coming-soon">Exclusivo para sorteios Claro</span>
                     </div>
                 </div>
 
-                <div class="shop-card">
-                    <div class="shop-image">
-                        <span class="material-symbols-outlined">smartphone</span>
+                <div class="shop-card-v2">
+                    <div class="shop-image-v2" style="background: linear-gradient(135deg, #1a1a1a, #2d2d2d);">
+                        <span class="material-symbols-outlined" style="font-size: 4rem; color: #2D6A4F;">smartphone</span>
                         <span class="shop-badge">Exclusivo</span>
                     </div>
-                    <div class="shop-info">
-                        <h4>Item promocional de campanha</h4>
-                        <div class="shop-price">R$ 59,90</div>
-                        <button class="shop-btn">Exemplo de licenciamento</button>
+                    <div class="shop-info-v2">
+                        <h4>Capinha SMOB — Item Promocional</h4>
+                        <div class="shop-price-v2">R$ 59,90</div>
+                        <span class="shop-coming-soon">Item de campanha ativa</span>
                     </div>
                 </div>
             </div>
 
-            <div style="text-align: center; margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #FFE5E5, #fff); border-radius: 12px; border: 2px solid #FFD1D1;">
-                <p style="color: var(--claro-red); font-weight: 600;">
-                    <strong>Licenciamento como extensão de marca.</strong> Produtos, kits e itens promocionais podem apoiar campanhas, sorteios e ações especiais do projeto.
+            <div style="text-align: center; margin-top: 2rem; padding: 2rem; background: linear-gradient(135deg, #0a0a0a, #1a1a1a); border-radius: 16px; border: 1px solid rgba(227,6,19,0.3);">
+                <p style="color: rgba(255,255,255,0.9); font-weight: 600; font-size: 1.1rem; margin-bottom: 0.5rem;">
+                    <span class="material-symbols-outlined" style="color: var(--claro-red); vertical-align: middle;">info</span>
+                    <strong style="color: white;">Licenciamento como extensão de marca.</strong>
+                </p>
+                <p style="color: rgba(255,255,255,0.6); font-size: 0.95rem;">
+                    Produtos, kits e itens promociais para campanhas, sorteios e ações especiais do projeto SMOB + Claro.
+                    <a href="#experiences" style="color: var(--claro-red); font-weight: 700;">Saiba mais sobre parcerias →</a>
                 </p>
             </div>
         </section>
@@ -2465,6 +4429,7 @@
                     <li><a href="#video-news">Minuto SMOB</a></li>
                     <li><a href="#trailers">Vem por Aí</a></li>
                     <li><a href="#shorts">Shorts</a></li>
+                    <li><a href="#curtas-smob">Curtas SMOB</a></li>
                     <li><a href="#podcasts">Papo de Cinema</a></li>
                 </ul>
             </div>
@@ -2518,7 +4483,41 @@
         });
 
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') closeModal();
+            if (e.key === 'Escape') {
+                closeModal();
+                // Fechar qualquer galeria aberta
+                document.querySelectorAll('.gallery-overlay.active').forEach(g => {
+                    g.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+        });
+
+        // ===== CURTAS SMOB - Gallery Functions =====
+        function openGallery(tema) {
+            const gallery = document.getElementById('gallery-' + tema);
+            if (gallery) {
+                gallery.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeGallery(tema) {
+            const gallery = document.getElementById('gallery-' + tema);
+            if (gallery) {
+                gallery.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Fechar galeria ao clicar no overlay (fora do conteúdo)
+        document.querySelectorAll('.gallery-overlay').forEach(overlay => {
+            overlay.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
         });
 
         // Mobile menu
@@ -2549,6 +4548,62 @@
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // ===== SHARE FUNCTION =====
+        function shareCurta(title, url) {
+            const shareData = {
+                title: title + ' — SMOB Shorts',
+                text: 'Assista "' + title + '" na coleção de curtas SMOB Shorts',
+                url: url
+            };
+
+            if (navigator.share) {
+                navigator.share(shareData).catch(() => {});
+            } else {
+                // Fallback: copiar link para clipboard
+                const fullUrl = 'https://smobshorts.com' + url;
+                navigator.clipboard.writeText(fullUrl).then(() => {
+                    alert('Link copiado! Cole onde quiser compartilhar.');
+                }).catch(() => {
+                    // Fallback final
+                    const textArea = document.createElement('textarea');
+                    textArea.value = fullUrl;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    alert('Link copiado!');
+                });
+            }
+        }
+
+        // ===== INJECT SHARE BUTTONS INTO CURTA CARDS =====
+        document.querySelectorAll('.curta-item').forEach(function(card) {
+            const onclick = card.getAttribute('onclick') || '';
+            const match = onclick.match(/embed\/([^?']+)/);
+            if (match) {
+                const ytId = match[1];
+                const titleEl = card.querySelector('.curta-info-title');
+                const title = titleEl ? titleEl.textContent.trim() : 'Curta SMOB';
+                const thumbEl = card.querySelector('.curta-thumb');
+                if (thumbEl) {
+                    const btn = document.createElement('div');
+                    btn.className = 'share-btn';
+                    btn.innerHTML = '<span class="material-symbols-outlined">share</span>';
+                    btn.setAttribute('onclick', "event.stopPropagation(); shareCurta('" + title.replace(/'/g, "\\'") + "', '/#curtas-smob')");
+                    btn.title = 'Compartilhar';
+                    thumbEl.appendChild(btn);
+                }
+            }
+        });
+
+        // ===== MAKE TICKER ITEMS CLICKABLE =====
+        document.querySelectorAll('.ticker-item').forEach(function(item) {
+            item.style.cursor = 'pointer';
+            item.addEventListener('click', function() {
+                window.open('https://www.ingresso.com/filmes', '_blank');
             });
         });
 
